@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.11.7/video-js.min.css" rel="stylesheet" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.11.7/video.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/videojs-contrib-eme@3.8.0/dist/videojs-contrib-eme.js"></script>
+
+    <title>Test VideJS DRM</title>
+</head>
+<body>
+
+    <div style="margin: 50px auto;">
+        <video id="my-video" class="video-js"></video>
+    </div>
+    
+    <style>
+        .my-button {
+            cursor: pointer;
+        }
+      </style>
+
+    <script>
+        
+        var player = videojs(
+            'my-video',
+            {
+                controls: true,
+                fluid: true,
+                html5: {
+                    vhs: { 
+                        overrideNative: true 
+                    }
+                },
+                userActions: {
+                hotkeys: function(event) {
+                    if(event.key === " ") {
+                        if(this.paused()) {
+                            this.play();
+                        }
+                        else {
+                            this.pause();
+                        }
+                    }
+
+                    else if(event.key === "ArrowLeft") {
+                        this.currentTime(player.currentTime() - 5);
+                    }
+
+                    else if(event.key === "ArrowRight") {
+                        this.currentTime(player.currentTime() + 5);
+                    }
+                    
+                }
+            },
+            },
+
+            
+
+            function() {
+                var player = this;
+                player.eme();
+                player.src({
+                    src: 'https://cdn.bitmovin.com/content/assets/art-of-motion_drm/mpds/11331.mpd',
+                    type: 'application/dash+xml',                    
+                    keySystems: {
+                      'com.widevine.alpha': 'https://cwip-shaka-proxy.appspot.com/no_auth',                     
+                    }
+                });
+
+            
+                player.ready(function() {
+
+                    player.tech(true).on('keystatuschange', function(event) {    
+                        console.log("event: ", event);        
+
+                    });                        
+
+                });                
+            }            
+        
+        );    
+      
+      var controlBar = player.controlBar;
+
+      var ForwardButton = videojs.extend(videojs.getComponent('Button'), {
+        constructor: function() {
+          videojs.getComponent('Button').apply(this, arguments);
+          this.addClass('my-button');
+        },
+        handleClick: function() {
+          player.currentTime(player.currentTime() + 5);
+        }
+      });
+    
+      var BackwordButton = videojs.extend(videojs.getComponent('Button'), {
+        constructor: function() {
+          videojs.getComponent('Button').apply(this, arguments);
+          this.addClass('my-button');
+        },
+        handleClick: function() {
+          player.currentTime(player.currentTime() - 5);
+        }
+      });
+
+      videojs.registerComponent('ForwardButton', ForwardButton);
+      videojs.registerComponent('BackwardButton', BackwordButton);
+
+      var backward = controlBar.addChild('BackwardButton', {}, 1);
+      var forward = controlBar.addChild('ForwardButton', {}, 2);
+
+      var BackwardButtonDom = backward.el();
+      var ForwardButtonDom = forward.el();
+      ForwardButtonDom.innerHTML = "+5s"
+      BackwardButtonDom.innerHTML = "-5s"
+
+
+
+    </script>
+</body>
+</html>
