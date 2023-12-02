@@ -2,7 +2,7 @@
 
 Documenting all my learnings from 100xDevs cohort 2.0 by [@hkirat](https://github.com/hkirat)
 
-# Topics covered in the Cohort
+## Topics covered in the cohort
 
 - MERN Stack
 - DevOps Basics
