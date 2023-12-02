@@ -11,4 +11,4 @@ Documenting all my learnings from 100xDevs cohort 2.0 by [@hkirat](https://githu
 - System Design
 - Advanced Backend
 - Advanced DevOps
-- Open Source (Real Companies)
+- Open Source Contributions (Real Companies)
