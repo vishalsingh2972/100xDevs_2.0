@@ -1,13 +1,1 @@
-# WEEK 0 - DAY 0
-- Brushed up on my HTML and CSS basic skills.
-- Created this simple Zerodha landing page.
-- Solved our first bounty - YouTube seekbar.
-
-# WHAT DID WE LEARN?
-- Basic HTML tags and attributes.
-- CSS box model, basic styling.
-- Added seekbar and video skip buttons feature in the first bounty.
-
-# CHANGES TO BE MADE IN NEXT DAY
-- Add a portfolio to make it more dynamic using JavaScript.
-- Make hover effect on submit button.
+![image](https://github.com/vishalsingh2972/100xDevs_2.0/assets/106817047/0feec91a-ecc7-4a55-820a-6194d2e17b73)
