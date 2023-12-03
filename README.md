@@ -16,12 +16,12 @@ This repository contains the notes, topics discussed and assignment solutions fr
 
 ## Contribution
 
-Don't hesitate to raise an issue or contribute by submitting a pull request. We welcome any suggestions or improvements that can enhance the learning experience for all cohort members.
+Don't hesitate to raise an issue or contribute by submitting a [pull request](https://github.com/vishalsingh2972/100xDevs_2.0/pulls). We welcome any suggestions or improvements that can enhance the learning experience for all cohort members. <br> <br>
 
-🎯 Report any bugs or typos you encounter.
-🎯 Add notes or summaries of the topics covered in each cohort session.
-🎯 Share project ideas, tips, and tricks to help others.
-🎯 Provide GSOC tips and tricks to guide aspiring participants.
+🎯 Report any bugs or typos you encounter. <br>
+🎯 Add notes or summaries of the topics covered in each cohort session. <br>
+🎯 Share project ideas, tips, and tricks to help others. <br>
+🎯 Provide GSOC tips and tricks to guide aspiring participants. <br>
 🎯 Contribute anything that adds value to the community and fosters a collaborative learning environment.
 
 
