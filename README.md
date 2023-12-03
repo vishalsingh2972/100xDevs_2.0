@@ -14,7 +14,7 @@ This repository contains the notes, topics discussed and assignment solutions fr
 - Advanced DevOps
 - Open Source Contributions (Real Companies)
 
-# Contribution
+## Contribution
 
 Feel free to raise an issue or submit a pull request. <br> <br>
 🎯 If you come across a bug or typo <br>
