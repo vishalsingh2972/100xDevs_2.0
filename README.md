@@ -16,7 +16,7 @@ This repository contains the notes, topics discussed and assignment solutions fr
 
 ## Contribution
 
-Don't hesitate to raise an issue or contribute by submitting a [pull request](https://github.com/vishalsingh2972/100xDevs_2.0/pulls). We welcome any suggestions or improvements that can enhance the learning experience for all cohort members. <br> <br>
+Don't hesitate to raise an issue or contribute by submitting a [pull request](https://github.com/vishalsingh2972/100xDevs_2.0/pulls). We welcome any suggestions or improvements that can enhance the learning experience for all cohort members. <br>
 
 🎯 Report any bugs or typos you encounter. <br>
 🎯 Add notes or summaries of the topics covered in each cohort session. <br>
