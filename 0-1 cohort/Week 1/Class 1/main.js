@@ -50,18 +50,19 @@ for(let i = 0; i<numberOfPeople; i++){
 const personArray = ["ram", "sita", "laxman", "hanuman"];
 const genderArray = ["male", "female", "male", "male",];
 const numberOfUsers = personArray.length;
+  // loop through and print all male / female names
 for(let i = 0; i<numberOfUsers; i++){
-
-}
+      if (genderArray[i] == "male") {
+         console.log(personArray[i]);
+      }
+  }
 
 ///Objects
-
 const user1 = {
   firstName: "Shiva",
   gender: "male"
 };
 console.log(user1[gender]);
-
 
 const allUsers = [{
   firstName: "Vishal",
@@ -79,6 +80,7 @@ for(let i = 0; i<allUsers.length; i++){
   }
 }
 
+
 //Functions
 function sum(a, b){
 // do things with the input and return an output
@@ -91,6 +93,11 @@ console.log(value);
 
 
 // Callbacks - passing a whole function as an argument
+ 
+//calculateArithmatic wala example
+
+
+
 function sum(num1, num2, fnToCall) {
   let result = num1 + num2;
   //return result;
