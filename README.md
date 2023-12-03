@@ -16,7 +16,7 @@ This repository contains the notes, topics discussed and assignment solutions fr
 
 # Contribution
 
-Feel free to raise an issue or submit a pull request. <br>
+Feel free to raise an issue or submit a pull request. <br> <br>
 🎯 If you come across a bug or typo <br>
 🎯 Add notes of the topics covered in the cohort <br>
 🎯 Project Ideas <br>
