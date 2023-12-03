@@ -13,3 +13,15 @@ This repository contains the notes, topics discussed and assignment solutions fr
 - Advanced Backend
 - Advanced DevOps
 - Open Source Contributions (Real Companies)
+
+# Contribution
+
+Feel free to raise an issue or submit a pull request. <br>
+🎯 If you come across a bug or typo <br>
+🎯 Add notes of the topics covered in the cohort <br>
+🎯 Project Ideas <br>
+🎯 Tips and tricks <br>
+🎯 GSOC tips and tricks <br>
+🎯 Anything that adds value to the community and help us all in this cohort is welcome
+
+
