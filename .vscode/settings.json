@@ -2,5 +2,6 @@
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 5,
   "testing.autoRun.delay": 100,
-  "liveServer.settings.wait": 3
+  "liveServer.settings.wait": 3,
+  "liveServer.settings.CustomBrowser": "microsoft-edge"
 }
