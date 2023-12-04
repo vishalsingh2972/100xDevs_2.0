@@ -114,13 +114,3 @@ function displayResultPassive(data) {
 const ans = sum(1, 2, displayResult);
 
 
-//Create a counter in JavaScript(counts down from 30 to 0)
-for(let start = 30; start > 0; start--){
-  console.log(start);
-}
-
-//Calculate the time it takes between a setTimeout call and the inner function actually running
-
-
-//Create a terminal clock (HH:MM:SS)
-
