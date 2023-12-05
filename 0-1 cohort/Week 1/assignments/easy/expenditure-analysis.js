@@ -9,7 +9,6 @@ function calculateTotalSpentByCategory(Transactions) {
   let catTotal= [];
 
   Transactions.forEach((T) => {
-
     if(catTotal.hasOwnProperty(T.category)){
       catTotal[T.category] = catTotal[T.category] + T.price;
     }
@@ -17,6 +16,11 @@ function calculateTotalSpentByCategory(Transactions) {
       catTotal[T.category] = T.price;
     }
   });
+  
+//even shorter way
+  // Transactions.forEach((T) => {
+  //   catTotal.hasOwnProperty(T.category) ? (catTotal[T.category] += T.price) : (catTotal[T.category] = T.price);
+  // });
 
     return catTotal;
   };
