@@ -39,4 +39,4 @@ function isAnagram(str1, str2) {
 console.log(isAnagram("ram", "mar"));
 console.log(isAnagram("ram", "mau"));
 
-module.exports = isAnagram;
+//module.exports = isAnagram;

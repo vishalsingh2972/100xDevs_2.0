@@ -5,8 +5,55 @@
   Output - [{ category1 - total_amount_spent_on_category1 }, { category2 - total_amount_spent_on_category2 }]
 */
 
-function calculateTotalSpentByCategory(transactions) {
-  return [];
-}
+function calculateTotalSpentByCategory(TRANS) {
+    let foodPrice = 0, clothingPrice = 0;
 
-module.exports = calculateTotalSpentByCategory;
+    TRANS.forEach((i) => {
+      if(i.category === 'Food'){
+        foodPrice += i.price;
+        console.log(foodPrice);
+      }
+      if(i.category === 'Clothing'){
+        clothingPrice += i.price;
+      }
+    })
+      
+    const ans = [
+      {
+        category: 'Food',
+        totalprice: foodPrice
+      },
+      {
+        category: 'Clothing',
+        totalprice: clothingPrice
+      }];
+
+
+      return ans;
+
+    };
+
+const transactions = [
+  {
+    itemName: 'Pizza',
+    category: 'Food',
+    price: 300,
+    timestamp: 1656
+  },
+  {
+    itemName: 'Jeans',
+    category: 'Clothing',
+    price: 5000,
+    timestamp: 1657
+  },
+  {
+    itemName: 'Panipuri',
+    category: 'Food',
+    price: 100,
+    timestamp: 1658
+  }
+]
+
+console.log(calculateTotalSpentByCategory(transactions));
+
+//module.exports = calculateTotalSpentByCategory;
