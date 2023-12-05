@@ -5,32 +5,21 @@
   Output - [{ category1 - total_amount_spent_on_category1 }, { category2 - total_amount_spent_on_category2 }]
 */
 
-function calculateTotalSpentByCategory(TRANS) {
-    let foodPrice = 0, clothingPrice = 0;
+function calculateTotalSpentByCategory(Transactions) {
+  let catTotal= [];
 
-    TRANS.forEach((i) => {
-      if(i.category === 'Food'){
-        foodPrice += i.price;
-        console.log(foodPrice);
-      }
-      if(i.category === 'Clothing'){
-        clothingPrice += i.price;
-      }
-    })
-      
-    const ans = [
-      {
-        category: 'Food',
-        totalprice: foodPrice
-      },
-      {
-        category: 'Clothing',
-        totalprice: clothingPrice
-      }];
+  Transactions.forEach((T) => {
 
-      return ans;
+    if(catTotal.hasOwnProperty(T.category)){
+      catTotal[T.category] = catTotal[T.category] + T.price;
+    }
+    else{
+      catTotal[T.category] = T.price;
+    }
+  });
 
-    };
+    return catTotal;
+  };
 
 const transactions = [
   {
@@ -46,13 +35,36 @@ const transactions = [
     timestamp: 1657
   },
   {
+    itemName: 'Linkedin Premium',
+    category: 'Career',
+    price: 450,
+    timestamp: 1658
+  },
+  {
+    itemName: 'Netflix',
+    category: 'Entertainment',
+    price: 2000,
+    timestamp: 1659
+  },
+  {
     itemName: 'Panipuri',
     category: 'Food',
     price: 100,
-    timestamp: 1658
+    timestamp: 1660
+  },
+  {
+    itemName: 'Disney+',
+    category: 'Entertainment',
+    price: 1000,
+    timestamp: 1661
+  },
+  {
+    itemName: 'Twitter Blue',
+    category: 'Career',
+    price: 650,
+    timestamp: 1662
   }
 ]
 
 console.log(calculateTotalSpentByCategory(transactions));
-
 //module.exports = calculateTotalSpentByCategory;
