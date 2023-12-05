@@ -7,7 +7,7 @@
 
 let numbers = [3, 7, 2, 9, 1];
 
-function findLargestElement(numbers) {
+function findLargestElement(numbers) { //function called automatically due to HOISTING
     let largestElement = numbers[0]; //initially assume first element as largest
     for(let i = 0; i<numbers.length; i++){
       if(numbers[i] > largestElement){
