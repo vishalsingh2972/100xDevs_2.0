@@ -28,7 +28,6 @@ function calculateTotalSpentByCategory(TRANS) {
         totalprice: clothingPrice
       }];
 
-
       return ans;
 
     };
