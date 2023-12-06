@@ -94,10 +94,6 @@ console.log(value);
 
 // Callbacks - passing a whole function as an argument
  
-//calculateArithmatic wala example
-
-
-
 function sum(num1, num2, fnToCall) {
   let result = num1 + num2;
   //return result;
@@ -112,5 +108,40 @@ function displayResultPassive(data) {
 // You are only allowed to call one function after this
 // How will you displayResult of a sum
 const ans = sum(1, 2, displayResult);
+
+
+function calculateArithemetic(a, b, type){
+    if(type == "sum"){
+      const value = sum(a, b);
+      return value;
+    }
+    if(type == "minus"){
+      const value = sub(a, b);
+      return value;
+    }
+}
+function sum(a, b){
+   return a + b;
+}
+function sub(a, b){
+  return a - b;
+}
+const VALUE = calculateArithemetic(1, 2, "minus");
+console.log(VALUE);
+
+
+function calculateArithemetic2(a, b, arithematicFinalFunction){ //callback is happening in this
+  const ans = arithematicFinalFunction(a, b);
+  return ans;
+}
+function sum(a, b){
+ return a + b;
+}
+function sub(a, b){
+return a - b;
+}
+const VALUE2 = calculateArithemetic2(1, 2, sum);
+console.log(VALUE2);
+
 
 
