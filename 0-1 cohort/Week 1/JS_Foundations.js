@@ -127,7 +127,6 @@ console.log(value);
 
 
 // Callbacks - passing a whole function as an argument
- 
 function sum(num1, num2, fnToCall) {
   let result = num1 + num2;
   //return result;
@@ -228,10 +227,9 @@ function displayResult3(data) {
 } 
 console.log("bittu " + displayResult3(sum3(1,2)));
 
-
+////1.4
 //Anonymous Functions -  if we are passing the whole function inside the argument there is no point of naming it as we can never call the function from outside of the arguments hence we can put it as anonymous
 //Hence whenever we are passing a function natively to another function we don't name the function we simply pass it as anonymous function, in such cases it is generally considered good practice to use an anonymous function.
-
 function square2(n){
   return n * n;
 }
@@ -247,3 +245,4 @@ function SUM2(a,b,callbackFn){
 console.log(SUM2(2,2,function (n){    
   return n * n * n;
 }));
+
