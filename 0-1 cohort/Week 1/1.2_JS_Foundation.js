@@ -180,6 +180,21 @@ const VALUE2 = calculateArithemetic2(1, 2, sum); //here sum function acts as a c
 console.log(VALUE2);
 //const VALUE3 = calculateArithemetic2(1, 2, sub); 
 
+function square(n){
+  return n * n;
+}
+function cube(n){
+  return n * n * n;
+}
+function SUM(a,b,T){
+ //console.log(T);  
+ const val1 = T(a);
+ const val2 = T(b);
+ return val1 + val2;
+}
+console.log(SUM(2,2,square));  
+console.log(SUM(2,2,cube));  
+
 
 //setTimeout //setInterval
 function greet(){
