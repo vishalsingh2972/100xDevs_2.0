@@ -62,9 +62,16 @@ const user1 = {
   firstName: "Shiva",
   gender: "male"
 };
-console.log(user1[gender]);
+console.log(user1["gender"]);
 
-const allUsers = [{
+const user2 = [{ //array named user2 containing a single object as its element
+  firstName: "Shiva",
+  gender: "male"
+}];
+console.log(user2[0]["gender"]);
+
+//array of objects at each index
+const allUsers = [{ 
   firstName: "Vishal",
   gender: "male"
 },{
@@ -80,6 +87,33 @@ for(let i = 0; i<allUsers.length; i++){
   }
 }
 
+const allUsers2 = [{ // array named allUsers2 containing 3 objects as its elements, each of these objects is further nested, meaning object inside object.
+  firstName: "Vishal",
+  gender: "male",
+  metadata:{
+    age: "1",
+    role: "Bhakti"
+}
+},{
+  firstName: "Krishna",
+  gender: "male",
+  metadata:{
+      age: "10",
+      role: "Shaktimaan"
+  }
+},{
+  firstName: "Radha",
+  gender: "female",
+  metadata:{
+    age: "12",
+    role: "Shakti"
+}
+}]
+for(let i = 0; i<allUsers2.length; i++){
+  if(allUsers2[i]["metadata"]["role"]=="Shaktimaan"){
+    console.log(allUsers2[i]["firstName"]);
+  }
+}
 
 //Functions
 function sum(a, b){
