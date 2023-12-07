@@ -132,6 +132,7 @@ function sum(num1, num2, fnToCall) {
   let result = num1 + num2;
   //return result;
   fnToCall(result);
+  //console.log('Bittu');
 }
 function displayResult(data) {
   console.log("Result of the sum is : " + data);
@@ -142,9 +143,10 @@ function displayResultPassive(data) {
 // You are only allowed to call one function after this
 // How will you displayResult of a sum
 const ans = sum(1, 2, displayResult);
+//const ans = sum(1, 2, displayResultPassive);
 
 
-function calculateArithemetic(a, b, type){
+function calculateArithemetic(a, b, type){ // NO callback
     if(type == "sum"){
       const value = sum(a, b);
       return value;
@@ -164,7 +166,7 @@ const VALUE = calculateArithemetic(1, 2, "minus");
 console.log(VALUE);
 
 
-function calculateArithemetic2(a, b, arithematicFinalFunction){ //callback is happening in this
+function calculateArithemetic2(a, b, arithematicFinalFunction){ //callback is happening in this as function passed as an argument to another function.
   const ans = arithematicFinalFunction(a, b);
   return ans;
 }
@@ -174,8 +176,38 @@ function sum(a, b){
 function sub(a, b){
 return a - b;
 }
-const VALUE2 = calculateArithemetic2(1, 2, sum);
+const VALUE2 = calculateArithemetic2(1, 2, sum); //here sum function acts as a callback function as this function is being passed as an argument to another function.
 console.log(VALUE2);
+//const VALUE3 = calculateArithemetic2(1, 2, sub); 
 
+
+//setTimeout //setInterval
+function greet(){
+  console.log("Namaste");
+}
+setTimeout(greet, 5000); //5 sec
+setInterval(greet, 1000); 
+
+function hello(parameter1, parameter2){
+  console.log(parameter1,parameter2);
+}
+setTimeout(hello, 2000, 'Radhe', "Shyam");
+
+// Bounty ($25)
+function calculateArithemetic3(a, b, arithematicFinalFunction){ 
+  const ans = arithematicFinalFunction(a, b);
+  return ans;
+}
+function sum3(a, b){
+ return a + b;
+}
+function sub3(a, b){
+return a - b;
+}
+function displayResult3(data) {
+  console.log("Result of the sum is : " + data);
+  return data; //this was missing hence was getting undefined error
+} 
+console.log("bittu " + displayResult3(sum3(1,2)));
 
 
