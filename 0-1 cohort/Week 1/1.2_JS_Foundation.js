@@ -186,10 +186,10 @@ function square(n){
 function cube(n){
   return n * n * n;
 }
-function SUM(a,b,T){
- //console.log(T);  
- const val1 = T(a);
- const val2 = T(b);
+function SUM(a,b,callbackFn){
+ //console.log(callbackFn);  
+ const val1 = callbackFn(a);
+ const val2 = callbackFn(b);
  return val1 + val2;
 }
 console.log(SUM(2,2,square));  
