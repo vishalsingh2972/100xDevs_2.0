@@ -193,7 +193,10 @@ function SUM(a,b,callbackFn){
  return val1 + val2;
 }
 console.log(SUM(2,2,square));  
-console.log(SUM(2,2,cube));  
+console.log(SUM(2,2,cube));
+// console.log(SUM(2,2,function cube(n){     //also possible to directly insert the whole function as argument
+//   return n * n * n;
+// }));
 
 
 //setTimeout //setInterval
@@ -224,5 +227,8 @@ function displayResult3(data) {
   return data; //this was missing hence was getting undefined error
 } 
 console.log("bittu " + displayResult3(sum3(1,2)));
+
+
+//Anonymous Functions
 
 
