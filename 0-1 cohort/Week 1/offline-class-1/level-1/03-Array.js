@@ -20,6 +20,10 @@ function popExample(arr) {
 
   arr.pop();
   console.log("After pop:", arr);
+  arr.pop();
+  console.log("After pop:", arr);
+  arr.pop();
+  console.log("After pop:", arr);
 }
 popExample([1, 2, 3]);
 
@@ -27,6 +31,10 @@ popExample([1, 2, 3]);
 function shiftExample(arr) {
   console.log("Original Array:", arr);
 
+  arr.shift();
+  console.log("After shift:", arr);
+  arr.shift();
+  console.log("After shift:", arr);
   arr.shift();
   console.log("After shift:", arr);
 }
@@ -38,6 +46,8 @@ function unshiftExample(arr, element) {
 
   arr.unshift(element);
   console.log("After unshift:", arr);
+  // arr.unshift(element-1);
+  // console.log("After unshift:", arr);
 }
 unshiftExample([1, 2, 3], 0);
 
@@ -47,24 +57,39 @@ function concatExample(arr1, arr2) {
 
   let arr3 = arr1.concat(arr2);
   console.log("After concat:", arr3);
+  let arr4 = arr2.concat(arr1);
+  console.log("After concat:", arr4);
 }
 concatExample([1, 2, 3], [4, 5, 6]);
+
+const firstArray = [1, 2, 3];
+const secondArray = [4, 5, 6];
+// const finalArray = firstArray.concat(secondArray);
+// console.log(finalArray);
+console.log(firstArray.concat(secondArray));
 
 // forEach()
 function forEachExample(arr) {
   console.log("Original Array:", arr);
 
   arr.forEach(function(item, index) {
-    console.log(item, index);
+    console.log('for number = ' + item, ", index is " + index);
   });
 }
 forEachExample([1, 2, 3]);
+
+const initialArray = [1, 2, 3];
+
+function logThing(str){
+  console.log(str);
+}
+initialArray.forEach(logThing); //at each index logThing function is called
 
 // map()
 function mapExample(arr) {
   console.log("Original Array:", arr);
 
-  let newArr = arr.map(function(item) {
+  let newArr = arr.map(function(item) { //here item is element at each index of arr that is being passed
     return item * 2;
   });
   console.log("After map:", newArr);

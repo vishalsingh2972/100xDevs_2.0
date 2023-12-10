@@ -8,6 +8,8 @@ function explainParseInt(value) {
 explainParseInt("42");
 explainParseInt("42px");
 explainParseInt("3.14");
+explainParseInt("px42");
+explainParseInt("vishal");
 
 function explainParseFloat(value) {
   console.log("Original Value:", value);
@@ -19,3 +21,6 @@ function explainParseFloat(value) {
 explainParseFloat("3.14");
 explainParseFloat("42");
 explainParseFloat("42px");
+
+console.log(parseInt("3.14"));
+console.log(parseFloat("3.14"));
