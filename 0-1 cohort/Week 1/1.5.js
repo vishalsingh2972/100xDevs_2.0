@@ -60,3 +60,52 @@ console.log('Amigo2');
 // Amigo
 // Amigo2
 // Amigo inside a.txt
+
+
+//Loupe example (ran in http://latentflip.com/loupe and understood via visualisation the working of Call Stack, Web Apis, Callback Queue and Event Loop🔄)
+//Ex 1
+console.log("Hi!");
+
+setTimeout(function(){
+    console.log("from inside async function");
+}, 20000);
+
+let a = 0;
+for(let i = 0; i<10; i++){
+    a++;
+}
+console.log(a);
+
+//Ex 2
+console.log("Hi!");
+
+setTimeout(function(){
+    console.log("kamla bai 1");
+}, 20000);
+
+setTimeout(function(){
+    console.log("kamla bai 2");
+}, 10000);
+
+let a = 0;
+for(let i = 0; i<10; i++){
+    a++;
+}
+console.log(a);
+
+//Ex 3
+console.log("Hi!");
+
+setTimeout(function one(){
+    console.log("kamla bai 1");
+}, 20000);
+
+setTimeout(function two(){
+    console.log("kamla bai 2");
+}, 10000);
+
+let a = 0;
+for(let i = 0; i<10; i++){
+    a++;
+}
+console.log(a);
