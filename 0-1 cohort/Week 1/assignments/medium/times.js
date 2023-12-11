@@ -8,6 +8,21 @@ Hint - use Date class exposed in JS
 There is no automated test for this one, this is more for you to understand time goes up as computation goes up
 */
 
-function calculateTime(n) {
-    return 0.01;
-}
+function calculateTime(n){
+    let a = 0;
+    for(let i = 1; i<n; i++){
+      a+=i;
+    }
+        return a;
+    }
+
+    const beforeDate = new Date();
+    const beforeTimeinMs = beforeDate.getTime();
+    // calculateTime(100);
+    // calculateTime(100000);
+    calculateTime(1000000000);
+    const afterDate = new Date();
+    const afterTimeinMs = afterDate.getTime();
+    
+    console.log(afterTimeinMs - beforeTimeinMs); //time difference/time taken in Ms
+    
