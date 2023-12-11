@@ -1,18 +1,16 @@
 //Asynchronous example
-function findSum(n) {
-  let ans = 0;
-  for (let i = 0; i<n; i++) {
-    ans += i;
-  }
-  return ans;
-}
-
-function findSumTill100() {
-  console.log(findSum(100));
-}
-
-setTimeout(findSumTill100, 1000); //asynchronous setTimeout function
-console.log("hello world");
+// function findSum(n) {
+//   let ans = 0;
+//   for (let i = 0; i<n; i++) {
+//     ans += i;
+//   }
+//   return ans;
+// }
+// function findSumTill100() {
+//   console.log(findSum(100));
+// }
+// setTimeout(findSumTill100, 1000); //asynchronous setTimeout function
+// console.log("hello world");
 
 //Synchronous example
 // function findSum(n) {
@@ -22,11 +20,9 @@ console.log("hello world");
 //   }
 //   return ans;
 // }
-
 // function findSumTill100() {
 //   console.log(findSum(100));
 // }
-
 // function syncSleep(){
 //   let a = 1;
 //   for(let i = 0; i<1000000; i++){
@@ -34,7 +30,33 @@ console.log("hello world");
 //   }
 //   console.log("sync sleep over");
 // }
-
 // syncSleep();
 // findSumTill100();
 // console.log("hello world");
+
+//Common ASYNC Functions -  setTimeout(), fs.readFile, Fetch
+
+//fs.readFile - an async process to read a file in your file system
+const fs = require("fs"); //here fs = filesystem, a nodejs library that helps us with things like reading from a file, writing to a file etc.
+                          //so now fs gives us access to a function called readFile
+fs.readFile("a.txt","utf-8", function(err, data){
+  console.log(data); //will run second as fs.readFile is async
+});
+console.log('Amigo'); //will run first
+
+
+const fs = require("fs"); 
+fs.readFile("a.txt","utf-8", function(err, data){
+  console.log(data); 
+});
+console.log('Amigo');
+let a = 0;
+//takes very long, longer than the file read function above but still it will go to read function only after finishing below code
+for(let i = 0; i<100000000; i++){
+  a+=i;
+}
+console.log('Amigo2');
+// Output:
+// Amigo
+// Amigo2
+// Amigo inside a.txt
