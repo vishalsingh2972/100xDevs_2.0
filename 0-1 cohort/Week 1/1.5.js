@@ -110,4 +110,34 @@ for(let i = 0; i<10; i++){
 }
 console.log(a);
 
+
 //Promises
+
+//Ugly way to create async functions of our own (without using Promises)
+const fs = require('fs');
+// my own asynchronous function
+function kiratsReadFile(cb) {
+  fs.readFile("a.txt", "utf-8", function(err, data) {
+    cb(data);
+  });
+}
+function onDone(data) {
+  console.log(data);
+}
+kiratsReadFile(onDone);
+
+//Cleaner way (by using Promises) //there are no callbacks when we use Promise as the reason to introduce promise is to get rid of callbacks because callbacks are an ugly way to write asynchronous code
+const fs = require('fs');
+// my own asynchronous function
+function kiratsReadFile() {
+  return new Promise(function(resolve) {
+    fs.readFile("a.txt", "utf-8", function(err, data) {
+      resolve(data);
+    });
+  })
+}
+// callback function to call
+function onDone(data) {
+  console.log(data)
+}
+kiratsReadFile().then(onDone);
