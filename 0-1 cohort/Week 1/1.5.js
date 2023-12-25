@@ -202,11 +202,15 @@ function extra2(value){
   console.log(value);
 }
 
-P2.then(extra);
+P2.then(extra2);
 //or can also write directly as 
 // P2.then(function(value){
 //   console.log(value);
 // });
+
+
+//Async Await
+
 
 
 
