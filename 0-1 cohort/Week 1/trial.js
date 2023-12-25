@@ -1,13 +1,11 @@
-const fs = require('fs');
-// my own asynchronous function
-function kiratsReadFile(cb) {
-  fs.readFile("a.txt", "utf-8", function(err, data) {
-    cb(data);
+function kiratsAsyncFunction() {
+  let p = new Promise(function(resolve) {
+    resolve("hi there");
   });
+  return p;
 }
-function onDone(data) {
-  console.log('second');
+
+const value = kiratsAsyncFunction();
+value.then(function(data) {
   console.log(data);
-}
-kiratsReadFile(onDone);
-console.log('first');
+})
