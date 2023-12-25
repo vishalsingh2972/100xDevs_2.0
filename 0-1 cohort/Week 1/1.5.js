@@ -118,6 +118,7 @@ const fs = require('fs');
 // my own asynchronous function
 function kiratsReadFile(cb) {
   fs.readFile("a.txt", "utf-8", function(err, data) {
+    //console.log('second');
     cb(data);
   });
 }
@@ -125,19 +126,26 @@ function onDone(data) {
   console.log(data);
 }
 kiratsReadFile(onDone);
+//console.log('first');
 
 //Cleaner way (by using Promises) //there are no callbacks when we use Promise as the reason to introduce promise is to get rid of callbacks because callbacks are an ugly way to write asynchronous code
 const fs = require('fs');
 // my own asynchronous function
 function kiratsReadFile() {
+  // console.log('inside kiratReadFile function before Promise');
   return new Promise(function(resolve) {
+    // console.log('inside promise before readFile');
     fs.readFile("a.txt", "utf-8", function(err, data) {
-      resolve(data);
+      // console.log('before resolve');
+      resolve(data); //try - resolve(data+1);
+      // console.log('after resolve');
     });
   })
 }
 // callback function to call
-function onDone(data) {
-  console.log(data)
+function onDone(Data) {
+  // console.log('before Data');
+  console.log(Data);
 }
 kiratsReadFile().then(onDone);
+// console.log('last');
