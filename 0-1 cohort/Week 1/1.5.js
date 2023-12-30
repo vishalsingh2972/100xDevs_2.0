@@ -111,7 +111,7 @@ for(let i = 0; i<10; i++){
 console.log(a);
 
 
-//Promises
+//Promises - syntactical sugar that make the code more readable and Promises still uses callback under the hood
 
 //Ugly way to create async functions of our own (without using Promises)
 const fs = require('fs');
@@ -209,7 +209,75 @@ P2.then(extra2);
 // });
 
 
-//Async Await
+//Async Await - syntactic sugar, still uses callbacks/promises under the hood
+
+//with only async
+function kiratsAsyncFunction() {
+  let p = new Promise(function(resolve) {
+    // do some async logic here
+    setTimeout(function(){
+      resolve("hi there!")
+    },2000)
+  });
+  return p;
+}
+
+async function main() {
+  let value = kiratsAsyncFunction();
+  setTimeout(function(){
+    console.log(value);
+  },3000)
+}
+
+main();
+
+//with async and await
+function kiratsAsyncFunction() {
+  let p = new Promise(function(resolve) {
+    // do some async logic here
+    setTimeout(function(){
+      resolve("hi there!")
+    },2000)
+  });
+  return p;
+}
+
+async function main() {
+  //no callbacks, no .then syntax like we used in promises
+  let value = await kiratsAsyncFunction(); 
+  console.log('Radhe Radhe Shyam se Milade'); // will execute only after the await expression has resolved
+  console.log(value);
+}
+
+main();
+console.log('Kalki');
+
+//similar example using .then
+// function kiratsAsyncFunction() {
+//   let p = new Promise(function(resolve) {
+//     // do some async logic here
+//     setTimeout(function(){
+//       resolve("hi there!")
+//     },2000)
+//   });
+//   return p;
+// }
+
+// function main() {
+//   let value = kiratsAsyncFunction().then(function(value){
+//     console.log(value);
+//   });
+//   console.log('Radhe Radhe Shyam se Milade'); 
+// }
+
+// main();
+// console.log('Kalki');
+
+//Note
+//let value = kiratsAsyncFunction(); //if you don't write await - will get back the whole promise itself
+//let value = await kiratsAsyncFunction(); //by writing await - will get back the resolved value stored inside the promise
+
+
 
 
 
