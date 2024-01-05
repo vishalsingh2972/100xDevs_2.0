@@ -9,3 +9,4 @@
 //What all can I create using Node.js - create CLIs, create a video player, create a game, create a HTTP server(generally the main usecase of Node.js)
 
 //What is HTTP and HTTP Server?
+//DNS resolution - connecting the url text with the ip address associated with it.
