@@ -1,0 +1,103 @@
+
+.vjs-segment-marker {
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    cursor: pointer;
+}
+
+.vjs-segment-marker::before,
+.vjs-segment-marker::after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    background-color: rgb(255, 255, 255);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.vjs-segment-marker::before {
+    left: 0;
+}
+
+.vjs-segment-marker::after {
+    right: 0;
+}
+
+
+
+.vjs-segment-marker::after {
+    right: 0;
+}
+
+
+
+
+.vjs-segment-marker:hover {
+    background-color: rgba(179, 179, 179, 0.3);
+
+
+}
+
+.vjs-segment-tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 1rem;
+    padding: 5px;
+    border-radius: 5px;
+    display: none;
+    white-space: nowrap;
+    pointer-events: none;
+    bottom: 50px;
+}
+
+.video-js {
+    height: fit-content;
+}
+
+.video-js .vjs-big-play-button {
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+.segments {
+    position: relative;
+}
+
+.btn-link {
+    color: black !important;
+    width: 100%;
+    text-align: left !important;
+    text-decoration: none !important;
+}
+
+.btn-link:hover {
+    color: rgb(20, 111, 230) !important;
+}
+
+.card {
+    background-color: #E8F1FD !important;
+}
+
+.card-body {
+    background-color: #f3f6fa !important;
+    padding-left: 40px !important;
+    font-size: 0.9rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.go-btn {
+    font-size: 0.9rem !important;
+    width: 140px !important;
+    border-radius: 4px !important;
+}
+
+.btn-light {
+    background-color: #E8F1FD !important;
+
+}

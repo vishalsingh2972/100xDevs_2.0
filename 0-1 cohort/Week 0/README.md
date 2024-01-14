@@ -11,3 +11,10 @@
 # CHANGES TO BE MADE IN NEXT DAY
 - Add a portfolio to make it more dynamic using JavaScript.
 - Make hover effect on submit button.
+
+# Basic HTML
+- Basic Goal of a browser is render HTML, CSS, JS
+- HTML defines the structure of your website
+- Tags and Attributes
+- 
+
