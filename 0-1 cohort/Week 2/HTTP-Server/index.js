@@ -19,6 +19,11 @@ app.get('/', function(req, res){
   res.send('Hello Bittu!') //whenever someone will try to hit my backend server control will reach here
                            //what this basically does is whenever someone is trying to get something from the server and they reach '/' this location/address, we run the function and return ('Hello Bittu!')
                            //will appear in frontend localhost:${port}
+
+  // res.json({
+  //   name: "Vishal",
+  //   age: 22
+  // })
 })
 
 app.listen(port, function(){
