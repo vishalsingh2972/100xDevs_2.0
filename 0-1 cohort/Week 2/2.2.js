@@ -11,3 +11,10 @@
 //What is HTTP and HTTP Server?
 //DNS resolution - connecting the url text with the ip address associated with it.
 
+//What is Express?
+//Express is a library that gives you high level constructs to create HTTP servers.
+
+//Extra
+//What is Fs?
+//Fs is also a library that gives you high level constructs to do filesystem stuff(read from a file, write to a file......)
+
