@@ -5,7 +5,7 @@
 // What is Node.js?
 // What is Bun?
 
-// Node.js - Node.js is neither a language nor a framework/library, Node.js is a runtime(runtime means something that can run JavaScript + something that can compile JavaScript + bunch of other features)
+//Node.js - Node.js is neither a language nor a framework/library, Node.js is a runtime(runtime means something that can run JavaScript + something that can compile JavaScript + bunch of other features)
 //What all can I create using Node.js - create CLIs, create a video player, create a game, create a HTTP server(generally the main usecase of Node.js)
 
 //What is HTTP and HTTP Server?
