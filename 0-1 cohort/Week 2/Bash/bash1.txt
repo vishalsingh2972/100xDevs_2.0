@@ -1,14 +1,14 @@
 Bash Commands
 
-- pwd
-- cd
-- ls
-- mkdir
-- touch
-- cat
-- vi
-- mv
-- cp
-- nvm
-- npm
-- node
+- pwd - print working directory
+- cd - change directory
+- ls - List (contents of) Directory
+- mkdir - Make Directory/Folder
+- touch - Create empty file
+- cat - View contents of a file
+- vi - Editor lets us edit files (not recommended for beginners)
+- mv - Move files/folders from one folder to another
+- cp - Copy files/folders from one folder to another //while copying folders need to pass "-r" as well
+- nvm - node version manager
+- npm - node package manager
+- node - node,.exit
