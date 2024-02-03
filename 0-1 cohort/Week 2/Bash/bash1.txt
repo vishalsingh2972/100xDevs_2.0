@@ -1,0 +1,14 @@
+Bash Commands
+
+- pwd
+- cd
+- ls
+- mkdir
+- touch
+- cat
+- vi
+- mv
+- cp
+- nvm
+- npm
+- node
