@@ -28,4 +28,4 @@ Bash Commands
 Think of grep like a highlighter that marks matching text in a document.
 Think of sed like an editor that can make changes to the highlighted text directly.
 
-- awk- 
+- awk
