@@ -1,4 +1,4 @@
-// map, filter, arrow functions
+//map, filter, arrow functions
 
 //✅ arrow functions
 // function sum(a,b){
