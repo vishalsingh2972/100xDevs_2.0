@@ -1,7 +1,7 @@
 Bash Commands
 
-- pwd - print working directory
-- cd - change directory
+- pwd - Print working directory
+- cd - Change directory
 - ls - List (contents of) Directory
 - mkdir - Make Directory/Folder
 - touch - Create empty file
@@ -12,3 +12,20 @@ Bash Commands
 - nvm - node version manager
 - npm - node package manager
 - node - node,.exit
+
+- rm - Delete files
+- chmod - Change file permissons
+- echo - Display message in terminal
+- head - View only first part of the file // head -20 ---> view first 20 files
+- tail - View only last part of the file // tail -40 ---> view last 40 files
+- | - Pipe operator, helps us use head and tail together
+- wc - Word count for counting words, lines, characters, and bytes in files
+- history - can be used to view all the previously executed commands executed in the current terminal session
+
+- grep - can be used for searching and filtering text content within files
+- sed - same as grep but with additional features
+- Analogy (for grep vs sed)
+Think of grep like a highlighter that marks matching text in a document.
+Think of sed like an editor that can make changes to the highlighted text directly.
+
+- awk - 
