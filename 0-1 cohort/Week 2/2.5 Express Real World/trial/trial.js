@@ -23,7 +23,6 @@ app.get("/", function(req, res){
   res.send(reply.toString()); //whenever your sending back a response convert it to a string, as sending only "reply" as response will cause issue as it might misinterpret the number value of "reply" with a status code
 })
 
-
 app.listen(port, function(){
   console.log(`Example app listening on port ${port}, so now go to localhost:${port} and check`);
 })
