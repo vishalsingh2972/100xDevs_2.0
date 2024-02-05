@@ -16,5 +16,3 @@
 - Basic Goal of a browser is render HTML, CSS, JS
 - HTML defines the structure of your website
 - Tags and Attributes
-- 
-
