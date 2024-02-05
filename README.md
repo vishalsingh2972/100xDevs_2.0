@@ -5,14 +5,14 @@ This repository contains the notes, topics discussed and assignment solutions fr
 
 ## Topics covered in the cohort
 
-- MERN Stack
-- DevOps Basics
-- Open Source (GSOC)
-- Portfolio Projects
-- System Design
-- Advanced Backend
-- Advanced DevOps
-- Open Source Contributions (Real Companies)
+- 🚀 MERN Stack
+- 🛠️ DevOps Basics
+- 🌐 Open Source (GSOC) 
+- 📚 Portfolio Projects 
+- 🧠 System Design 
+- ⚙️ Advanced Backend 
+- 🔧 Advanced DevOps 
+- 💼 Open Source Contributions (Real Companies)
   
 ![image](https://github.com/vishalsingh2972/100xDevs_2.0/assets/106817047/e54e6577-dbdc-4951-826f-f1433d8ed8b5)
 
