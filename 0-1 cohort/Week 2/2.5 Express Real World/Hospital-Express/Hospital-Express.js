@@ -18,54 +18,53 @@
 
 const express = require("express");
 const app = express();
-const port = 3000;
 
-// Sample data
-var users = [
-  {
-    name: "Ramukaka",
-    kidneys: [
-      {
+//Sample data - users details
+const users = [{
+    name: "John",
+    kidneys: [{
         healthy: false,
-      },
-    ],
-  },
-];
+    },
+    {
+        healthy: true,
+    }]
+}];
+
+app.use(express.json());
 
 //1
 //GET Operation
 //Retrieve Kidney Information
-app.get("/", function (req, res) {
-  const Ramukakkidneys = users[0].kidneys;
-  const nummberOfKidneys = Ramukakkidneys.length;
+app.get("/",function(req,res){
+  const johnKidneys = users[0].kidneys;
+  const numberOfKidneys = johnKidneys.length;
   let numberOfHealthyKidneys = 0;
-
-  for (let i = 0; i < Ramukakkidneys.length; i++) {
-    if (Ramukakkidneys[i].healthy) {
+  for(let i = 0; i<numberOfKidneys; i++){
+    if(johnKidneys[i].healthy == true){
       numberOfHealthyKidneys += 1;
     }
   }
-  const numberOfUnHealthyKidneys = nummberOfKidneys - numberOfHealthyKidneys;
-
+  const numberOfUnhealthyKidneys = numberOfKidneys - numberOfHealthyKidneys;
   res.json({
-    nummberOfKidneys,
+    numberOfKidneys,
     numberOfHealthyKidneys,
-    numberOfUnHealthyKidneys,
-  });
-});
+    numberOfUnhealthyKidneys
+  })
+})
 
 //2
 //POST operation
 //Add Kidney Information
-app.post("/", function (req, res) {
+app.post("/",function(req,res){
   const isHealthy = req.body.isHealthy;
   users[0].kidneys.push({
-    healthy: isHealthy,
-  });
+    healthy: isHealthy
+  })
+  console.log(users[0].kidneys);
   res.json({
-    msg: "DONE!",
-  });
-});
+    msg: "Done Mubarak ho"
+  })
+})
 
 //3
 //PUT operation
