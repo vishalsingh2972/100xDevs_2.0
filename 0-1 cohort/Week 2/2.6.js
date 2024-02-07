@@ -41,7 +41,7 @@ const arr2 = [1, 2, 3, 4, 5];
 // }
 // const ANS = arr.filter(filterLogic);
 
-const ANS = arr.filter(function filterLogic(n){
+const ANS = arr2.filter(function filterLogic(n){
     if(n % 2 == 0){
       return true;
     }
