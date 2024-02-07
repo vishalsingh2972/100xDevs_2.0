@@ -7,7 +7,7 @@
 // 1. GET - Going for a consultation to get check up, User can check how many kidneys they have and their health
 // 2. POST - Going to get a new kidney inserted, User can add a new kidney
 // 3. PUT - Going to get a kidney replaced, User can replace a kidney, make it healthy
-// 4. DELETE - Going to get a kidney removed, User can remove a kidney
+// 4. DELETE - Going to get a kidney removed, User can remove a kidney, remove unhealthy kidenys
 
 // Status codes (using Doctor Logic)
 // 1. 200 - Everything went fine
@@ -69,46 +69,27 @@ app.post("/",function(req,res){
 //3
 //PUT operation
 //Update All Kidneys to Healthy
-app.put("/", function (req, res) {
-  for (let i = 0; i < users[0].kidneys.length; i++) {
+app.put("/",function(req,res){
+  for(let i = 0; i<users[0].kidneys.length; i++){
     users[0].kidneys[i].healthy = true;
   }
-  res.json({});
-});
+  res.json({}) //If the request succeeds without errors, sending a JSON response although empty is essential to signal completion to the client (i.e Postman). An empty response might leave Postman hanging and loading continously.
+})
 
 //4
 //DELETE operation
-//Update All Kidneys to Healthy
-app.delete("/", function (req, res) {
-  if (isThereAtleastOneUnhealthyKidney()) {
-    const newKidneys = [];
-    for (let i = 0; i < users[0].kidneys.length; i++) {
-      if (users[0].kidneys[i].healthy) {
-        newKidneys.push({
-          healthy: true,
-        });
-      }
-    }
-    users[0].kidneys = newKidneys;
-    res.json({ msg: "done!" });
-  } else {
-    res.status(411).json({
-      msg: "NO BAD KIDNEYS!!",
-    });
-  }
-});
-
-// Helper function for DELETE operation
-function isThereAtleastOneUnhealthyKidney() {
-  let atleastoneUnhealthyKidney = false;
-  for (let i = 0; i < users[0].kidneys.length; i++) {
-    if (!users[0].kidneys[i].healthy) {
-      atleastoneUnhealthyKidney = true;
+//Remove a unhealthy Kidney
+app.delete("/",function(req,res){
+  const newKidneys = [];
+  for(let i = 0; i < users[0].kidneys.length; i++){
+    if(users[0].kidneys[i].healthy){
+      newKidneys.push({
+        healthy: true,
+    })
     }
   }
-  return atleastoneUnhealthyKidney;
-}
+  users[0].kidneys = newKidneys;
+  res.json({})
+})
 
-app.listen(port, () => {
-  console.log(`App listening at ${port}`);
-});
+app.listen(4000);
