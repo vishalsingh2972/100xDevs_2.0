@@ -18,6 +18,7 @@
 
 const express = require("express");
 const app = express();
+const port = 4000;
 
 //Sample data - users details
 const users = [{
@@ -70,26 +71,54 @@ app.post("/",function(req,res){
 //PUT operation
 //Update All Kidneys to Healthy
 app.put("/",function(req,res){
-  for(let i = 0; i<users[0].kidneys.length; i++){
-    users[0].kidneys[i].healthy = true;
+  if(isThereAtleastOneUnhealthyKidney()){
+    for(let i = 0; i<users[0].kidneys.length; i++){
+      users[0].kidneys[i].healthy = true;
+    }
+    res.json({}) //If the request succeeds without errors, sending a JSON response although empty is essential to signal completion to the client (i.e Postman). An empty response might leave Postman hanging and loading continously.
   }
-  res.json({}) //If the request succeeds without errors, sending a JSON response although empty is essential to signal completion to the client (i.e Postman). An empty response might leave Postman hanging and loading continously.
+  else{
+    res.status(411).json({
+      msg: "Bhai, all kidneys already healthy sab Badiya ❤",
+    })
+  }
 })
 
 //4
 //DELETE operation
 //Remove a unhealthy Kidney
 app.delete("/",function(req,res){
-  const newKidneys = [];
-  for(let i = 0; i < users[0].kidneys.length; i++){
-    if(users[0].kidneys[i].healthy){
-      newKidneys.push({
+  if(isThereAtleastOneUnhealthyKidney()){
+    const newKidneys = [];
+    for(let i = 0; i < users[0].kidneys.length; i++){ 
+      if(users[0].kidneys[i].healthy){
+        newKidneys.push({
         healthy: true,
-    })
+        })
+      }
     }
+    users[0].kidneys = newKidneys;
+    res.json({})
   }
-  users[0].kidneys = newKidneys;
-  res.json({})
+  else{
+    res.status(411).json({
+      msg: "Bhai, nothing to remove sab Badiya ❤",
+    })
+  }
 })
 
-app.listen(4000);
+//Helper function for DELETE operation //one of the edge cases for DELETE here
+//can also use as Helper function for PUT operation //one of the edge cases for PUT here
+function isThereAtleastOneUnhealthyKidney(){
+  let atleastOneUnhealthyKidney = false; //initially false i.e no unhealthy kidneys exist
+  for(let i = 0; i < users[0].kidneys.length; i++){
+    if(!users[0].kidneys[i].healthy){
+      atleastOneUnhealthyKidney = true;
+    }
+  }
+  return atleastOneUnhealthyKidney;
+}
+
+app.listen(port, () => {
+  console.log(`App listening at port ${port}`);
+})
