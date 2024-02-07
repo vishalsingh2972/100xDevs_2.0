@@ -1,1 +1,1 @@
-//use filter and implement all enpoints
+//use filter/map and implement all the enpoints
