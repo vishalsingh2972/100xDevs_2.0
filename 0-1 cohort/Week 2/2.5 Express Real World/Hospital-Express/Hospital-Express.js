@@ -31,7 +31,7 @@ const users = [{
     }]
 }];
 
-app.use(express.json());
+app.use(express.json()); //middlewares topic
 
 //1
 //GET Operation
