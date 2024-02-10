@@ -10,7 +10,7 @@ function userMiddleware(req, res, next){ //Middleware for username & password ch
   // Username verification for the given inputs.
   const username = req.headers.username;
   const password = req.headers.password;
-  if (username != "soni" || password != "pass") {
+  if (username != "vishal" || password != "pass") {
     res.status(403).json({
       message: "User doesn't exists!",
     });
