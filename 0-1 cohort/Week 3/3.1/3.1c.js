@@ -16,10 +16,12 @@ function userMiddleware(req, res, next){ //Middleware for username & password ch
     });
     // Early return as we dont want to execute the rest of the code
     // since the user authentication failed.
+    console.log('first middleware function itself failed');
     return;
   }
-  // If the validation is successful, call the next middleware function.
-  next();
+  next(); //next1
+          // If the validation is successful, call the next middleware function using next(), i.e when next(); is hit next the control reaches inside the function that is right below next
+          //When next(); is called within a middleware function in Express.js, the control reaches the next function in the chain. 
 }
 
 function kidneyMiddleware(req, res, next){ //Middleware for kidneyId check
@@ -31,16 +33,17 @@ function kidneyMiddleware(req, res, next){ //Middleware for kidneyId check
     });
     // Early return as we dont want to execute the rest of the code
     // since the user authentication failed.
+    console.log('only first middleware function passed second middleware function failed');
     return;
   }
-  // If the validation is successful, call the next middleware function.
-  next();
+  next(); //next2
 }
 
 // Here, first the userMiddleware function will be executed and then the kidneyMiddleware function will execute.
 app.get("/health-checkup-four", userMiddleware, kidneyMiddleware, function (req, res){
     // Do something with kidney here
-    res.send("You are healthy 😇");
+    console.log('Both middleware functions passed now I am inside the route handler function');
+    res.send("You are healthy 😇"); //3
   }
 )
 
@@ -59,9 +62,7 @@ app.get("/heart-check", userMiddleware, function (req, res){
   res.send("Your heart is healthy 💖");
 })
 
-
-
-
+app.listen(5000);
 
 // In above routes, we had passed the middleware functions as arguments.
 // If we want to apply a middleware function to all the routes, we can use app.use() function.
