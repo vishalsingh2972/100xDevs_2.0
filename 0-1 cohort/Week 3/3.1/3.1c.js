@@ -5,6 +5,13 @@
 
 const express = require("express");
 const app = express();
+let numberofRequests = 0;
+
+function calculateRequests(req, res, next){
+  numberofRequests++;
+  console.log(`Total number of incoming requests to the server = ${numberofRequests}`);
+  next();
+}
 
 function userMiddleware(req, res, next){ //Middleware for username & password checks
   // Username verification for the given inputs.
@@ -40,10 +47,10 @@ function kidneyMiddleware(req, res, next){ //Middleware for kidneyId check
 }
 
 // Here, first the userMiddleware function will be executed and then the kidneyMiddleware function will execute.
-app.get("/health-checkup-four", userMiddleware, kidneyMiddleware, function (req, res){
+app.get("/health-checkup-four", calculateRequests, userMiddleware, kidneyMiddleware, function (req, res){
     // Do something with kidney here
     console.log('Both middleware functions passed now I am inside the route handler function');
-    res.send("You are healthy 😇"); //3
+    res.send("You are healthy 😇");
   }
 )
 

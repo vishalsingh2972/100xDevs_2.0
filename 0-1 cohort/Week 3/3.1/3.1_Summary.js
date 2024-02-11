@@ -300,3 +300,6 @@ app.post("/health-checkup", function (req, res) {
 
 // Running the server on port 3000.
 app.listen(3000);
+
+
+//Extra: Rate Limiting is also part of Middleware concept //Rate Limiting ~ like make sure a single person can only send 5 requests per day
