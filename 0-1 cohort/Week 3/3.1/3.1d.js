@@ -18,11 +18,12 @@ app.post("/health-checkup", function (req, res){
   //req input send by the user is like this ---> kidneys = [1,2]
   const kidneys = req.body.kidneys;
   const kidneyLength = kidneys.length;
-
   res.send(`You have ${kidneyLength} kidneys`);
 })
 
-app.use(function (err, req, res, next) {
+//Global Catch Middleware ~ comes under category of error handling Middlewares in Express.js which takes 4 parameters as input
+app.use(function (err, req, res, next) { //Express.js identifies this as a error handling Middleware because of these 4 arguments //"next" here as we can also have multiple error handling Middlewares one after another
+  //errorCount++; //EXTRA: by using this we can kind of count the number of exceptions that we are getting in the backend, can put conditions like if number of exceptions go above 100 we can alert another system and perform certain operations as per requirement
   res.json({
     msg: "Something's wrong with the server!",
   });
@@ -34,3 +35,18 @@ app.use(function (err, req, res, next) {
 // Using zod makes easy for the developer to perform input validation. The tricky part here is to define the schema.
 
 app.listen(7000);
+
+
+//Also Possible, can try
+async function trial1(req, res, next){
+  await fetch();
+
+  next(); //so here next will only get hit once await fetch is completed
+}
+
+//Also Possible, can try
+function trial2(req, res, next){
+  fetch.then(() => {
+  next(); 
+  })
+}
