@@ -116,3 +116,8 @@ app.listen(5002);
 // app.use(kidneyMiddleware);
 // Route handler: Executes and sends a response using res.send()
 // handleRequests completes: Its res.on('finish') callback triggers, finishing calculations and logging the average time.
+
+// Key points:
+// The handleRequests middleware, despite starting early, logs its message last due to its asynchronous nature.
+// The route handler executes and sends the response before handleRequests completes its calculation.
+// The res.on('finish') event guarantees that the average time is calculated and logged only after the response has been fully sent.
