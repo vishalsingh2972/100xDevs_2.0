@@ -253,15 +253,16 @@ app.get("/health-checkup-five", function (req, res) {
 // Let's apply the middleware to all the routes that start with /health-checkup.
 app.use("/health-checkup-five", userMiddleware, kidneyMiddleware);
 
+// Global Catches
 // The backend servers are hosted on the internet and are accessed by many users.
 // They always look for valid input to return the response to the user. But a user can give any type of input and make the server crash.
-// The error messages shown by the backend code are quite long and not every user can understand.
+// The error messages shown by the backend code are quite long and not every user can understand, and it is also not safe to display server information to the user on the frontend.
 // To avoid error messages, input validation is needed.
 // One way is to use conditionals to check the input type and content.
 // But it is a long task because there might be multiple conditionals needed till the server recieves the perfect input.
 // Another way is to use global catches. It is a middleware that helps in error handling.
-// Global catches should be defined after all the routes so that any time an exception occurs in any route, the middleware will get called.
-// Global catches take 4 inputs. The extra input is the error message that needs to be shown to the user.
+// Global catches should be defined after all the routes so that any time an exception occurs in any route, the Global catches middleware will get called.
+// Global catches takes 4 inputs. The extra input is the error message that needs to be shown to the user.
 
 app.use(function (err, req, res, next) {
   res.json({
