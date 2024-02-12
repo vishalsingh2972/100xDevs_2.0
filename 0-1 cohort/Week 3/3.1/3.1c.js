@@ -7,6 +7,7 @@ const express = require("express");
 const app = express();
 let numberofRequests = 0;
 
+//Creating the middleware function to count the number of incoming requests ~ Each time a request is made to the server, the count will increment
 function calculateRequests(req, res, next){
   numberofRequests++;
   console.log(`Total number of incoming requests to the server = ${numberofRequests}`);
