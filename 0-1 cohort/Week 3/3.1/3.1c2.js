@@ -1,4 +1,4 @@
-//same as 3.1c but used app.use() for all the middleware functions + added a middleware function to find the average time your server is taking to handle requests
+//same 3.1c but used app.use() for all the middleware functions +  added a middleware function to find the average time your server is taking to handle requests
 
 //app.use ~ `app.use` is a special function that can be used to apply a middleware to all the routes
 //Note: essence of what app.use(express.json()); does in your backend server code:
@@ -108,3 +108,11 @@ app.listen(5002);
 // Important points:
 // Middleware executions are sequential, but asynchronous operations within them (like res.on('finish')) are non-blocking.
 // handleRequests calculates the average time after the response is sent, explaining why its message appears last, hence while the order of app.use declarations might seem to suggest the execution order, it's crucial to remember the asynchronous nature of the handleRequests middleware due to the res.on('finish') callback.
+
+//in short Order of execution: ⏬⏬⏬
+// app.use(calculateRequests);
+// app.use(handleRequests); (starts, but its final calculation is asynchronous)
+// app.use(userMiddleware);
+// app.use(kidneyMiddleware);
+// Route handler: Executes and sends a response using res.send()
+// handleRequests completes: Its res.on('finish') callback triggers, finishing calculations and logging the average time.
