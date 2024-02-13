@@ -1,4 +1,4 @@
-// Global Catches
+// Input Valdiation using Global Catches
 // The backend servers are hosted on the internet and are accessed by many users.
 // They always look for valid input to return the response to the user. But a user can give any type of input and make the server crash.
 // The error messages shown by the backend code are quite long and not every user can understand, and it is also not safe to display server information to the user on the frontend.
@@ -28,7 +28,6 @@ app.use(function (err, req, res, next) { //Express.js identifies this as a error
     msg: "Something's wrong with the server!",
   });
 });
-
 // The above global catch was a general example. In real world, multiple checks are needed to be done for the input validation.
 // This is where Zod comes into picture. It helps to check user input based on the data type.
 // It checks the data type of the input that the server needs and the data type of the user input.
