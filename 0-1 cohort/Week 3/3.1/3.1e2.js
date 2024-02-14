@@ -51,10 +51,6 @@ app.listen(7001);
 
 
 
-
-
-
-
 //Zod trial using function and giving an input manually
 //trial1
 // const z = require('zod');
