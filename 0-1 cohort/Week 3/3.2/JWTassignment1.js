@@ -6,10 +6,10 @@
 
 const express = require("express");
 const jwt = require("jsonwebtoken");
-const jwtPassword = "123456";
+const jwtPassword = "123456"; //secret key used for verifying the JWT's authenticity and is only known to the backend server
 
 const app = express();
-
+app.use(express.json());
 const ALL_USERS = [
   {
     username: "harkirat@gmail.com",
@@ -31,7 +31,26 @@ const ALL_USERS = [
 function userExists(username, password) {
   // write logic to return true or false if this user exists
   // in ALL_USERS array
+  let userExists = false; //just assume initially
+  for(let i = 0; i<ALL_USERS.length; i++){
+    if(ALL_USERS[i].username == username && ALL_USERS[i].password == password){
+      userExists =  true;
+    }
+  }
+  return userExists;
 }
+
+//using find()
+// function userExists(username, password) {
+//   let userExists = false;
+//   const foundUser = ALL_USERS.find(user => {
+//     if(user.username == username && user.password == password){
+//       userExists = true;
+//       console.log('Jai Ho');
+//     }
+//   });
+//   return userExists;
+// }
 
 app.post("/signin", function (req, res) {
   const username = req.body.username;
@@ -43,7 +62,7 @@ app.post("/signin", function (req, res) {
     });
   }
 
-  var token = jwt.sign({ username: username }, "shhhhh");
+  var token = jwt.sign({ username: username }, jwtPassword); //this creates the token/JWT that is send back to the FE during the first user log in
   return res.json({
     token,
   });
@@ -55,9 +74,17 @@ app.get("/users", function (req, res) {
     const decoded = jwt.verify(token, jwtPassword);
     const username = decoded.username;
     // return a list of users other than this username
+    res.json({
+      users: ALL_USERS.filter(function(user){
+        if(user.username == username){
+          return false; //This instructs the filter() method to exclude this user from the final array.
+        }
+        return true; //This tells the filter() method to include this user in the final array.
+      })
+    })
   } catch (err) {
     return res.status(403).json({
-      msg: "Invalid token",
+      msg: "Invalid token ji",
     });
   }
 });
