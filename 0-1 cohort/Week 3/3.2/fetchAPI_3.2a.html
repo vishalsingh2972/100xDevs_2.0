@@ -1,0 +1,38 @@
+<!--Fetch data from a server (code already writen for backend server we are simply fetching data from the server)-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <script>
+    // function getAnimalData(){
+    //   fetch('https://fakerapi.it/api/v1/persons')
+    //    .then(function(response){
+    //      //console.log(response); console.log(response.json());
+    //      response.json()
+    //       .then(function(finalData){
+    //         console.log(finalData); })
+    //   })
+    //   }
+
+    //async await syntax
+    async function getAnimalData(){
+      const response = await fetch('https://fakerapi.it/api/v1/persons');
+      const finalData = await response.json(); //so response.json() helps us grab the incoming data when we know that the incoming data response is in json format
+      console.log(finalData);
+      
+      //getAnimalData();
+      //const response = axios.get('https://fakerapi.it/api/v1/persons'); //can try this as well,just 1 line is enough no need to put the .json() line - using axios library - much simpler/cleaner syntax than fetch
+    }
+  </script>
+  <button onclick="getAnimalData()">Get animal data</button>
+</body>
+
+</html>
