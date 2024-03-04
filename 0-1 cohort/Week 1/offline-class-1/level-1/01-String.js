@@ -39,18 +39,35 @@ function getSlice(str, start, end) {
 getSlice("Hello World", 0, 5);// starting from 0 until index 5 (does not include index 5 in this, basically [0,5) type)
 console.log("Deepika Padukone".slice(0,9)); //direct attack without writing separate function
 
+// Logic of slice
+function cutIt(str, startIndex, endIndex) {
+  let newStr = "";
+  for(let i = 0; i<str.length; i++) {
+    if(i >= startIndex && i<endIndex){
+      newStr = newStr + str[i];
+    }
+  }
+  return newStr;
+}
+
+const value = "Universe";
+
+let ans2 = value.slice(0, 3);
+console.log(ans2); //Uni
+console.log(cutIt(value, 0, 3)); //Uni 
+
 // substring
 function getSubstring(str, start, end) {
   console.log("Original String:", str);
   console.log("After substring:", str.substring(start, end));
-  console.log("After substr:", str.substr(start, end));
+  console.log("After substr:", str.substr(start, end)); // the second argument to substr is the length of the string to be printed
 }
 getSubstring("Hello World", 0, 5);
 console.log("Deepika Padukone".substr(2,9));//starting from index 2 and length of the substr must be 9
 console.log("Deepika Padukone".slice(2,9)); 
 console.log("Deepika Padukone".substring(2,9));
 
-// replace
+// replace: it replaces the string if found, if not just returns the original string
 function replaceString(str, target, replacement) {
   console.log("Original String:", str);
   console.log("After replace:", str.replace(target, replacement));
@@ -60,7 +77,7 @@ const str = "Hello World";
 console.log(str.replace('world','Mumbo Jumbo'));
 console.log(str.replace('World','JavaScript'));
 
-// split
+// split: it splits your string in an array based on a delimiter.
 function splitString(str, separator) {
   console.log("Original String:", str);
   console.log("After split:", str.split(separator));
@@ -68,7 +85,7 @@ function splitString(str, separator) {
 splitString("Hello World", " ");
 splitString("Hello World", "");
 
-// trim
+// trim: lets you trim out the extra space from start and end of the string
 function trimString(str) {
   console.log("Original String:", str);
   console.log("After trim:", str.trim());

@@ -13,6 +13,7 @@
   Output - [{ category: 'Food', totalSpent: 10 }] // Can have multiple categories, only one example is mentioned here
 */
 
+// new thing learned, you can give different index name in array in JS
 function calculateTotalSpentByCategory(Transactions) {
   let catTotal= [];
 

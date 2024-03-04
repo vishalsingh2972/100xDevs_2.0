@@ -27,7 +27,7 @@ function popExample(arr) {
 }
 popExample([1, 2, 3]);
 
-// shift()
+// shift(): pulls out from the front of the array
 function shiftExample(arr) {
   console.log("Original Array:", arr);
 
@@ -68,7 +68,7 @@ const secondArray = [4, 5, 6];
 // console.log(finalArray);
 console.log(firstArray.concat(secondArray));
 
-// forEach()
+// forEach(): it will call a function for each element of an array
 function forEachExample(arr) {
   console.log("Original Array:", arr);
 
@@ -84,6 +84,8 @@ function logThing(str){
   console.log(str);
 }
 initialArray.forEach(logThing); //at each index logThing function is called
+
+// imp., needs understanding of callbacks: map, filter, find, sort
 
 // map()
 function mapExample(arr) {
