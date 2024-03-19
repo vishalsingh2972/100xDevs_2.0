@@ -1,10 +1,14 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const fs = require("fs");
 const app = express();
 const PORT = 3001;
-const todos = require("./todos.json");
+// const todos = require("./todos.json");
 
-app.use(bodyParser.urlencoded({ extended: true }));
+let todos = fs.readFileSync("./todos.json", "utf-8");
+todos = JSON.parse(todos);
+
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
@@ -23,17 +27,52 @@ app.get("/", (req, res) => {
               .map(
                 (todo) =>
                   `<li>${todo.title}  
-                <form method="DELETE" action=/todos/${todo.id}>
+                  <form class="delete-form" method="POST" action="/todos/${todo.id}">
                     <input type="submit" value="Delete" />
-                </form>
+                  </form>
                 </li>`
               )
               .join("")}
         </ul>
-        <form method="POST" action="/todos">
+        <form id="add-form" method="POST" action="/todos">
             <input type="text" name="title" />
             <input type="submit" value="Add Todo" />
         </form>
+        <script>
+        document.querySelectorAll('.delete-form').forEach(form => {
+          form.addEventListener('submit', function(e) {
+              e.preventDefault();
+              fetch(form.action, {
+                  method: 'DELETE',
+              })
+              .then(response => response.json())
+              .then(data => {
+                  console.log(data);
+                  // Remove the li element
+                  form.parentElement.remove();
+              })
+              .catch((error) => console.error('Error:', error));
+          });
+      });
+
+      document.querySelector('#add-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        let title = document.querySelector('input[name="title"]').value;
+        fetch('/todos', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({title: title}),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            window.location.href = '/';
+        })
+        .catch((error) => console.error('Error:', error));
+    });
+        </script>
         </body>
         </html>
   `);
@@ -63,14 +102,22 @@ app.get("/todos/:id", (req, res) => {
 });
 
 app.post("/todos", (req, res) => {
-  console.log(req.body);
   const todo = {
     id: todos.length + 1,
     title: req.body.title,
     description: req.body.description,
+    completed: false,
   };
 
   todos.push(todo);
+  fs.writeFile("./todos.json", JSON.stringify(todos), (err) => {
+    if (err) {
+      res.json({
+        status: 500,
+      });
+    }
+  });
+
   res.json({
     id: todo.id,
     status: 201,
@@ -89,6 +136,13 @@ app.put("/todos/:id", (req, res) => {
   }
 
   todos[updateTodoIndex] = updateTodo;
+  fs.writeFile("./todos.json", JSON.stringify(todos), (err) => {
+    if (err) {
+      res.json({
+        status: 500,
+      });
+    }
+  });
   res.json({
     todo: todos[updateTodoIndex],
     status: 200,
@@ -110,6 +164,13 @@ app.delete("/todos/:id", (req, res) => {
     todo: deletedTodo,
     status: 200,
   });
+});
+fs.writeFile("./todos.json", JSON.stringify(todos), (err) => {
+  if (err) {
+    res.json({
+      status: 500,
+    });
+  }
 });
 
 app.listen(PORT, () => {

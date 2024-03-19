@@ -1,14 +1,1 @@
-[
-  {
-    "id": 1,
-    "title": "test1",
-    "completed": "true",
-    "description": "This is my first todo"
-  },
-  {
-    "id": 2,
-    "title": "test2",
-    "completed": "false",
-    "description": "This is my second todo"
-  }
-]
+[{"id":1,"title":"first task","completed":false},{"id":2,"title":"second task","completed":false},{"id":3,"title":"third task","completed":false},{"id":4,"title":"fourth task","completed":false},{"id":5,"title":"fifth","completed":false},{"id":6,"title":"sixth","completed":false}]
