@@ -39,11 +39,78 @@
 
   Testing the server - run `npm run test-todoServer` command in terminal
  */
-  const express = require('express');
-  const bodyParser = require('body-parser');
-  
-  const app = express();
-  
-  app.use(bodyParser.json());
-  
-  module.exports = app;
+// const express = require('express');
+// const bodyParser = require('body-parser');
+
+// const app = express();
+
+// app.use(bodyParser.json());
+
+// module.exports = app;
+
+const express = require("express");
+const bodyParser = require("body-parser");
+
+const app = express();
+
+app.use(bodyParser.json());
+
+let todos = [];
+
+app.get("/todos", (req, res) => {
+  res.json(todos);
+});
+
+app.get("/todos/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const todoToSend = todos.find((todo) => todo.id === id);
+
+  if (!todoToSend) {
+    res.status(404).send();
+  } else {
+    res.json(todoToSend);
+  }
+});
+
+app.post("/todos", (req, res) => {
+  const todo = {
+    id: Math.floor(Math.random() * 1000000),
+    title: req.body.title,
+    description: req.body.description,
+  };
+  todos.push(todo);
+  res.status(201).json(todo);
+});
+
+app.put("/todos/:id", (req, res) => {
+  const updateTodo = req.body;
+  const updateTodoIndex = todos.findIndex(
+    (todo) => todo.id === parseInt(req.params.id)
+  );
+
+  if (updateTodoIndex === -1) {
+    res.status(404).send();
+  } else {
+    todos[updateTodoIndex].title = updateTodo.title;
+    todos[updateTodoIndex].description = updateTodo.description;
+    res.json(todos[updateTodoIndex]);
+  }
+});
+
+app.delete("/todos/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const deleteTodoIndex = todos.findIndex((todo) => todo.id === id);
+
+  if (deleteTodoIndex === -1) {
+    res.status(404).send();
+  } else {
+    const deletedTodo = todos.splice(deleteTodoIndex, 1);
+    res.status(200).json({});
+  }
+});
+
+app.use((req, res, next) => {
+  res.status(404).send();
+});
+
+module.exports = app;
