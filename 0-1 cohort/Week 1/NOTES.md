@@ -29,3 +29,5 @@ fs.readFile("a.txt", "utf-8", function (err, data) { // it lets you read data fr
   console.log(data);
 });
 ```
+
+![alt text](image.png)
