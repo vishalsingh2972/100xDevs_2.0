@@ -5,52 +5,52 @@ const express = require("express");
 const app = express();
 const port = 5001;
 
-function usernameValidator(username, password){ //common MIDDLEWARE function for all routes
+function usernameValidator(username, password) { //common MIDDLEWARE function for all routes
   if (username != 'dexter' || password != 'pass') {
-      return false;
+    return false;
   }
   return true;
 }
 
-function kidneyValidator(kidneyId){ //common MIDDLEWARE function for all routes
-  if(kidneyId == 1 || kidneyId == 2) return true;
-  return false; 
+function kidneyValidator(kidneyId) { //common MIDDLEWARE function for all routes
+  if (kidneyId == 1 || kidneyId == 2) return true;
+  return false;
 }
 
 app.get('/health-checkup', (req, res) => {
   if (!usernameValidator(req.headers.username, req.headers.password)) {
-      res.status(400).json({
-        msg : "user doesn't exist, please enter the correct username/password",
-      });
-  return;
+    res.status(400).json({
+      msg: "user doesn't exist, please enter the correct username/password",
+    });
+    return;
   }
-  if(!kidneyValidator(req.query.kidneyId)){
-      res.status(400).json({
-          msg : "wrong inputs, please enter the correct kidneyId",
-      });
-  return;
+  if (!kidneyValidator(req.query.kidneyId)) {
+    res.status(400).json({
+      msg: "wrong inputs, please enter the correct kidneyId",
+    });
+    return;
   }
   res.status(200).json({
-    msg : "Your Kidneys are fine"
+    msg: "Your Kidneys are fine"
   })
   console.log("sab badiya");
 });
 
 app.post('/replace-kidney', (req, res) => {
   if (!usernameValidator(req.headers.username, req.headers.password)) {
-      res.status(403).json({
-        msg : "user doesn't exist, please enter the correct username/password",
-      });
-  return;
+    res.status(403).json({
+      msg: "user doesn't exist, please enter the correct username/password",
+    });
+    return;
   }
-  if(kidneyValidator(req.query.kidneyId)){
-      res.status(411).json({
-        msg : "wrong inputs, please enter the correct kidneyId",
-      });
-  return;
+  if (!kidneyValidator(req.query.kidneyId)) {
+    res.status(411).json({
+      msg: "wrong inputs, please enter the correct kidneyId",
+    });
+    return;
   }
   res.status(200).json({
-    msg : "Your Kidneys are fine"
+    msg: "Your Kidneys are fine"
   })
   console.log("sab badiya");
 });

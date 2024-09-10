@@ -11,8 +11,9 @@
 
 const express = require("express");
 const app = express();
+const port = 7000;
 
-app.use(express.json()); 
+app.use(express.json()); //all incoming data Express won't be able to understand by default. That's because the request body is sent as a string(as HTTP requests can only send strings), and Express doesn't automatically parse JSON strings, app.use(express.json()) tells Express to use the express.json() middleware, which parses the JSON string in the request body and converts it into JSON format. This allows you to access the data in req.body as JSON now.
 
 app.post("/health-checkup", function (req, res){
   //req input send by the user is like this ---> kidneys = [1,2]
@@ -33,8 +34,9 @@ app.use(function (err, req, res, next) { //Express.js identifies this as a error
 // It checks the data type of the input that the server needs and the data type of the user input.
 // Using zod makes easy for the developer to perform input validation. The tricky part here is to define the schema.
 
-app.listen(7000);
-
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
 
 //Also Possible, can try
 async function trial1(req, res, next){
@@ -49,3 +51,16 @@ function trial2(req, res, next){
   next(); 
   })
 }
+
+
+/*
+Here's a breakdown of the process:
+- Postman: You send a JSON object in the request body, e.g., {"name":"John","age":30}.
+- Serialization: The JSON object gets serialized into a string, because HTTP requests can only send strings. So, it becomes: '{"name":"John","age":30}"'.
+- Transfer: The string is sent over the network to the server.
+- Server: The server receives the string in the request body.
+- express.json() middleware: This middleware checks and understands/identifies that the incoming data now in string format was originally in JSON format.
+- Deserialization: express.json() deserializes the string back into a JavaScript object, so it becomes: { name: "John", age: 30 }.
+- req.body: This JavaScript object is now accessible in the Express route handler as req.body.
+The JSON data is converted to a string for transfer, and then express.json() converts it back into a JavaScript object that Express can understand and work with. 
+*/

@@ -8,6 +8,7 @@ const express = require("express");
 const app = express();
 let numberofRequests = 0;
 let totalTimeTaken = 0;
+const port = 5003;
 
 //Creating the middleware function to count the number of incoming requests ~ Each time a request is made to the server, the count will increment
 function calculateRequests(req, res, next){
@@ -68,8 +69,10 @@ app.use(calculateRequests);
 app.use(handleRequests); 
 app.use(userMiddleware);
 app.use(kidneyMiddleware);
+// app.use(calculateRequests, handleRequests, userMiddleware, kidneyMiddleware); //direct attack
 
 // Here, first the userMiddleware function will be executed and then the kidneyMiddleware function will execute.
+// as not specified so this will run all functions (~ calculateRequests, handleRequests, userMiddleware, kidneyMiddleware)
 app.get("/health-checkup-four", function (req, res){
     // Do something with kidney here
     //console.log('Both middleware functions passed now I am inside the route handler function');
@@ -77,6 +80,7 @@ app.get("/health-checkup-four", function (req, res){
   }
 )
 
+// this will only run userMiddleware and kidneyMiddleware functions
 app.get("/replace-kidney-three", userMiddleware, kidneyMiddleware, function (req, res){
     // The kidney replacement logic will be written here.
 
@@ -86,13 +90,15 @@ app.get("/replace-kidney-three", userMiddleware, kidneyMiddleware, function (req
 )
 
 // We can use the middleware functions in other routes as well.
-// Here, we don't have to pass the kidneyMiddleware function for the heart check.
+// Here, we don't have to pass the kidneyMiddleware function for the heart check ~ as this will only run userMiddleware function
 app.get("/heart-check", userMiddleware, function (req, res){
   // Do something with user here.
   res.send("Your heart is healthy 💖");
 })
 
-app.listen(5002);
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
 
 //observe carefully although he order given is app.use(calculateRequests); app.use(handleRequests); app.use(userMiddleware); app.use(kidneyMiddleware);
 //but the output is in the order app.use(calculateRequests); app.use(userMiddleware); app.use(kidneyMiddleware); app.use(handleRequests);
