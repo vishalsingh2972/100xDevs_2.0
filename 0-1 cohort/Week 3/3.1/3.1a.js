@@ -12,7 +12,7 @@ app.get("/health-checkup", function(req,res){
   const username = req.headers.username;
   const password = req.headers.password; 
 
-  if(kidneyId != 1 && kidneyId != 2){ //Input validation //can also be written as  if(kidneyId != 1 && kidneyId != 2){ 
+  if(kidneyId != 1 && kidneyId != 2){ //Input validation 
     res.status(400).json({
       msg : "wrong inputs, please enter the correct kidneyId"
     })
