@@ -3,6 +3,7 @@
 
 const express = require("express");
 const app = express();
+const port = 5001;
 
 function usernameValidator(username, password){ //common MIDDLEWARE function for all routes
   if (username != 'dexter' || password != 'pass') {
@@ -17,13 +18,13 @@ function kidneyValidator(kidneyId){ //common MIDDLEWARE function for all routes
 }
 
 app.get('/health-checkup', (req, res) => {
-  if (!usernameValidator(req.headers.username, req.headers.passward)) {
+  if (!usernameValidator(req.headers.username, req.headers.password)) {
       res.status(400).json({
         msg : "user doesn't exist, please enter the correct username/password",
       });
   return;
   }
-  if(kidneyValidator(req.query.kidneyId)){
+  if(!kidneyValidator(req.query.kidneyId)){
       res.status(400).json({
           msg : "wrong inputs, please enter the correct kidneyId",
       });
@@ -36,7 +37,7 @@ app.get('/health-checkup', (req, res) => {
 });
 
 app.post('/replace-kidney', (req, res) => {
-  if (!usernameValidator(req.headers.username, req.headers.passward)) {
+  if (!usernameValidator(req.headers.username, req.headers.password)) {
       res.status(403).json({
         msg : "user doesn't exist, please enter the correct username/password",
       });
@@ -54,7 +55,9 @@ app.post('/replace-kidney', (req, res) => {
   console.log("sab badiya");
 });
 
-app.listen(5000);
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
 
 //To make the above solution - 3.1b more better, we enhance the middleware functions in 3.1c
 //These functions will perform the complete validation and send the response.

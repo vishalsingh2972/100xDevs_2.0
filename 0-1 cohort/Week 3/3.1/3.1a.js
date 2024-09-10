@@ -3,6 +3,7 @@
 
 const express = require("express");
 const app = express();
+const port = 5000;
 
 app.get("/health-checkup", function(req,res){
 
@@ -31,7 +32,9 @@ app.get("/health-checkup", function(req,res){
   console.log("sab badiya");
 })
 
-app.listen(5000);
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
 
 //Now if I want to do another operation like kidney replacement, I need to introduce another route like:
 // app.post("/kidney-replacement", function(req,res){ 

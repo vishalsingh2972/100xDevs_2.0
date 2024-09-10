@@ -6,6 +6,7 @@
 const express = require("express");
 const app = express();
 let numberofRequests = 0;
+const port = 5002;
 
 //Creating the middleware function to count the number of incoming requests ~ Each time a request is made to the server, the count will increment
 function calculateRequests(req, res, next){
@@ -70,7 +71,9 @@ app.get("/heart-check", userMiddleware, function (req, res){
   res.send("Your heart is healthy 💖");
 })
 
-app.listen(5000);
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
 
 // In above routes, we had passed the middleware functions as arguments.
 // If we want to apply a middleware function to all the routes, we can use app.use() function.
