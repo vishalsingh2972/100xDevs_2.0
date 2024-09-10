@@ -22,7 +22,7 @@ app.post("/health-checkup", function (req, res){
   res.send(`You have ${kidneyLength} kidneys`);
 })
 
-//Global Catch Middleware ~ comes under category of error handling Middlewares in Express.js which takes 4 parameters as input
+//Global Catch Middleware or Error Handling Middlewares ~ comes under category of error handling Middlewares in Express.js which takes 4 parameters as input
 app.use(function (err, req, res, next) { //Express.js identifies this as a error handling Middleware because of these 4 arguments //"next" here as we can also have multiple error handling Middlewares one after another
   //errorCount++; //EXTRA: by using this we can kind of count the number of exceptions that we are getting in the backend, can put conditions like if number of exceptions go above 100 we can alert another system and perform certain operations as per requirement
   res.json({

@@ -2,6 +2,7 @@
 
 const express = require("express");
 const app = express();
+const port = 7001;
 
 const zod1 = require('zod');
 const schema = zod1.array(zod1.number()); //telling zod1 that schema or structure of my input must be an array with numbers
@@ -31,4 +32,6 @@ app.post("/health-checkup", function (req, res){
   }
 })
 
-app.listen(7000);
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
