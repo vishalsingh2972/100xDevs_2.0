@@ -62,5 +62,5 @@ Here's a breakdown of the process:
 - express.json() middleware: This middleware checks and understands/identifies that the incoming data now in string format was originally in JSON format.
 - Deserialization: express.json() deserializes the string back into a JavaScript object, so it becomes: { name: "John", age: 30 }.
 - req.body: This JavaScript object is now accessible in the Express route handler as req.body.
-The JSON data is converted to a string for transfer, and then express.json() converts it back into a JavaScript object that Express can understand and work with. 
+The JSON data is converted to a string for transfer, and then express.json() converts it back into a JSON that Express can understand and work with. 
 */
