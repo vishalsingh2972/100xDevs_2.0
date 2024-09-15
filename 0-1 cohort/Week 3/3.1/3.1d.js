@@ -15,7 +15,7 @@ const port = 7000;
 
 app.use(express.json()); //all incoming data Express won't be able to understand by default. That's because the request body is sent as a string(as HTTP requests can only send strings), and Express doesn't automatically parse JSON strings, app.use(express.json()) tells Express to use the express.json() middleware, which parses the JSON string in the request body and converts it into JSON format. This allows you to access the data in req.body as JSON now.
 
-app.post("/health-checkup", function (req, res){
+app.post("/health-checkup", function (req, res) {
   //req input send by the user is like this ---> kidneys = [1,2]
   const kidneys = req.body.kidneys;
   const kidneyLength = kidneys.length;
@@ -39,16 +39,16 @@ app.listen(port, () => {
 });
 
 //Also Possible, can try
-async function trial1(req, res, next){
+async function trial1(req, res, next) {
   await fetch();
 
   next(); //so here next will only get hit once await fetch is completed
 }
 
 //Also Possible, can try
-function trial2(req, res, next){
+function trial2(req, res, next) {
   fetch.then(() => {
-  next(); 
+    next();
   })
 }
 

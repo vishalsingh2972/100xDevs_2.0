@@ -1,55 +1,56 @@
-//Zod for validating email, password, country entered by the user.
+// Zod for validating email, password, country entered by the user.
 
 const express = require("express");
 const app = express();
+const port = 7002;
 
 const zod2 = require('zod');
 
 //Zod schema for validating email, password, and country
+//When you have multiple checks, you can define a schema using an object with Zod's object() method, by using an object schema, you can validate multiple fields with different rules, making it a powerful way to ensure your input data conforms to your expectations
 const schema = zod2.object({
-  email : zod2.string().email(),         //email with @ .com format //z.string().email(); inbuilt given by Zod
-  password : zod2.string().min(8), //password with atleast 8 letters 
-  country: zod2.literal('IN').or(zod2.literal('US'))
+  email: zod2.string().email(),         //email with @ .com format //z.string().email(); inbuilt given by Zod
+  password: zod2.string().min(8),        //password with atleast 8 letters 
+  country: zod2.literal('IN').or(zod2.literal('US')) //country either India or USA 
 })
 
-app.use(express.json()); 
+app.use(express.json());
 
-app.post("/login", function (req, res){
-// { expected input format from the user must ideally be like this: 
-//   email : string => email @ .com
-//   password : atleast 8 letters 
-//   country : "IN" or "US"
-// } 
-//but that won't happen always hence we are using zod to handle the unwanted inputs entered by the user
+app.post("/login", function (req, res) {
+  // { expected input format from the user must ideally be like this: 
+  //   email : string => email @ .com
+  //   password : atleast 8 letters 
+  //   country : "IN" or "US"
+  // } 
+  //but that won't happen always hence we are using zod to handle the unwanted inputs entered by the user
 
   const userInput = req.body;
   const response = schema.safeParse(userInput); //safeParse will validate whether 'userInput' is in the same form as 'schema' and after everything is done the value is stored in 'response'
   //console.log(userInput); console.log(response);  console.log(response.data); console.log(response.data.email); console.log(response.error.issues);
-  
+
   // If user sends wrong input and validation fails, send an error response
-  if(!response.success){
+  if (!response.success) {
     res.status(411).json({
       //response
-      success: false, 
+      success: false,
       failureDetails: response.error.errors //or can also put failureDetails: response.error.issues, will give same response
     })
-    return;
+    // return; //redundant return
   }
   // If user sends correct input and validation passes, process the user data
-  const { email, password, country } = response.data; 
+  const { email, password, country } = response.data;
   //console.log(email);
   res.send({
     //response
-    success: true, 
-    message: 'User registered successfully', 
+    success: true,
+    message: 'User registered successfully',
     userDetails: { email, password, country }
   })
 })
 
-app.listen(7001);
-
-
-
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
 
 //Zod trial using function and giving an input manually
 //trial1
