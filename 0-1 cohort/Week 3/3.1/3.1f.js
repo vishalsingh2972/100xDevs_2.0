@@ -10,7 +10,7 @@
 // 2. Ask the user to send back the token in all future requests 
 // 3. When the user logs out, ask the user to forget the token (or revoke it from the backend)
 
-//Why send token stored in local storage each time to the backend, why not just store username/password in local storage and send each time to the backend? ~ in short, to avoid security risks
+//Why send token stored in local storage each time to the backend, why not just store username/password in local storage and send username/password on each request to the backend? ~ in short, to avoid security risks
 
 // Library to get comfortable with - [jsonwebtokens](https://jwt.io)
 
