@@ -7,14 +7,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>replit</title>
+  <title>Fetch API 2</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-  <div id="container">
-  </div>
   <button onclick="getAnimals()">get animals</button>
+  <div id="container">yaha ayega sab data</div>
   <script>
     function getAnimals() {
       fetch("https://fakerapi.it/api/v1/persons")
@@ -23,7 +22,6 @@
           document.getElementById("container").innerHTML = JSON.stringify(jsonData.data);
         })
     }
-    
   </script>
 </body>
 

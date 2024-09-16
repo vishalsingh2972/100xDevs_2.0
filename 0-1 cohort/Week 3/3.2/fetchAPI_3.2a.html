@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>replit</title>
+  <title>Fetch API</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -24,8 +24,8 @@
 
     //async await syntax
     async function getAnimalData(){
-      const response = await fetch('https://fakerapi.it/api/v1/persons');
-      const finalData = await response.json(); //so response.json() helps us grab the incoming data when we know that the incoming data response is in json format
+      const response = await fetch('https://fakerapi.it/api/v1/persons'); //response ~ raw format data
+      const finalData = await response.json(); //finalData ~ JSON format data
       console.log(finalData);
       
       //getAnimalData();

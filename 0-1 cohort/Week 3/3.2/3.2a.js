@@ -4,6 +4,6 @@
 //- Authenication
   //--Hashing
   //--Encryption
-  //--JSON Web Tokens
+  //--JSON Web Tokens (IMP 🌟)
   //--Local Storage
  
