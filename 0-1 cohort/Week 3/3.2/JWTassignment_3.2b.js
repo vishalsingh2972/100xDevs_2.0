@@ -7,6 +7,9 @@
 // 3)/users -  we input the header(containing the JWT), backend checks the JWT if all correct it hits the DB gets the user data and sends it back to the FE
 // so in short here we will learn how a backend application talks/interacts with a MongoDB database +  we are using Mongoose library here for interacts between the backend and the MongoDB database
 
+// require('dotenv').config();
+// const mongo_url = process.env.MONGO_URL;
+
 const express = require('express');
 const app = express();
 const port = 9999;
@@ -17,18 +20,42 @@ app.use(express.json());
 
 const mongoose = require("mongoose");
 mongoose.connect(
-  "your_mongo_url",
+  // mongo_url ~ via .env file
+  'your_mongo_url'
 );
 
-const User = mongoose.model("User", {
+const User = mongoose.model("Users", {
   name: String,
-  username: String,
-  pasword: String,
+  email: String,
+  password: String,
 });
 
 function userExists(username, password) {
   // should check in the database
 }
+
+app.post("/signup", async function (req, res) {
+  const name = req.body.name;
+  const username = req.body.username;
+  const password = req.body.password;
+
+  //avoid creating duplicates ~ first check if user with same creds already exists or not only then add otherwise don't add this user
+  const existingUser = await User.findOne({ email: username });
+  if(existingUser){
+    return res.status(400).send("Username is already taken, try something else!");
+  }
+
+  const user = new User({
+    name: name,
+    email: username,
+    password: password
+  });
+  user.save().then(() => console.log('new user added to database'));
+
+  res.json({
+    "message": "User created successfully"
+  })
+});
 
 app.post("/signin", async function (req, res) {
   const username = req.body.username;
