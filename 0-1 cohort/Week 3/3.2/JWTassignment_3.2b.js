@@ -30,10 +30,6 @@ const User = mongoose.model("Users", {
   password: String,
 });
 
-function userExists(username, password) {
-  // should check in the database
-}
-
 app.post("/signup", async function (req, res) {
   const name = req.body.name;
   const username = req.body.username;
