@@ -4,12 +4,16 @@
 //endpoint 1 - POST /signin which takes username and password as input from FE and Returns a json web token (JWT) with username encrypted
 //endpoint 2 - GET /users which takes Authorization header or previosly returned JWT as input from FE and Returns an array of all users if user is signed in (token is correct) or Returns 403 status code if not
 
-const express = require("express");
-const jwt = require("jsonwebtoken");
+const express = require('express');
+const app = express();
+const port = 3000;
+
+const jwt = require('jsonwebtoken');
 const jwtPassword = "123456"; //secret key used for verifying the JWT's authenticity and is only known to the backend server
 
-const app = express();
 app.use(express.json());
+
+//hamara in memory database for now
 const ALL_USERS = [
   {
     username: "harkirat@gmail.com",
@@ -32,7 +36,7 @@ function userExists(username, password) {
   // write logic to return true or false if this user exists
   // in ALL_USERS array
   let userExists = false; //just assume initially
-  for(let i = 0; i<ALL_USERS.length; i++){
+  for(let i = 0; i<ALL_USERS.length; i++){ //or can also do using find() to map through the array
     if(ALL_USERS[i].username == username && ALL_USERS[i].password == password){
       userExists =  true;
     }
@@ -62,9 +66,11 @@ app.post("/signin", function (req, res) {
     });
   }
 
-  var token = jwt.sign({ username: username }, jwtPassword); //this creates the token/JWT that is send back to the FE during the first user log in
+  var token = jwt.sign({ username: username }, jwtPassword); //this creates the token/JWT that is send back to the FE during the first user log in, also here by specifying the secret key (jwtPassword), you ensure that: Tokens are authentic and come from your trusted servers only.
+  // console.log("JWT :",token);
   return res.json({
-    token,
+    // "JWT" : token
+    token
   });
 });
 
@@ -89,4 +95,40 @@ app.get("/users", function (req, res) {
   }
 });
 
-app.listen(3000)
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
+
+
+/*
+Here's a quick summary:
+- You send login credentials (username/password) to the server.
+- The server authenticates your credentials.
+- The server generates a JWT containing:
+	Header (algorithm, token type)
+	Payload (username, other user info)
+	Signature (generated using the secret key)
+- The server creates and stores a secret key (not transmitted to you) i.e here used as 'jwtPassword'.
+- The server sends the JWT to you.
+
+Subsequent Requests:
+- You send the JWT with each request to the server.
+- The server receives the JWT and extracts:
+	Header
+	Payload
+	Signature
+- The server uses the stored secret key to verify the signature.
+- If verification succeeds:
+	Server processes the request.
+	Server sends a response back.
+
+Key points:
+- The secret key is generated and stored by the server, never transmitted to you.
+- The secret key is used for signature verification, not for authentication.
+- The JWT (header.payload.signature) is transmitted with each request.
+
+Additional considerations:
+Token expiration: JWTs can have an expiration time, after which they're considered invalid.
+Token revocation: Implementing a token revocation mechanism to invalidate compromised tokens.
+HTTPS: Using HTTPS ensures the JWT is transmitted securely.
+*/ 
