@@ -7,11 +7,15 @@
 // 3)/users -  we input the header(containing the JWT), backend checks the JWT if all correct it hits the DB gets the user data and sends it back to the FE
 // so in short here we will learn how a backend application talks/interacts with a MongoDB database +  we are using Mongoose library here for interacts between the backend and the MongoDB database
 
-const express = require("express");
-const jwt = require("jsonwebtoken");
-const mongoose = require("mongoose");
-const jwtPassword = "123456";
+const express = require('express');
+const app = express();
+const port = 9999;
 
+const jwt = require("jsonwebtoken");
+const jwtPassword = "123456";
+app.use(express.json());
+
+const mongoose = require("mongoose");
 mongoose.connect(
   "your_mongo_url",
 );
@@ -21,9 +25,6 @@ const User = mongoose.model("User", {
   username: String,
   pasword: String,
 });
-
-const app = express();
-app.use(express.json());
 
 function userExists(username, password) {
   // should check in the database
@@ -58,4 +59,6 @@ app.get("/users", function (req, res) {
   }
 });
 
-app.listen(3000);
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
