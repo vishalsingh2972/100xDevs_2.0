@@ -16,19 +16,19 @@ app.use(express.json());
 //hamara in memory database for now
 const ALL_USERS = [
   {
-    username: "harkirat@gmail.com",
+    username: "vishal@gmail.com",
     password: "123",
-    name: "harkirat singh",
+    name: "vishal singh",
   },
   {
     username: "raman@gmail.com",
-    password: "123321",
-    name: "Raman singh",
+    password: "456",
+    name: "raman singh",
   },
   {
     username: "priya@gmail.com",
-    password: "123321",
-    name: "Priya kumari",
+    password: "789",
+    name: "priya kumari",
   },
 ];
 
@@ -36,9 +36,9 @@ function userExists(username, password) {
   // write logic to return true or false if this user exists
   // in ALL_USERS array
   let userExists = false; //just assume initially
-  for(let i = 0; i<ALL_USERS.length; i++){ //or can also do using find() to map through the array
-    if(ALL_USERS[i].username == username && ALL_USERS[i].password == password){
-      userExists =  true;
+  for (let i = 0; i < ALL_USERS.length; i++) { //or can also do using find() to map through the array (tried below)
+    if (ALL_USERS[i].username == username && ALL_USERS[i].password == password) {
+      userExists = true;
     }
   }
   return userExists;
@@ -78,11 +78,13 @@ app.get("/users", function (req, res) {
   const token = req.headers.authorization;
   try {
     const decoded = jwt.verify(token, jwtPassword);
+    // console.log(decoded); console.log(decoded.username); console.log(decoded.iat);
+
     const username = decoded.username;
-    // return a list of users other than this username
+    // return a list of users other than this username ~ basically, return everyone but themselves
     res.json({
-      users: ALL_USERS.filter(function(user){
-        if(user.username == username){
+      users: ALL_USERS.filter(function (user) {
+        if (user.username == username) {
           return false; //This instructs the filter() method to exclude this user from the final array.
         }
         return true; //This tells the filter() method to include this user in the final array.
@@ -101,26 +103,26 @@ app.listen(port, () => {
 
 
 /*
-Here's a quick summary:
+Here's a quick summary of how JWT is working:
 - You send login credentials (username/password) to the server.
 - The server authenticates your credentials.
 - The server generates a JWT containing:
-	Header (algorithm, token type)
-	Payload (username, other user info)
-	Signature (generated using the secret key)
+  Header (algorithm, token type)
+  Payload (username, other user info)
+  Signature (generated using the secret key)
 - The server creates and stores a secret key (not transmitted to you) i.e here used as 'jwtPassword'.
 - The server sends the JWT to you.
 
 Subsequent Requests:
 - You send the JWT with each request to the server.
 - The server receives the JWT and extracts:
-	Header
-	Payload
-	Signature
+  Header
+  Payload
+  Signature
 - The server uses the stored secret key to verify the signature.
 - If verification succeeds:
-	Server processes the request.
-	Server sends a response back.
+  Server processes the request.
+  Server sends a response back.
 
 Key points:
 - The secret key is generated and stored by the server, never transmitted to you.
