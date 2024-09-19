@@ -66,6 +66,7 @@ app.post("/signin", function (req, res) {
     });
   }
 
+  //jwt.sign ~ backend server generates a new token using this function
   var token = jwt.sign({ username: username }, jwtPassword); //this creates the token/JWT that is send back to the FE during the first user log in, also here by specifying the secret key (jwtPassword), you ensure that: Tokens are authentic and come from your trusted servers only.
   // console.log("JWT :",token);
   return res.json({
@@ -77,10 +78,10 @@ app.post("/signin", function (req, res) {
 app.get("/users", function (req, res) {
   const token = req.headers.authorization;
   try {
-    const decoded = jwt.verify(token, jwtPassword);
-    // console.log(decoded); console.log(decoded.username); console.log(decoded.iat);
+    const verified = jwt.verify(token, jwtPassword); //jwt.verify ~ backend server verifies token using this function
+    // console.log(verified); console.log(verified.username); console.log(verified.iat);
 
-    const username = decoded.username;
+    const username = verified.username;
     // return a list of users other than this username ~ basically, return everyone but themselves
     res.json({
       users: ALL_USERS.filter(function (user) {
