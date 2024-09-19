@@ -1,6 +1,9 @@
 const jwt = require('jsonwebtoken');
 const jwtPassword = 'secret';
 
+const zod = require('zod');
+const emailSchema = zod.string().email();
+const passwordSchema = zod.string().min(5);
 
 /**
  * Generates a JWT for a given username and password.
@@ -14,7 +17,19 @@ const jwtPassword = 'secret';
  *                        the password does not meet the length requirement.
  */
 function signJwt(username, password) {
-    // Your code here
+
+    const usernameCheck = emailSchema.safeParse(username);
+    const passwordCheck = passwordSchema.safeParse(password);
+
+    if (!usernameCheck.success || !passwordCheck.success) { //if either of above checks fail return 'null'
+        //console.log('kuch to gadbad hai!');
+        return null;
+    }
+
+    const JWT = jwt.sign({ username }, jwtPassword); //or jwt.sign({ username: username }, jwtPassword)
+    //console.log(JWT);
+
+    return JWT;
 }
 
 /**
@@ -26,7 +41,15 @@ function signJwt(username, password) {
  *                    using the secret key.
  */
 function verifyJwt(token) {
-    // Your code here
+    const verified = jwt.verify(token, jwtPassword);
+//veified doesn't work with if/else, need try catch blocks to catch errors ~ jwt.verify requires a try-catch block to handle potential errors.
+    try {
+        const verified = jwt.verify(token, jwtPassword);
+        return true;
+    }
+    catch (e) {
+        return false;
+    }
 }
 
 /**
@@ -36,14 +59,19 @@ function verifyJwt(token) {
  * @returns {object|false} The decoded payload of the JWT if the token is a valid JWT format.
  *                         Returns false if the token is not a valid JWT format.
  */
+
 function decodeJwt(token) {
-    // Your code here
+    const decoded = jwt.decode(token);
+//decode works with if/else ~ jwt.decode can be used with simple if statements to check for validity.
+    if (decoded) {
+        return true;
+    }
+    return false;
 }
 
-
 module.exports = {
-  signJwt,
-  verifyJwt,
-  decodeJwt,
-  jwtPassword,
+    signJwt,
+    verifyJwt,
+    decodeJwt,
+    jwtPassword,
 };
