@@ -44,7 +44,7 @@ function verifyJwt(token) {
     const verified = jwt.verify(token, jwtPassword);
 //veified doesn't work with if/else, need try catch blocks to catch errors ~ jwt.verify requires a try-catch block to handle potential errors.
     try {
-        const verified = jwt.verify(token, jwtPassword);
+        jwt.verify(token, jwtPassword);
         return true;
     }
     catch (e) {
