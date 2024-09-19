@@ -4,8 +4,8 @@ const jwtPassword = 'secret';
 function verifyJwt(token) {
 
   try{
-   const verified =  jwt.verify(token, jwtPassword);
-       return true;
+    jwt.verify(token, jwtPassword);
+    return true;
   }
   catch(e){
    return false;
