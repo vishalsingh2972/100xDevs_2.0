@@ -32,7 +32,6 @@ router.post('/signup', (req, res) => {
 // ~ admin/courses - POST
 router.post('/courses', adminMiddleware, async (req, res) => {
     // Implement course creation logic
-
     const title = req.body.title;
     const description = req.body.description;
     const price = req.body.price;
