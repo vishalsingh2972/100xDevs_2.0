@@ -1,7 +1,9 @@
+const { mongodb_url2 } = require('../utils/constants');
+
 const mongoose = require('mongoose');
 
 // Connect to MongoDB
-mongoose.connect('your-mongodb-url');
+mongoose.connect(mongodb_url2);
 
 // Define schemas
 const AdminSchema = new mongoose.Schema({

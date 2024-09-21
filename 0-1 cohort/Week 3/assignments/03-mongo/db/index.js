@@ -1,8 +1,10 @@
+const { mongodb_url } = require('../utils/constants');
+
 // Import Mongoose Library
 const mongoose = require('mongoose');
 
 // Connect to MongoDB Database
-mongoose.connect('your_mongo_url');
+mongoose.connect(mongodb_url);
 
 // Define Mongoose Schemas
 const AdminSchema = new mongoose.Schema({
