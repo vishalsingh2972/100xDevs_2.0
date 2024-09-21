@@ -1,5 +1,5 @@
 //interact with list of db instances present in the 'Admin1' table/collection using the Admin i.e the one which we initially used to create these instances in the table using Admin.create()...
-import { Admin } from "../db/index";
+const { Admin } = require("../db/index");
 
 // Middleware for handling auth
 function adminMiddleware(req, res, next) {

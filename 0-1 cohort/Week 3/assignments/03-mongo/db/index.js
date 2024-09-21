@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 // Connect to MongoDB Database
-mongoose.connect('your-mongodb-url');
+mongoose.connect('your_mongo_url');
 
 // Define Mongoose Schemas
 const AdminSchema = new mongoose.Schema({
@@ -13,7 +13,7 @@ const AdminSchema = new mongoose.Schema({
 const UserSchema = new mongoose.Schema({
     username: String,
     password: String,
-    purchasedCoures:[{
+    purchasedCourses:[{
         ref: 'Course',
         type: mongoose.Schema.Types.ObjectId       
     }]
