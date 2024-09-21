@@ -15,4 +15,4 @@ app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
 
-modular.exports = jwtPassword;
+module.exports = jwtPassword;
