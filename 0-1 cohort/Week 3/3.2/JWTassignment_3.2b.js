@@ -72,8 +72,8 @@ app.post("/signin", async function (req, res) {
 app.get("/users", function (req, res) {
   const token = req.headers.authorization;
   try {
-    const decoded = jwt.verify(token, jwtPassword);
-    const username = decoded.username;
+    const verified = jwt.verify(token, jwtPassword);
+    const username = verified.username;
     // return a list of users other than this username from the database
   } catch (err) {
     return res.status(403).json({

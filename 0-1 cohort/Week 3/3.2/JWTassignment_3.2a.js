@@ -79,6 +79,8 @@ app.get("/users", function (req, res) {
   const token = req.headers.authorization;
   try {
     const verified = jwt.verify(token, jwtPassword); //jwt.verify ~ backend server verifies token using this function
+
+    //When you call jwt.verify(), it decodes and verifies the token, and then returns the payload of the token, which is the middle part of the JWT (the data encoded within the token)
     // console.log(verified); console.log(verified.username); console.log(verified.iat);
 
     const username = verified.username;
