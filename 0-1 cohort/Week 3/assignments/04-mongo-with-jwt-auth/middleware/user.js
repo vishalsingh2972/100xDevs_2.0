@@ -1,6 +1,6 @@
 // Middleware for handling user authentication
 const jwt = require('jsonwebtoken');
-const jwt_Password = require('../index');
+const { jwt_Password } = require('../config');
 
 function userMiddleware(req, res, next) {
     // Implement user auth logic
@@ -10,7 +10,7 @@ function userMiddleware(req, res, next) {
     //token ~ Bearer agdgvdggdgvdgvd => ["Bearer", "agdgvdggdgvdgvd"]
     const words = token.split(" "); //make string to array of substrings
     const our_jwt = words[1];
-    // try {
+    try {
         const verifiedValue = jwt.verify(our_jwt, jwt_Password);//When you call jwt.verify(), it decodes and verifies the token, and then returns the payload of the token, which is the middle part of the JWT (the data encoded within the token), so now verifiedValue = payload part of the jwt
 
         if (verifiedValue.username) {
@@ -21,10 +21,10 @@ function userMiddleware(req, res, next) {
                 msg: "User authentication failure"
             })
         }
-    // }
-    // catch (e) {
-    //     console.log(e);
-    // }
+    }
+    catch (e) {
+        console.log(e);
+    }
 }
 
 module.exports = userMiddleware;
