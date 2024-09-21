@@ -62,7 +62,18 @@ router.get('/purchasedCourses', userMiddleware, async (req, res) => {
         username: req.headers.username,
         password: req.headers.password
     })
-    console.log(user.purchasedCourses); // gives array of purchased coursed of the user
+    // console.log(user.purchasedCourses); // gives array of purchased courseIds of the user
+    // res.json({
+    //     courses: user.purchasedCourses
+    // })
+
+    //basically scan through the 'Course' table, find the courses whose IDs match with the IDs present in user.purchasedCourses and Return the full details of these matching courses
+    const purchased_courses = await Course.find({
+        _id: { $in: user.purchasedCourses }
+    })
+    res.json({
+        kharida_hua_maal: purchased_courses
+    })
 });
 
 module.exports = router
