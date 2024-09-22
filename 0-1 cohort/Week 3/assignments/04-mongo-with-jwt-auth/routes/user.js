@@ -58,10 +58,40 @@ router.get('/courses', async (req, res) => {
 
 router.post('/courses/:courseId', userMiddleware, (req, res) => {
     // Implement course purchase logic
+    const courseId = req.params.courseId;
+
+    const username = req.headers.username;
+    //console.log(username);
+
+    User.updateOne({
+        username: username,
+    },{
+        $push: { purchasedCourses: courseId } //"$push": { purchasedCourses: courseId } even this works
+    }).catch(function(e){
+        console.log(e);
+    })
+    res.json({
+        message: 'Course purchased successfully'
+    })
 });
 
-router.get('/purchasedCourses', userMiddleware, (req, res) => {
+router.get('/purchasedCourses', userMiddleware, async (req, res) => {
     // Implement fetching purchased courses logic
+    const user = await User.findOne({
+        username: req.headers.username
+    })
+    // console.log(user.purchasedCourses); // gives array of purchased courseIds of the user
+    // res.json({
+    //     courses: user.purchasedCourses
+    // })
+
+    //basically scan through the 'Course' table, find the courses whose IDs match with the IDs present in user.purchasedCourses and Return the full details of these matching courses
+    const purchased_courses = await Course.find({
+        _id: { $in: user.purchasedCourses }
+    })
+    res.json({
+        kharida_hua_maal: purchased_courses
+    })
 });
 
 module.exports = router;
