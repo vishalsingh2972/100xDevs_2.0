@@ -85,7 +85,7 @@ router.get('/purchasedCourses', userMiddleware, async (req, res) => {
     //     courses: user.purchasedCourses
     // })
 
-    //basically scan through the 'Course' table, find the courses whose IDs match with the IDs present in user.purchasedCourses and Return the full details of these matching courses
+    //basically scan through the 'Course' table, find the courses whose IDs match with the IDs present in user.purchasedCourses array and Return the full details of these matching courses
     const purchased_courses = await Course.find({
         _id: { $in: user.purchasedCourses }
     })
