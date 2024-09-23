@@ -39,6 +39,7 @@ runAfter1S(function () {
 })
 
 
+//Interfaces
 interface User {
   firstName: String,
   lastName: String,
@@ -131,3 +132,78 @@ employee_2.greet('Hi');      // Output: Hi Monu
 // Access employee properties
 console.log(employee_1.name, employee_1.age);  // Output: Bittu 30
 console.log(employee_2.name, employee_2.age);    // Output: Monu 25
+
+
+//Types
+//almost same as interfaces,but types gives us few extra features ~ there are some case where you can only use types then you should use types otherwise in most cases you just use interfaces this is the standard practice of what to use between interfaces and types when given a choice
+type User3 = {
+	firstName: string;
+	lastName: string;
+	age: number
+}
+
+//1
+type Greet_arg = number | string; //types let us define multiple types together, interfaces don't allow this
+
+function greet3(id: Greet_arg){
+//function greet3(id: number | string){
+}
+greet3(3);
+greet('3');
+
+
+//2
+//create a type that has every property of multiple types/ interfaces
+type Employee3 = {
+  name: string;
+  startDate: Date;
+};
+
+type Manager = {
+  name: string;
+  department: string;
+};
+
+type TeamLead = Employee3 & Manager;
+
+const teamLead: TeamLead = {
+  name: "vishal",
+  startDate: new Date(),
+  department: "Web3 developer"
+};
+
+
+//Arrays
+// type chomu = number[];
+//1
+function maxValue(arr: number[]) {
+  // function maxValue(arr: chomu) {
+  let max = 0;
+  for (let i = 0; i < arr.length; i++) {
+      if (arr[i] > max) {
+          max = arr[i]
+      }
+  }
+  return max;
+}
+console.log(maxValue([1, 2, 3]));
+
+
+//2
+interface User2 {
+	firstName: string;
+	lastName: string;
+	age: number;
+}
+function filteredUsers(users: User2[]) {
+    return users.filter(x => x.age >= 18);
+}
+console.log(filteredUsers([{
+    firstName: "harkirat",
+    lastName: "Singh",
+    age: 21
+}, {
+    firstName: "Raman",
+    lastName: "Singh",
+    age: 16
+}, ]));
