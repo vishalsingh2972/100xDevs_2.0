@@ -1,25 +1,26 @@
+//write a function to create a users table in your postgres database
+
+//Connecting
 import { Client } from 'pg';
+import { postgres_connection_string } from './utils/constants';
 
-// Async function to insert data into a table
-async function insertData() {
-  const client = new Client({
-    host: 'localhost',
-    port: 5432,
-    database: 'postgres',
-    user: 'postgres',
-    password: 'mysecretpassword',
-  });
+const client = new Client({
+  connectionString: postgres_connection_string
+})
+client.connect();
 
-  try {
-    await client.connect(); // Ensure client connection is established
-    const insertQuery = "INSERT INTO users (username, email, password) VALUES ('username2', 'user3@example.com', 'user_password');";
-    const res = await client.query(insertQuery);
-    console.log('Insertion success:', res); // Output insertion result
-  } catch (err) {
-    console.error('Error during the insertion:', err);
-  } finally {
-    await client.end(); // Close the client connection
-  }
+//Querying
+async function createUsersTable() {
+  await client.connect()
+  const result = await client.query(`
+      CREATE TABLE users (
+          id SERIAL PRIMARY KEY,
+          username VARCHAR(50) UNIQUE NOT NULL,
+          email VARCHAR(255) UNIQUE NOT NULL,
+          password VARCHAR(255) NOT NULL,
+          created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+      );
+  `)
+  console.log(result)
 }
-
-insertData();
+createUsersTable();
