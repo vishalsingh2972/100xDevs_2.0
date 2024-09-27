@@ -21,5 +21,7 @@ async function createUsersTable() {
     );
   `);
   console.log(result);
+  
+  // await client.end(); // Close the connection after everything is done (adding 'await' just for safety so that code below/after this line never gets executed)
 }
 createUsersTable();
