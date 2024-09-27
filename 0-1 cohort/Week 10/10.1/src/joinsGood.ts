@@ -2,16 +2,13 @@
 
 //Good approach ~ Single Database Query for fetching both users details and their corresponding addresses together using 'JOIN'
 import { Client } from 'pg';
+import { postgres_connection_string } from './utils/constants';
 
 // Async function to fetch user data and their address together
 async function getUserDetailsWithAddress(userId: string) {
   const client = new Client({
-    host: 'localhost',
-    port: 5432,
-    database: 'postgres',
-    user: 'postgres',
-    password: 'mysecretpassword',
-  });
+    connectionString: postgres_connection_string
+  })
 
   try {
     await client.connect();

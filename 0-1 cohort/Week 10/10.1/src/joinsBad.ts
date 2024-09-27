@@ -2,16 +2,13 @@
 
 //Bad approach ~ Multiple Database Queries: separate queries for fetching users details and their corresponding addresses
 import { Client } from 'pg';
+import { postgres_connection_string } from './utils/constants';
 
 // Async function to fetch user details and address separately
 async function getUserDetailsAndAddressSeparately(userId: string) {
     const client = new Client({
-        host: 'localhost',
-        port: 5432,
-        database: 'postgres',
-        user: 'postgres',
-        password: 'mysecretpassword',
-    });
+        connectionString: postgres_connection_string
+    })
 
     try {
         await client.connect();
