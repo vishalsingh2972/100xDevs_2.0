@@ -1,1 +1,1 @@
-{"root":["./src/datainput.ts","./src/index.ts","./src/utils/constants.ts"],"version":"5.6.2"}
+{"root":["./src/datainput.ts","./src/datainput2.ts","./src/deleteinput.ts","./src/fetchdata.ts","./src/index.ts","./src/updatedata.ts","./src/utils/constants.ts"],"version":"5.6.2"}
