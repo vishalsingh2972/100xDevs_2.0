@@ -1,6 +1,6 @@
 //fetch me a users details and their address (users table and addresses table is separate)
 
-//Good approach ~ Single Database Query for fetching both users details and their corresponding addresses together using 'JOIN'
+//Good approach ~ Single Database Query for fetching both users details and their corresponding addresses, i.e. fetching data together from two related tables using 'JOIN'
 import { Client } from 'pg';
 import { postgres_connection_string } from './utils/constants';
 
@@ -15,11 +15,10 @@ async function getUserDetailsWithAddress(userId: string) {
 
     // Fetch both user details and their corresponding address details together using 'JOIN'
     const query = `
-            SELECT u.id, u.username, u.email, a.city, a.country, a.street, a.pincode
-            FROM users u
-            JOIN addresses a ON u.id = a.user_id
-            WHERE u.id = $1
-        `;
+        SELECT u.id, u.username, u.email, a.city, a.country, a.street, a.pincode
+        FROM users u JOIN addresses a ON u.id = a.user_id
+        WHERE u.id = $1
+    `;
     const result = await client.query(query, [userId]);
 
     if (result.rows.length > 0) {
