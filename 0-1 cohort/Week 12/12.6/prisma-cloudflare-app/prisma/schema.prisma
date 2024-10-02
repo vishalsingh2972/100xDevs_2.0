@@ -11,11 +11,22 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_DATABASE_URL")
 }
+// DATABASE_URL environment variable stores your Prisma pooling URL (also added in wrangler.toml file)
+// DIRECT_DATABASE_URL environment variable stores your PostgreSQL database URL ~ Connection URL for direct connection to the database.
+
+// Note: All environment variables that you wish to use within index.ts should be defined in the wrangler.toml file. In contrast, environment variables intended for access via the CLI should be placed in the .env file. Essentially, any variables required during the execution of index.ts will be specified in wrangler.toml. Since we are setting up a connection pool for Cloudflare Workers, the database connection for pooling should also be defined in wrangler.toml to ensure it is utilized in index.ts, so now whenever I send data/make a call via my cloudflare worker(s) it will not directly hit the db rather all my worker calls will hit the pool and the pool will then transfer these to the db, hence the pool manages the connections efficiently, handling multiple requests and then transferring them to the database as needed.
+// model Log {
+//   id       Int    @id @default(autoincrement())
+//   name     String
+//   email    String
+// 	password String
+// }
 
 model Log {
-  id       Int    @id @default(autoincrement())
-  name     String
-  email    String
-	password String
+  id        Int      @id @default(autoincrement())
+  level     String
+  message   String
+  meta      Json
 }
