@@ -16,5 +16,8 @@
     "typescript": "^5.5.2",
     "vitest": "2.0.5",
     "wrangler": "^3.60.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.20.0"
   }
 }
