@@ -1,9 +1,34 @@
 import { Hono } from 'hono'
+import { PrismaClient } from '@prisma/client/edge'
+import { withAccelerate } from '@prisma/extension-accelerate'
 
 const app = new Hono()
 
+//can also use this instead of using @ts-ignore for c.env.DATABASE_URL
+// const app = new Hono<{
+// 	Bindings: {
+// 		DATABASE_URL: string
+// 	}
+// }>();
+
 //user signup
-app.post('/api/v1/user/signup', (c) => {
+app.post('/api/v1/user/signup', async (c) => {
+  //console.log(c); console.log(c.req)
+  
+  const body = await c.req.json(); //c.req.json() only parses the request body
+
+  const prisma = new PrismaClient({
+    //@ts-ignore ~ is a TypeScript directive that tells the compiler to ignore the next line of code, but avoid using this as its a bad practise
+    datasourceUrl: c.env.DATABASE_URL, //DATABASE_URL environment variable defined in wrangler.toml ~ here env.DATABASE_URL will be replaced with the value from wrangler.toml
+  }).$extends(withAccelerate())
+
+  await prisma.user.create({
+    data: {
+      email: body.email,
+      password: body.password
+    }
+  })
+  
   return c.text('signup route')
 })
 
