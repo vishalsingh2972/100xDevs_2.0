@@ -1,7 +1,7 @@
 import { Hono } from 'hono'
 import { PrismaClient } from '@prisma/client/edge'
 import { withAccelerate } from '@prisma/extension-accelerate'
-import { decode, sign, verify } from 'hono/jwt'
+import { sign, verify } from 'hono/jwt'
 
 const app = new Hono()
 
@@ -83,8 +83,17 @@ app.post('/api/v1/user/signin', async (c) => {
 
 //common middleware for authentication
 app.use('/api/v1/blog/*', async (c, next) => {
-  await next()
-}) 
+  const auth_header = c.req.header("authorization");
+  //@ts-ignore
+  const verified = await verify(auth_header, c.env.JWT_SECRET);
+  
+  if (verified.id) {
+    await next()
+  } else {
+    c.status(403);
+    return c.json({ error: "unauthorised bhaiyaji" });
+  }
+})
 
 //create a blog
 app.post('/api/v1/blog', (c) => {
