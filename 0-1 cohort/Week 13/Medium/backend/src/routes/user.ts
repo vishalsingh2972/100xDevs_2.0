@@ -2,6 +2,7 @@ import { Hono } from "hono"
 import { PrismaClient } from '@prisma/client/edge'
 import { withAccelerate } from '@prisma/extension-accelerate'
 import { sign, verify } from 'hono/jwt'
+import { signUpInput, signInInput } from "@vishalsingh2972/medium-common"
 
 export const userRouter = new Hono();
 
@@ -20,6 +21,13 @@ userRouter.post('/signup', async (c) => {
   const body = await c.req.json(); //c.req.json() only parses the request body
 
   //need to sanitize this body first before moving ahead ~ just making sure body follows a certain format that we want
+  const { success } = signUpInput.safeParse(body);
+  if (!success) {
+    c.status(411)
+    return c.json({
+      message: "inputs are incorrect ji"
+    })
+  }
 
   // Ideally you shouldn’t store passwords in plaintext. You should hash before storing them
   // Hash password using Web Crypto API
@@ -48,13 +56,21 @@ userRouter.post('/signup', async (c) => {
 
 //user signin
 userRouter.post('/signin', async (c) => {
+  const body = await c.req.json();
+  const { success } = signInInput.safeParse(body);
+  if (!success) {
+    c.status(411)
+    return c.json({
+      message: "inputs are incorrect ji"
+    })
+  }
+
   const prisma = new PrismaClient({
     //@ts-ignore
     datasourceUrl: c.env?.DATABASE_URL,
   }).$extends(withAccelerate());
 
   try {
-    const body = await c.req.json();
     const passwordHash = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(body.password))
     const hashedPassword = Array.from(new Uint8Array(passwordHash), b => b.toString(16).padStart(2, '0')).join('')
 
