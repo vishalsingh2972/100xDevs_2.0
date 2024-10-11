@@ -5,11 +5,21 @@ import { sign, verify } from 'hono/jwt'
 
 export const userRouter = new Hono();
 
+//can also use this instead of using @ts-ignore for c.env.DATABASE_URL and c.env.JWT_SECRET
+// const app = new Hono<{
+// 	Bindings: {
+// 		DATABASE_URL: string,
+//    JWT_SECRET: string
+// 	}
+// }>();
+
 //user signup
 userRouter.post('/signup', async (c) => {
   //console.log(c); console.log(c.req)
 
   const body = await c.req.json(); //c.req.json() only parses the request body
+
+  //need to sanitize this body first before moving ahead ~ just making sure body follows a certain format that we want
 
   // Ideally you shouldn’t store passwords in plaintext. You should hash before storing them
   // Hash password using Web Crypto API

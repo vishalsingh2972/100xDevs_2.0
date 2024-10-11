@@ -15,7 +15,7 @@ export const blogRouter = new Hono<{
 
 //common middleware for authentication
 blogRouter.use('/*', async (c, next) => {
-  //extract user id from the payload of token
+  //extract user id(~verified.id) from the payload(~verified) of token
   //pass it down to route handlers so it can be used in 'authorId'
 
   const auth_header = c.req.header("authorization");
