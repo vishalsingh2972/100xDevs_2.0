@@ -15,7 +15,7 @@ model User {
   posts    Post[]
 }
 
-model Post {
+model Post { //Post ~ class name for blog table
   id        String   @id @default(uuid())
   title     String
   content   String
