@@ -8,6 +8,7 @@
 - Prisma as the ORM, with connection pooling
 - Postgres as the database
 - JWT for authentication
+- Coffee for energy
 
 
 ```diff
