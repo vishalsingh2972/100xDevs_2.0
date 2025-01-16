@@ -1,7 +1,7 @@
 import axios from "axios";
 
 async function getUserDetails() {
-  // await new Promise((r) => setTimeout(r, 5000)) //manmade speedbreaker
+  // await new Promise((r) => setTimeout(r, 5000)) //manmade 5 sec speedbreaker
 
   const response = await axios.get("http://localhost:3000/api/user");
   return response.data;
