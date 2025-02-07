@@ -1,4 +1,4 @@
-import { NextRequest } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 import { PrismaClient } from "@prisma/client"
 
 const client = new PrismaClient();
@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
 
   //extract body from incoming req data
   const body = await req.json();
-  //console.log(body)
+  //console.log(body);
 
   const user = await client.user.create({
     data: {
@@ -18,7 +18,13 @@ export async function POST(req: NextRequest) {
 
   //store the body data in the database
 
-  return Response.json({
+  //header
+  // console.log(req.headers.get("authorization"));
+
+  //query params
+  // console.log(req.nextUrl.searchParams.get("name"));
+
+  return NextResponse.json({ //or Response.json also works
     message: "You are logged in"
   })
 }
