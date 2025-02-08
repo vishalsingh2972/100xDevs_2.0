@@ -6,8 +6,9 @@ const client = new PrismaClient();
 export async function POST(req: NextRequest) {
 
   //extract body from incoming req data
-  const body = await req.json();
-  //console.log(body);
+  //const body = await req.json();, so this means that whatever json data is coming in req, convert it back to its original format and store it in body
+  const body = await req.json(); //same work as app.use(express.json()); where data is sent in json format and we use these to parse/change the json data to its original format
+  // console.log(body);
 
   const user = await client.user.create({
     data: {
