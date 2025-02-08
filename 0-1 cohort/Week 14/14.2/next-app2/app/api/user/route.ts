@@ -10,26 +10,55 @@ export async function POST(req: NextRequest) {
   const body = await req.json(); //same work as app.use(express.json()); where data is sent in json format and we use these to parse/change the json data to its original format
   // console.log(body);
 
-  const user = await client.user.create({
-    data: {
-      username: body.username,
-      password: body.password
-    }
-  });
+  try {
+    const user = await client.user.create({
+      data: {
+        username: body.username,
+        password: body.password
+      }
+    });
 
-  //store the body data in the database
+    //store the body data in the database
 
-  //header
-  // console.log(req.headers.get("authorization"));
+    //header
+    // console.log(req.headers.get("authorization"));
 
-  //query params
-  // console.log(req.nextUrl.searchParams.get("name"));
+    //query params
+    // console.log(req.nextUrl.searchParams.get("name"));
 
-  return NextResponse.json({ //or Response.json also works
-    message: "You are logged in"
-  })
+    return NextResponse.json({ //or Response.json also works
+      body
+    })
+  }
+  catch (e: any) {
+    return NextResponse.json({
+      message: e.message
+    })
+
+    //also works
+    // catch (e) {
+    //   return NextResponse.json({
+    //     message: (e as Error).message
+    //   })
+  }
 }
 
-export function GET() {
-  return Response.json({ name: "Piku Banerjee", email: "piku@gmail.com" })
+export async function GET() {
+  try {
+    const latestUser = await client.user.findFirst({
+      orderBy: {
+        id: 'desc' // Get the latest user by ordering by ID in descending order
+      }
+    });
+
+    return NextResponse.json({
+      name: "Piku Banerjee",
+      email: latestUser?.username
+    })
+  }
+  catch (e: any) {
+    return NextResponse.json({
+      message: e.message
+    });
+  }
 }
