@@ -1,10 +1,31 @@
 import axios from "axios";
+import { NextRequest, NextResponse } from "next/server";
+import { prisma as client } from './db';
 
+// async function getUserDetails() {
+//   // await new Promise((r) => setTimeout(r, 5000)) //manmade 5 sec speedbreaker
+
+//   const response = await axios.get("http://localhost:3000/api/user");
+//   return response.data;
+// }
+
+//better fetches
 async function getUserDetails() {
-  // await new Promise((r) => setTimeout(r, 5000)) //manmade 5 sec speedbreaker
+  try {
+    const latestUser = await client.user.findFirst({
+      orderBy: {
+        id: 'desc' // Get the latest user by ordering by ID in descending order
+      }
+    });
 
-  const response = await axios.get("http://localhost:3000/api/user");
-  return response.data;
+    return ({
+      name: "Piku Banerjee",
+      email: latestUser?.username
+    })
+  }
+  catch (e: any) {
+    console.log(e);
+  }
 }
 
 //async component ~ not possible in React.js, recently introduced in Next.js but even in Next.js only possible for server components and not for client components

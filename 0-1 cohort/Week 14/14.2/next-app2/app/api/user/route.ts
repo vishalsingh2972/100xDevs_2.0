@@ -1,7 +1,5 @@
-import { NextRequest, NextResponse } from "next/server"
-import { PrismaClient } from "@prisma/client"
-
-const client = new PrismaClient();
+import { NextRequest, NextResponse } from "next/server";
+import { prisma as client } from '../../db';
 
 export async function POST(req: NextRequest) {
 
@@ -43,22 +41,22 @@ export async function POST(req: NextRequest) {
   }
 }
 
-export async function GET() {
-  try {
-    const latestUser = await client.user.findFirst({
-      orderBy: {
-        id: 'desc' // Get the latest user by ordering by ID in descending order
-      }
-    });
+// export async function GET() {
+//   try {
+//     const latestUser = await client.user.findFirst({
+//       orderBy: {
+//         id: 'desc' // Get the latest user by ordering by ID in descending order
+//       }
+//     });
 
-    return NextResponse.json({
-      name: "Piku Banerjee",
-      email: latestUser?.username
-    })
-  }
-  catch (e: any) {
-    return NextResponse.json({
-      message: e.message
-    });
-  }
-}
+//     return NextResponse.json({
+//       name: "Piku Banerjee",
+//       email: latestUser?.username
+//     })
+//   }
+//   catch (e: any) {
+//     return NextResponse.json({
+//       message: e.message
+//     });
+//   }
+// }
