@@ -15,7 +15,7 @@ export const User = () => {
     }, []);
 
     return <div>
-        You're id is {userData?.userId}
+        You're id is {((userData as any)?.userId)}
         <br /><br />
         <button onClick={() => {
             axios.post(`${BACKEND_URL}/logout`, {}, {
