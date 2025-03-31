@@ -26,7 +26,7 @@ export const NEXT_AUTH = {
 
   //callbacks allow us to modify the token before sending it to the frontend(browser)
   callbacks: {
-    jwt: ({ token, user }) => { //jwt callback ~ optional but good to have
+    jwt: ({ token, user } : any) => { //jwt callback ~ optional but good to have
       console.log(token);
       token.userId = token.sub; //token.userId = 'shiva';
       console.log(token);
