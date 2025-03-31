@@ -36,7 +36,7 @@ export const NEXT_AUTH = {
 
   //callbacks allow us to modify the token before sending it to the frontend(browser)
   callbacks: {
-    jwt: ({ token, user } : any) => { //jwt callback ~ optional but good to have
+    jwt: ({ token, user }: any) => { //jwt callback ~ optional but good to have
       console.log(token);
       token.userId = token.sub; //token.userId = 'shiva';
       console.log(token);
@@ -47,9 +47,14 @@ export const NEXT_AUTH = {
 
       return token; //final (updated) token that is sent to the browser
     },
-    session: ({ session, token, user } : any) => {
+    session: ({ session, token, user }: any) => {
       session.user.id = token.userId; //or token.sub;
       return session;
     }
+  },
+
+//Pages: You are telling NextAuth to redirect users to /signin if authentication fails, regardless of which provider (Credentials, Google, GitHub) was used.
+  pages: {
+    signIn: "/signin"
   }
 }
