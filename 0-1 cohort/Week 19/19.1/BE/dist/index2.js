@@ -30,7 +30,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const ws_1 = __importStar(require("ws"));
 const app = (0, express_1.default)();
-const server = app.listen(8080);
+const server = app.listen(8080, function () {
+    console.log((new Date()) + ' Server is listening on port 8080');
+});
 app.get('/', (req, res) => {
     //console.log((new Date()) + ' Received request for ' + req.url);
     res.send("hi there");
@@ -40,6 +42,7 @@ let usercount = 0;
 wss.on('connection', function connection(ws) {
     ws.on('error', console.error);
     ws.on('message', function message(data, isBinary) {
+        console.log('Server received message:', data.toString());
         wss.clients.forEach(function each(client) {
             if (client !== ws && client.readyState === ws_1.default.OPEN) {
                 client.send(data, { binary: isBinary });

@@ -14,6 +14,7 @@ wss.on('connection', function connection(ws) {
   ws.on('error', console.error);
 
   ws.on('message', function message(data, isBinary) {
+    console.log('Server received message:', data.toString());
     wss.clients.forEach(function each(client) {
       if (client.readyState === WebSocket.OPEN) { //EXTRA : if (client !== ws && client.readyState === WebSocket.OPEN) { ~ this way you can brodcast message to all other clients/users excluding the sender
         client.send(data, { binary: isBinary });
@@ -22,7 +23,7 @@ wss.on('connection', function connection(ws) {
   });
 
   console.log("user connected", ++usercount);
-  ws.send('Hello! Message From Server!!');
+  ws.send('Hello from Server');
 });
 
 server.listen(8080, function () {
