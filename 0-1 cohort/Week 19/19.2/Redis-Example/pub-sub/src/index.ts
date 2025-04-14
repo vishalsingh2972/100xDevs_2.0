@@ -1,3 +1,6 @@
+//This is my Redis pub-sub's code that I am using to recieve data from the worker's
+//This Redis pub-sub is also in the same container as my Redis queue
+
 import { createClient } from "redis";
 
 const client = createClient();

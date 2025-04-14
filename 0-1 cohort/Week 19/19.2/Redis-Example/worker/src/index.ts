@@ -1,3 +1,5 @@
+//This is my worker's backend code that I am using to recieve data from the Redis queue, process it and then send it to the Redis pub-sub
+
 import { createClient } from "redis";
 const client = createClient();
 
@@ -12,6 +14,7 @@ async function processSubmission(submission: string) {
   // Simulate processing delay
   await new Promise(resolve => setTimeout(resolve, 1000));
   console.log(`Finished processing submission for problemId ${problemId}.`);
+  client.publish("problem_done_pub_sub", JSON.stringify({ problemId, status: "TLE" }));
 }
 
 async function startWorker() {
