@@ -1,4 +1,4 @@
-//This is my primary backend code that I am using to send data to the Redis queue
+//This is the primary backend code that I am using to send data to the Redis queue
 
 import express from "express";
 import { createClient } from "redis";
