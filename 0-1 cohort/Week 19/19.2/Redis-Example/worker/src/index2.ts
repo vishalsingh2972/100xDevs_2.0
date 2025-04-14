@@ -12,6 +12,7 @@ async function processSubmission(submission: string) {
   // Simulate processing delay
   await new Promise(resolve => setTimeout(resolve, 1000));
   console.log(`Finished processing submission for problemId ${problemId}.`);
+  client.publish("problem_done_pub_sub", JSON.stringify({ problemId, status: "TLE" }));
 }
 
 async function startWorker() {
