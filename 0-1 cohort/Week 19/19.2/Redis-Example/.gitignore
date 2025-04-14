@@ -3,3 +3,6 @@
 
 /worker/node_modules
 /worker/dist
+
+/pub-sub/node_modules
+/pub-sub/dist
