@@ -1,6 +1,7 @@
 //This is my worker's backend code that I am using to recieve data from the Redis queue, process it and then send it to the Redis pub-sub
 
 import { createClient } from "redis";
+
 const client = createClient();
 
 async function processSubmission(submission: string) {
