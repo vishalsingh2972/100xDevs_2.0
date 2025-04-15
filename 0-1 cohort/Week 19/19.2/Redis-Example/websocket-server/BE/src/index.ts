@@ -1,32 +1,36 @@
-// WebSocket Server with Express and 'ws' WebSocket library
+//This is my Websocket server code that is recieving data from the Redis pub-sub and sending it to the frontend user/client
+
 import express from 'express';
 import WebSocket, { WebSocketServer } from 'ws';
 
 const app = express();
-const server = app.listen(8080, function () {
-  console.log((new Date()) + ' Server is listening on port 8080');
-});
-
-app.get('/', (req, res) => {
-  //console.log((new Date()) + ' Received request for ' + req.url);
-  res.send("hi there");
+const server = app.listen(8080, () => {
+  console.log(new Date() + ' WebSocket Server is listening on port 8080');
 });
 
 const wss = new WebSocketServer({ server });
 
-let usercount = 0;
 wss.on('connection', function connection(ws) {
-  ws.on('error', console.error);
+  console.log('🔗 New client connected to WebSocket');
 
-  ws.on('message', function message(data, isBinary) {
-    console.log('Server received message:', data.toString());
-    wss.clients.forEach(function each(client) {
-      if (client !== ws && client.readyState === WebSocket.OPEN) {
-        client.send(data, { binary: isBinary });
-      }
-    });
+  ws.on('message', function incoming(message) {
+    console.log('📥 Received from client:', message.toString());
   });
 
-  console.log("user connected", ++usercount);
-  ws.send('Hello! Message From Server!!');
+  ws.send('👋 Hello from WebSocket server!');
 });
+
+// Broadcast utility function
+export function broadcastToClients(data: any) {
+  const message = typeof data === 'string' ? data : JSON.stringify(data);
+
+  wss.clients.forEach(client => {
+    if (client.readyState === WebSocket.OPEN) {
+      client.send(message);
+    }
+  });
+
+  // ✅ Your desired console log
+  const parsed = JSON.parse(message);
+  console.log(`📤 Problem ID: ${parsed.problemId}, Status: ${parsed.status}`);
+}
