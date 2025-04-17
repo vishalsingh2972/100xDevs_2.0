@@ -69,7 +69,7 @@ app.doc('/doc', {
   },
   servers: [
     {
-      url: 'http://localhost:3000', // Your development base URL
+      url: 'http://127.0.0.1:8787', // Your development base URL
       description: 'Local development server',
     },
   ],

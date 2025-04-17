@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const generated_1 = require("./generated");
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
-        const response = yield generated_1.DefaultService.getUser("123");
+        const response = yield generated_1.DefaultService.getUser("123456789");
         console.log(response);
     });
 }
