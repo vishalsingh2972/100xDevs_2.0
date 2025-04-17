@@ -67,6 +67,12 @@ app.doc('/doc', {
     version: '1.0.0',
     title: 'My API',
   },
+  servers: [
+    {
+      url: 'http://localhost:3000', // Your development base URL
+      description: 'Local development server',
+    },
+  ],
 })
 
 //auto-generated Swagger UI will be now available at /documentation

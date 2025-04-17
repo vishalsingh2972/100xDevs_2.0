@@ -4,6 +4,12 @@
     "version": "1.0.0",
     "title": "My API"
   },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Local development server"
+    }
+  ],
   "components": {
     "schemas": {
 

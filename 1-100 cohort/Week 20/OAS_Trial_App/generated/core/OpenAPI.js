@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OpenAPI = void 0;
 exports.OpenAPI = {
-    BASE: '',
+    BASE: 'https://localhost:3000/',
     VERSION: '1.0.0',
     WITH_CREDENTIALS: false,
     CREDENTIALS: 'include',
