@@ -1,10 +1,11 @@
 {
   "name": "OAS_Hono",
   "scripts": {
-    "dev": "wrangler dev",
-    "deploy": "wrangler deploy --minify"
+    "dev": "wrangler dev src/index.ts",
+    "deploy": "wrangler deploy --minify src/index.ts"
   },
   "dependencies": {
+    "@hono/swagger-ui": "^0.5.1",
     "@hono/zod-openapi": "^0.19.4",
     "hono": "^4.7.7"
   },

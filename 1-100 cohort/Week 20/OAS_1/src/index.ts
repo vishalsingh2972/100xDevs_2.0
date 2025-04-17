@@ -24,6 +24,7 @@ app.get('/users', (req, res) => {
   }
 });
 
+//auto-generated Swagger UI will be now available at /documentation
 app.use('/documentation', swaggerUi.serve, swaggerUi.setup(openAPISpec));
 
 app.listen(port, () => {
