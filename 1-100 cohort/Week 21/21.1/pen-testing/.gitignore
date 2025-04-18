@@ -1,0 +1,5 @@
+/backend/node_modules
+/backend/dist
+
+/attack/node_modules
+/attack/dist
