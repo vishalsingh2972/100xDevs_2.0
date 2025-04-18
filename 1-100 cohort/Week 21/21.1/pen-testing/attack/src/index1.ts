@@ -1,3 +1,5 @@
+ /* POSTMAN METHOD FOR A LOCAL BACKEND */
+
 import axios from "axios";
  
 //function to send a request to the server

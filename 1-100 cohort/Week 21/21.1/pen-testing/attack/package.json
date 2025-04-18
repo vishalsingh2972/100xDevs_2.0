@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "tsc -b && node dist/index.js"
+    "start": "tsc -b && node dist/index1.js",
+    "start2": "tsc -b && node dist/index2.js"
   },
   "keywords": [],
   "author": "",
