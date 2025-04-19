@@ -1,4 +1,4 @@
- /*POSTMAN METHOD FOR A LOCAL BACKEND ATTACK */
+ /* POSTMAN METHOD FOR A LOCAL BACKEND ATTACK */
 
 import axios from "axios";
  
