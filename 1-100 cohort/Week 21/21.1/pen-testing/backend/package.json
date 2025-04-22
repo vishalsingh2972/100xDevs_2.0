@@ -6,7 +6,11 @@
   },
   "dependencies": {
     "@types/express": "^5.0.1",
+    "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "express-rate-limit": "^7.5.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17"
   }
 }

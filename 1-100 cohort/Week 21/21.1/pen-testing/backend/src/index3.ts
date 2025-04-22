@@ -1,10 +1,14 @@
 import express from 'express';
 import rateLimit from 'express-rate-limit';
+import dotenv from 'dotenv';
+dotenv.config();
+import cors from 'cors';
 
 const app = express();
 const PORT = 3000;
 
 app.use(express.json());
+app.use(cors());
 
 // Rate limiter configurations
 const otpLimiter = rateLimit({
@@ -44,10 +48,19 @@ app.post('/generate-otp', otpLimiter, (req, res) => {
 
 // Endpoint to reset password with rate limiting
 // @ts-ignore
-app.post('/reset-password', passwordResetLimiter, (req, res) => {
+app.post('/reset-password', passwordResetLimiter, async (req, res) => {
   const { email, otp, newPassword, token } = req.body;
 
-  
+  let formData = new FormData();
+	formData.append('secret', process.env.SECRET_KEY || '');
+	formData.append('response', token);
+
+  const url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+	const result = await fetch(url, {
+		body: formData,
+		method: 'POST',
+	});
+  console.log(await result.json());
 
   if (!email || !otp || !newPassword) {
     return res.status(400).json({ message: "Email, OTP, and new password are required" });

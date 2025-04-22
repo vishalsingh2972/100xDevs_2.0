@@ -1,5 +1,6 @@
 /backend/node_modules
 /backend/dist
+/backend/.env
 
 /attack/node_modules
 /attack/dist
