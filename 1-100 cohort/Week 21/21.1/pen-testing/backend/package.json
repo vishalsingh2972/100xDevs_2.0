@@ -1,7 +1,8 @@
 {
   "scripts": {
     "start": "tsc -b && node dist/index1.js",
-    "start2": "tsc -b && node dist/index2.js"
+    "start2": "tsc -b && node dist/index2.js",
+    "start3": "tsc -b && node dist/index3.js"
   },
   "dependencies": {
     "@types/express": "^5.0.1",
