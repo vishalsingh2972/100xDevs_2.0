@@ -1,0 +1,11 @@
+/stateful-server/1-variable-based/node_modules
+/stateful-server/1-variable-based/dist
+
+/stateful-server/2-class-based/node_modules
+/stateful-server/2-class-based/dist
+
+/stateful-server/3-singleton/node_modules
+/stateful-server/3-singleton/dist
+
+/stateful-server/4-pubsub-with-singleton/node_modules
+/stateful-server/4-pubsub-with-singleton/dist
