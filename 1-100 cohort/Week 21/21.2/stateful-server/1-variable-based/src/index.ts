@@ -5,8 +5,9 @@ startLogger();
 
 setInterval(() => {
     games.push({
-        "whitePlayer": "harkirat",
-        "blackPlayer": "jaskirat",
+        id: Math.random().toString(),
+        whitePlayer: "Vishal",
+        blackPlayer: "Thomas",
         moves: []
     })
 }, 5000)
