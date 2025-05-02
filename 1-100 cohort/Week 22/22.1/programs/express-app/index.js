@@ -1,6 +1,6 @@
-//Implementing Horizontal Scaling within a Single Server in Node.js project using Cluster Module
-//Cluster Module: Horizontal scaling within a single server, utilizing multiple CPU cores to simulate multiple servers.
-//This code example demonstrates horizontal scaling within a single server, utilizing multiple CPU cores to improve performance and responsiveness, also despite having multiple processes/cores running inside the same server, they all share the same port, making it seamless for clients to interact with the application.
+// Implementing Vertical Scaling (by doing Multi-Core Utilization) within a Single Server in a Node.js Project Using the Cluster Module
+// Cluster Module: Enables vertical scaling by utilizing multiple CPU cores within a single server to improve performance and responsiveness.
+// This code example demonstrates vertical scaling by utilizing multiple CPU cores within a single server using Node.js's Cluster module. It achieves this by spawning multiple worker processes, each capable of handling requests concurrently on a separate core. Despite having multiple processes running in parallel, they all share the same port, making it seamless and transparent for clients to interact with the application while significantly improving performance and responsiveness.
 
 import express from "express";
 import cluster from "cluster"; //inbuilt in node
