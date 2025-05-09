@@ -71,7 +71,7 @@
 
 ## Deploying ASGs
 
-1. Go to AWS and create an instance using instructions [here](https://github.com/its-id/100x-Cohort-Programs/tree/master/Week%2011/Programs/Week%2011.2).
+1. Go to AWS and create an instance using instructions [here](https://github.com/vishalsingh2972/100xDevs_2.0/tree/main/0-1%20cohort/Week%2011/11.2).
 
 <br>
 
