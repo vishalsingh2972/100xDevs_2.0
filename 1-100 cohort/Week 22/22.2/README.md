@@ -203,6 +203,7 @@
       - Choose Load Balancer Scheme as `Internet-facing`.
       - We will be needing a target group to whom Load Balancer will send the traffic.
       - Choose `Create a target group` if don't already have one.
+      ![image](https://github.com/user-attachments/assets/b8bcb3b4-3f3e-462d-b95a-ee552f368485)
       - Rest of the settings can be left as default.
     - Review and Click on `Create Auto Scaling Group`.
 
