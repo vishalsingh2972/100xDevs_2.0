@@ -305,10 +305,10 @@
 
 ## Cleanup in following order
 
-1. Delete the Auto Scaling Group.
+1. Delete the Auto Scaling Group which automatically deleted all connected Ec2 instances/copies.
 2. Delete the Load Balancer.
 3. Delete the Launch Template.
 4. Delete the Target Group.
 5. Delete the AMI.
-6. Delete the Instances.
+6. Delete the primary Ec2 Instance.
 7. Delete your VPC.
