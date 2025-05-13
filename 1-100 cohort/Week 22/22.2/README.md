@@ -71,7 +71,7 @@
 
 ## Deploying ASGs
 
-1. Go to AWS and create an instance using instructions [here](https://github.com/its-id/100x-Cohort-Programs/tree/master/Week%2011/Programs/Week%2011.2).
+1. Go to AWS and create an instance using instructions [here](https://github.com/vishalsingh2972/100xDevs_2.0/tree/main/0-1%20cohort/Week%2011/11.2).
 
 <br>
 
@@ -203,6 +203,7 @@
       - Choose Load Balancer Scheme as `Internet-facing`.
       - We will be needing a target group to whom Load Balancer will send the traffic.
       - Choose `Create a target group` if don't already have one.
+      ![image](https://github.com/user-attachments/assets/b8bcb3b4-3f3e-462d-b95a-ee552f368485)
       - Rest of the settings can be left as default.
     - Review and Click on `Create Auto Scaling Group`.
 
@@ -304,10 +305,10 @@
 
 ## Cleanup in following order
 
-1. Delete the Auto Scaling Group.
+1. Delete the Auto Scaling Group which automatically deletes all the connected Ec2 instances/copies.
 2. Delete the Load Balancer.
 3. Delete the Launch Template.
 4. Delete the Target Group.
 5. Delete the AMI.
-6. Delete the Instances.
+6. Delete the primary Ec2 Instance.
 7. Delete your VPC.
