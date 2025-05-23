@@ -98,6 +98,8 @@
 
 - This is the file that is sent in the `offer` and recieved in `answer`.
 
+![image](https://github.com/user-attachments/assets/88f479e5-fba1-4051-9bac-ed544521fac9)
+
 <br>
 
 ### RTCPeerConnection API
