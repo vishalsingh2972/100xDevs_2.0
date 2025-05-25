@@ -10,6 +10,9 @@
     <img width="502" alt="Screenshot 2024-05-04 at 7 13 01 PM" src="https://github.com/its-id/100x-Cohort-Programs/assets/60315832/78357195-6180-410d-b765-c868b2b767e7">
 
 - different from other protocols like HLS (HTTP Live Streaming), where there is a delay. Eg: Youtube live stream has a delay of 10s
+  
+![image](https://github.com/user-attachments/assets/f1dd5efd-6dd5-4ae7-b9c5-3b498b5a840d)
+
 
 ---
 
@@ -97,6 +100,8 @@
   - what media you want to send, what protocols you've used to encode the media.
 
 - This is the file that is sent in the `offer` and recieved in `answer`.
+
+![image](https://github.com/user-attachments/assets/88f479e5-fba1-4051-9bac-ed544521fac9)
 
 <br>
 
