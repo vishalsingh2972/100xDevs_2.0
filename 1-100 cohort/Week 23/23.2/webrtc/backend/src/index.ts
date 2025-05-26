@@ -44,7 +44,7 @@ wss.on('connection', function connection(ws) {
 
     //if iceCandidates are exchanged, we first check the sender and receiver and then send the ice candidates to the other party
     else if (message.type === 'iceCandidate') {
-      console.log("sending ice recieved")
+      //console.log("sending ice recieved")
       if (ws === senderSocket) {
         receiverSocket?.send(JSON.stringify({ type: 'iceCandidate', candidate: message.candidate }));
       } else if (ws === receiverSocket) {

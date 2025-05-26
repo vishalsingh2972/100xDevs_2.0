@@ -1,7 +1,8 @@
 //Receiver.tsx contains the code for sending the answer to the sender.
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 
 export const Receiver = () => {
+    const videoRef2 = useRef<HTMLVideoElement>(null);
 
     useEffect(() => {
         const socket = new WebSocket('ws://localhost:8080');
@@ -47,9 +48,21 @@ export const Receiver = () => {
                 }
             }
         }
+
+        //receive video data from the other peer (sender)
+        pc.ontrack = (event) => {
+            console.log(event);
+
+            //show video data in the video element
+            if (videoRef2.current) {
+                videoRef2.current.srcObject = new MediaStream([event.track]);
+                videoRef2.current.play();
+            }
+        }
     }, []);
 
     return <div>
         Receiver
+        <video ref={videoRef2} autoPlay muted></video>
     </div>
 }

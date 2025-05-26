@@ -1,8 +1,9 @@
 //Sender.tsx contains the code for sending the offer to the receiver.
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 
 export const Sender = () => {
     const [socket, setSocket] = useState<WebSocket | null>(null);
+    const videoRef1 = useRef<HTMLVideoElement>(null);
 
     useEffect(() => {
         const socket1 = new WebSocket('ws://localhost:8080');
@@ -55,10 +56,22 @@ export const Sender = () => {
                 socket?.send(JSON.stringify({ type: 'iceCandidate', candidate: event.candidate }));
             }
         }
+
+        //send video data to the other peer (receiver)
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+        pc.addTrack(stream.getVideoTracks()[0]);//This allows the video to be sent to the other peer (receiver) through the WebRTC connection.
+        //pc.addTrack(stream.getAudioTracks()[0]);
+
+        //show video data in the video element
+        if (videoRef1.current) {
+            videoRef1.current.srcObject = stream;
+            videoRef1.current.play();
+        }
     }
 
     return <div>
         Sender
         <button onClick={startSendingVideo}> Send data </button>
+        <video ref={videoRef1} autoPlay muted></video>
     </div>
 }
