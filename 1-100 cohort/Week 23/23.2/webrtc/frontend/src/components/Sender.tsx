@@ -67,6 +67,10 @@ export const Sender = () => {
             videoRef1.current.srcObject = stream;
             videoRef1.current.play();
         }
+
+        //screenshare
+        // const screenStream = await navigator.mediaDevices.getDisplayMedia({ video: true, audio: false });
+        // pc.addTrack(screenStream.getVideoTracks()[0]);
     }
 
     return <div>
