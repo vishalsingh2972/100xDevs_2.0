@@ -147,6 +147,6 @@
 
       ### <p align="center">Congratulations! You have successfully implemented WebRTC. 🎉</p>
 
-<p align="center"><img width="1276" src="https://github.com/its-id/100x-Cohort-Programs/assets/60315832/26265ab8-004e-4f76-a056-7d96130b3ccf"></p>
+![image](https://github.com/user-attachments/assets/725c99ca-e9d0-4829-a734-7f91a33c813e)
 
 <p align="center"><img width="1276" alt="Screenshot 2024-05-06 at 12 51 06 AM" src="https://github.com/its-id/100x-Cohort-Programs/assets/60315832/7f37375a-308c-465a-97f7-9f75b2ebd394"></p>
