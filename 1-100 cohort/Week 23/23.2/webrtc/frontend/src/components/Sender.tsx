@@ -5,10 +5,10 @@ export const Sender = () => {
     const [socket, setSocket] = useState<WebSocket | null>(null);
 
     useEffect(() => {
-        const socket = new WebSocket('ws://localhost:8080');
-        setSocket(socket);
-        socket.onopen = () => {
-            socket.send(JSON.stringify({
+        const socket1 = new WebSocket('ws://localhost:8080');
+        setSocket(socket1);
+        socket1.onopen = () => {
+            socket1.send(JSON.stringify({
                 type: 'sender'
             }));
         }
@@ -17,10 +17,21 @@ export const Sender = () => {
     const startSendingVideo = async () => {
         const pc = new RTCPeerConnection();
         const offer = await pc.createOffer(); //SDP
-        await pc.setLocalDescription(offer); //After this line executes, pc.localDescription will now contain the exact same SDP offer data that is stored in the offer variable.
+        await pc.setLocalDescription(offer); //pc.localDescription will now contain the exact same SDP data stored in offer variable.
 
-        socket?.send(JSON.stringify({type: 'createOffer', sdp: offer})); //send the offer to the backend signaling server
+        socket?.send(JSON.stringify({ type: 'createOffer', sdp: offer })); //send the offer to the backend signaling server
         //socket?.send(JSON.stringify({type: 'createOffer', sdp: pc.localDescription})); also works
+
+        //whenever we receive a message back from the backend signaling server
+        if (!socket) return;
+        socket.onmessage = async (event) => {
+            const data = JSON.parse(event.data);
+
+            if (data.type === 'createAnswer') {
+                console.log("Received answer back from the receiver via signaling server");
+                pc.setRemoteDescription(data.sdp); //set the remote description to the SDP answer received from the receiver via the backend signaling server.
+            }
+        }
     }
 
     return <div>
