@@ -149,7 +149,7 @@
 
 ![image](https://github.com/user-attachments/assets/725c99ca-e9d0-4829-a734-7f91a33c813e)
 
-[WebRTC Internals](chrome://webrtc-internals/):
+## WebRTC Internals: Open Chrome and go to `chrome://webrtc-internals/`
 
 ![image](https://github.com/user-attachments/assets/590e1178-0bd1-439c-9338-fa00d0e91afb)
 
