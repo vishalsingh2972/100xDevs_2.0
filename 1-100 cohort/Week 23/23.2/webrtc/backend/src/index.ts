@@ -1,4 +1,4 @@
-//A simple one way communication b/w two tabs
+//signalling server
 
 import { WebSocketServer, WebSocket } from 'ws';
 
@@ -14,13 +14,13 @@ wss.on('connection', function connection(ws) {
 
     //identify-as-sender
     if (message.type === 'sender') {
-      console.log("sender added");
+      console.log("sender set");
       senderSocket = ws;
     }
 
     //identify-as-receiver
     else if (message.type === 'receiver') {
-      console.log("receiver added");
+      console.log("receiver set");
       receiverSocket = ws;
     }
 
@@ -29,7 +29,7 @@ wss.on('connection', function connection(ws) {
       if (ws !== senderSocket) {
         return;
       }
-      console.log("sending offer");
+      console.log("offer received");
       receiverSocket?.send(JSON.stringify({ type: 'createOffer', sdp: message.sdp }));
     }
 
@@ -38,7 +38,7 @@ wss.on('connection', function connection(ws) {
       if (ws !== receiverSocket) {
         return;
       }
-      console.log("sending answer");
+      console.log("answer received");
       senderSocket?.send(JSON.stringify({ type: 'createAnswer', sdp: message.sdp }));
     }
 
