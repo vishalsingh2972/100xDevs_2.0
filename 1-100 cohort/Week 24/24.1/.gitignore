@@ -1,5 +1,5 @@
-/dump-rpc/node_modules
-/dump-rpc/dist
+/dumb-rpc/node_modules
+/dumb-rpc/dist
 
 /protobufjs/node_modules
 
