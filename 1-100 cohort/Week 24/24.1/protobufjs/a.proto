@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+// Define a message type representing a person.
+message Person {
+  string name = 1;
+  int32 age = 2;
+}
