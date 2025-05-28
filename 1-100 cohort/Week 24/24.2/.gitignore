@@ -1,0 +1,11 @@
+/1-simple-test/node_modules
+/1-simple-test/dist
+
+/2-express-test/node_modules
+/2-express-test/dist
+
+/3-express-with-vitest/node_modules
+/3-express-with-vitest/dist
+
+/4-deepmocking/node_modules
+/4-deepmocking/.env
