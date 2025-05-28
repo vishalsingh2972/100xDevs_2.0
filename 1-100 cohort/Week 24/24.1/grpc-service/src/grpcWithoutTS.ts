@@ -1,4 +1,4 @@
-//✨gRPC without types: makes use of just a.proto file
+//✨gRPC without types: makes use of just a.proto file.
 
 // This is backend B code and we use Postman as backend A (client) to make a call to the gRPC server running here.
 // Backend B hosts the gRPC server that implements the AddPerson RPC defined in the .proto file.
