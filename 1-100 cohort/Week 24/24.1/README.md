@@ -122,23 +122,6 @@
 
 - **gRPC** is a high performance, open-source and universal RPC framework.
 - Real Life Use Cases: In Big Companies with multiple teams, they use RPC to communicate between different services.
-
-## Implementing gRPC
-
-- To generate automatic types, run the following command:
-
-  ```bash
-  ./node_modules/@grpc/proto-loader/build/bin/proto-loader-gen-types.js  --longs=String --enums=String --defaults --oneofs --grpcLib=@grpc/grpc-js --outDir=proto ./src/a.proto
-  ```
-
-- The above command will generate types for the proto file in a folder named `/proto`. Shift this folder inside the `src` folder.
-
-so the most general use case of grpc is to be a mediator between different services (language-agnostic) in a company. if so, how does it connect functions from different services together?
-
-for http requests, openapi spec has more preference than grpc. as there are multiple libraries available to convert these specs to generate ts codes (specically for querying functions like kubb-gen, openapi-generated for react-query). can we do this for grpc and is this recommended?
-
-Slides [here](https://projects.100xdevs.com/tracks/grpc/grpc-4).
-
 - gRPC is highy language agnostic, which is amazing.
 
 ![image](https://github.com/user-attachments/assets/faa1bb12-bbde-4cb4-a93a-f3e3ab75758e)
@@ -167,3 +150,19 @@ Here’s the flow you created in grpc-service folder where you implemented gRPC 
       The request and response messages are serialized and deserialized using Protocol Buffers, which is very fast and efficient.
 
       This results in quick data transfer between the two services.
+
+## Implementing gRPC (with and without types)
+
+- To generate automatic types, run the following command:
+
+  ```bash
+  ./node_modules/@grpc/proto-loader/build/bin/proto-loader-gen-types.js  --longs=String --enums=String --defaults --oneofs --grpcLib=@grpc/grpc-js --outDir=proto ./src/a.proto
+  ```
+
+- The above command will generate types for the proto file in a folder named `/proto`. Shift this folder inside the `src` folder.
+
+so the most general use case of grpc is to be a mediator between different services (language-agnostic) in a company. if so, how does it connect functions from different services together?
+
+for http requests, openapi spec has more preference than grpc. as there are multiple libraries available to convert these specs to generate ts codes (specically for querying functions like kubb-gen, openapi-generated for react-query). can we do this for grpc and is this recommended?
+
+Slides [here](https://projects.100xdevs.com/tracks/grpc/grpc-4).
