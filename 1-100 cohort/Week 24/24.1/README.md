@@ -142,3 +142,28 @@ Slides [here](https://projects.100xdevs.com/tracks/grpc/grpc-4).
 - gRPC is highy language agnostic, which is amazing.
 
 ![image](https://github.com/user-attachments/assets/faa1bb12-bbde-4cb4-a93a-f3e3ab75758e)
+
+## What exactly did we do in grpc-service folder here?
+Here’s the flow you created in grpc-service folder:
+
+- Lets's assume we have 2 backends A and B talking to each other via gRPC.
+  
+- You are in the A backend trying to talk to the B backend.
+
+- You defined your data structures and service interface in a .proto file (the contract).
+
+- In backend A, you wrote an index.ts that:
+
+      Loads the .proto file (using proto-loader).
+
+      Creates a gRPC client stub dynamically based on the .proto definitions.
+
+      Uses that client to call the functions implemented in backend B.
+
+- In backend B, you have the actual implementation of these functions (the server).
+
+- When you call the backend B functions from backend A (via Postman or any gRPC client):
+
+      The request and response messages are serialized and deserialized using Protocol Buffers, which is very fast and efficient.
+
+      This results in quick data transfer between the two services.
