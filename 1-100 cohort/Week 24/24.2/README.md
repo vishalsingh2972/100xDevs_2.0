@@ -1,4 +1,3 @@
-
 # Testing in MERN Stack
 
 ## What are Tests?
