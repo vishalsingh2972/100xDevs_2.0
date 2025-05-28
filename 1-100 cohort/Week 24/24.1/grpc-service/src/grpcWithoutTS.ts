@@ -1,3 +1,5 @@
+//✨makes use of just a.proto file
+
 // This is backend B code and we use Postman as backend A (client) to make a call to the gRPC server running here.
 // Backend B hosts the gRPC server that implements the AddPerson RPC defined in the .proto file.
 // Postman acts as a gRPC client that sends requests to this server on port 50051.
@@ -29,7 +31,6 @@ const PERSONS = [
 //callback => res
 //right 'addPerson' is this
 function addPerson(call, callback) {
-  console.log(call)
   let person = {
     name: call.request.name,
     age: call.request.age
