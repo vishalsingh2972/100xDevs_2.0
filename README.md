@@ -1,7 +1,7 @@
 # 100xDevs 2.0 Documentation
 
 Documenting all my learnings from 100xDevs cohort 2.0 by [@hkirat](https://github.com/hkirat). <br>
-This repository contains the notes, topics discussed and assignment solutions from the cohort.
+This repository contains the [notes](https://quickest-juniper-f9c.notion.site/Cohort-2-0-FullStack-Open-Source-6b6c2a9f1282499aba4782b88bf7e204), [topics discussed](https://projects.100xdevs.com/) and assignment solutions from the cohort.
 
 ## Topics covered in the cohort
 
