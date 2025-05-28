@@ -138,3 +138,7 @@ so the most general use case of grpc is to be a mediator between different servi
 for http requests, openapi spec has more preference than grpc. as there are multiple libraries available to convert these specs to generate ts codes (specically for querying functions like kubb-gen, openapi-generated for react-query). can we do this for grpc and is this recommended?
 
 Slides [here](https://projects.100xdevs.com/tracks/grpc/grpc-4).
+
+- gRPC is highy language agnostic, which is amazing.
+
+![image](https://github.com/user-attachments/assets/faa1bb12-bbde-4cb4-a93a-f3e3ab75758e)
