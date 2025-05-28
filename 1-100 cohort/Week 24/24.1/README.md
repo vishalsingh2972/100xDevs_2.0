@@ -144,7 +144,7 @@ Slides [here](https://projects.100xdevs.com/tracks/grpc/grpc-4).
 ![image](https://github.com/user-attachments/assets/faa1bb12-bbde-4cb4-a93a-f3e3ab75758e)
 
 ## What exactly did we do in grpc-service folder here?
-Here’s the flow you created in grpc-service folder:
+Here’s the flow you created in grpc-service folder where you implemented gRPC between 2 services:
 
 - Lets's assume we have 2 backends A and B talking to each other via gRPC.
   
