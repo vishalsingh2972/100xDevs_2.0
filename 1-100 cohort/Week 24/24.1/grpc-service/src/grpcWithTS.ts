@@ -1,4 +1,4 @@
-//✨makes use of both a.proto file and generated folder
+//✨makes use of both a.proto file and generated folder, P.S: generated folder is auto-generated.
 
 // ✅ Type-safe version:
 // Here we added type safety by importing `ProtoGrpcType` from the generated types (in ./generated/a).
