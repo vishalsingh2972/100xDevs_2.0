@@ -1,3 +1,4 @@
+
 # 100xDevs 2.0 Documentation
 
 Documenting all my learnings from 100xDevs cohort 2.0 by [@hkirat](https://github.com/hkirat). <br>
@@ -25,5 +26,3 @@ Don't hesitate to raise an issue or contribute by submitting a [pull request](ht
 🎯 Share project ideas, tips, and tricks to help others. <br>
 🎯 Provide GSOC tips and tricks to guide aspiring participants. <br>
 🎯 Contribute anything that adds value to the community and fosters a collaborative learning environment.
-
-
