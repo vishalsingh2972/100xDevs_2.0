@@ -162,7 +162,8 @@
 ## Mocking the Application with Database
 
 - In a real-world full-stack application, we will have a database to store the data. In this case, we will be using Prisma to interact with the database.
-- To **unit test** the application, we need to **mock the database** calls.
+- To **unit test** the application, we need to **mock the database** calls or make fake db calls that just let us test the logic of our code (e.g., validation, responses etc).
+- Mocking database means: during unit tests, we replace real DB calls (like Prisma) with fake functions that return predictable dummy data, so our test only checks our app’s logic — not the database itself.
 
 **Adding the Database**:
 
