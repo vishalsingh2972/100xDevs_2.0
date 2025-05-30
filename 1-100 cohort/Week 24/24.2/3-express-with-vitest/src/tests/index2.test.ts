@@ -1,11 +1,12 @@
-import { describe, expect, it } from '@jest/globals';
+//vitest + adding a db
+import { describe, expect, it } from 'vitest';
 import request from "supertest";
-import { appWithZod } from '../indexWithZod';
+import { app } from '../index';
 
 //POST /sum (body) ~ inputs 'a' and 'b' sent in the body
 describe("POST /sum", () => {
   it("should return the sum of two numbers", async () => {
-    const res = await request(appWithZod).post("/sum").send({
+    const res = await request(app).post("/sum").send({
       a: 1,
       b: 2
     });
@@ -15,7 +16,7 @@ describe("POST /sum", () => {
 
   //unsuccessful case test case
   it("should return 411 if no inputs are provided", async () => {
-    const res = await request(appWithZod).post("/sum").send({});
+    const res = await request(app).post("/sum").send({});
     expect(res.statusCode).toBe(411);
     expect(res.body.message).toBe("Incorrect inputs");
   });
@@ -25,7 +26,7 @@ describe("POST /sum", () => {
 //GET /sum (headers) ~ inputs 'a' and 'b' sent in the headers
 describe("GET /sum", () => {
   it("should return the sum of two numbers", async () => {
-    const res = await request(appWithZod).get("/sum").set({
+    const res = await request(app).get("/sum").set({
       a: "1",
       b: "2"
     }).send();
@@ -35,7 +36,7 @@ describe("GET /sum", () => {
 
   //unsuccessful case test case
   it("should return 411 if no inputs are provided", async () => {
-    const res = await request(appWithZod).get("/sum").send();
+    const res = await request(app).get("/sum").send();
     expect(res.statusCode).toBe(411);
     expect(res.body.message).toBe("Incorrect inputs");
   });
