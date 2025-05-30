@@ -1,0 +1,16 @@
+{
+  "name": "1-simple-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@jest/globals": "^30.0.0-beta.3",
+    "ts-jest": "^29.3.4"
+  }
+}
