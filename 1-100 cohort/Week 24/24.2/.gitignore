@@ -6,6 +6,7 @@
 
 /3-express-with-vitest/node_modules
 /3-express-with-vitest/dist
+/3-express-with-vitest/.env
 
 /4-deepmocking/node_modules
 /4-deepmocking/.env
