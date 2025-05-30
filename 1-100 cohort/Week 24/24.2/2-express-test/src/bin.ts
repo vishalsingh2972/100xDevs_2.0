@@ -11,14 +11,14 @@
 // (instead of tsc -b && node dist/index.js, which would mix main app logic with the code that runs the server)
 
 import { app } from './index';
-//import { appWithZod } from './indexWithZod';
+import { appWithZod } from './indexWithZod';
 
 //we have seperated the code of running the server from the actual logic
 app.listen(3000, () => {
   console.log('Server (app) is running on PORT 3000');
 });
 
-app.listen(3001, () => {
+appWithZod.listen(3001, () => {
   console.log('Server (appWithZod) is running on PORT 3001');
 });
 
