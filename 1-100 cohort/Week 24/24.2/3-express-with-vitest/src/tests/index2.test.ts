@@ -1,7 +1,17 @@
-//vitest + adding a db
-import { describe, expect, it } from 'vitest';
+//vitest + adding a db + prisma
+import { describe, expect, it, vi } from 'vitest';
 import request from "supertest";
 import { app } from '../index';
+
+/*MOCKING db-prisma part from TESTING:
+- instead of using the real Prisma client from db.ts, use this fake object with a mock create() function.
+- prismaClient.sum.create(...) now does nothing during tests, prisma is having no interaction with the db during tests now.
+- It won’t connect to your DB.
+- It ensures tests are fast, safe, and isolated.*/
+vi.mock('../db', () => ({
+  // the vi.fn() is an empty function which will replace the prismaClient.sum.create function with an empty function
+  prismaClient: { sum: { create: vi.fn() } }, 
+}));
 
 //POST /sum (body) ~ inputs 'a' and 'b' sent in the body
 describe("POST /sum", () => {

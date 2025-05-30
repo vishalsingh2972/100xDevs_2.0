@@ -165,6 +165,9 @@
 - To **unit test** the application, we need to **mock the database** calls or make fake db calls that just let us test the logic of our code (e.g., validation, responses etc).
 - Mocking database means: during unit tests, we replace real DB calls (like Prisma) with fake functions that return predictable dummy data, so our test only checks our app’s logic — not the database itself.
 - We can do mocking with Jest as well, but here we are using Vitest which is much easier for doing mocking than Jest.
+- Mocking lets you do both:
+✅ Keep real DB code in your app logic (for actual use)
+✅ Skip real DB work in tests (via mocking)
 
 **Adding the Database**:
 
