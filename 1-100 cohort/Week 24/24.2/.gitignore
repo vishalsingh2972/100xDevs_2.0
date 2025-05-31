@@ -7,6 +7,9 @@
 /3-express-with-vitest/node_modules
 /3-express-with-vitest/dist
 /3-express-with-vitest/.env
+/3-express-with-vitest/src/generated/prisma
 
 /4-deepmocking/node_modules
+/4-deepmocking/dist
 /4-deepmocking/.env
+/4-deepmocking/src/generated/prisma
