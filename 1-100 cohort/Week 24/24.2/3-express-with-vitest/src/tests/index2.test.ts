@@ -8,9 +8,13 @@ import { app } from '../index';
 - prismaClient.sum.create(...) now does nothing during tests, prisma is having no interaction with the db during tests now.
 - It won’t connect to your DB.
 - It ensures tests are fast, safe, and isolated.*/
+//here vi.fn() is a fake empty function which will replace the prismaClient.sum.create function present in index2.ts while testing.
 vi.mock('../db', () => ({
-  // the vi.fn() is an empty function which will replace the prismaClient.sum.create function with an empty function
-  prismaClient: { sum: { create: vi.fn() } }, 
+  prismaClient: { //dummy fake prisma client
+    sum: {
+      create: vi.fn() // 👈 fake empty function — does nothing, no calls to db
+    }
+  }
 }));
 
 //POST /sum (body) ~ inputs 'a' and 'b' sent in the body
