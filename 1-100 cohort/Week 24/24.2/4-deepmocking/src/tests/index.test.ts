@@ -1,23 +1,10 @@
-//vitest + adding a db + prisma
+//vitest with deepmocking + adding a db + prisma
 import { describe, expect, it, vi } from 'vitest';
 import request from "supertest";
 import { app } from '../index';
 
-/*MOCKING db-prisma part from TESTING:
-- instead of using the real Prisma client from db.ts, use this fake object with a mock create() function.
-- prismaClient.sum.create(...) now does nothing during tests, prisma is having no interaction with the db during tests now.
-- It won’t connect to your DB.
-- It ensures tests are fast, safe, and isolated.*/
-//here vi.fn() is a fake empty function which will replace the prismaClient.sum.create function present in index2.ts while testing.
-vi.mock('../db', () => ({
-  prismaClient: { //dummy fake prisma client
-    sum: {
-      create: vi.fn() // 👈 fake empty function — does nothing, no calls to db
-    }
-  }
-}));
+vi.mock('../db'); //so now Vitest will not use prismaClient defined in src/db.ts but I am telling it to use the prismaClient defined in src/__mocks__/db.ts instead, vitest-mock-extended finds the src/__mocks__/db.ts file automatically no need to explicitly tell it here.
 
-//POST /sum (body) ~ inputs 'a' and 'b' sent in the body
 describe("POST /sum", () => {
   it("should return the sum of two numbers", async () => {
     const res = await request(app).post("/sum").send({
@@ -28,7 +15,6 @@ describe("POST /sum", () => {
     expect(res.body.answer).toBe(3);
   });
 
-  //unsuccessful case test case
   it("should return 411 if no inputs are provided", async () => {
     const res = await request(app).post("/sum").send({});
     expect(res.statusCode).toBe(411);
@@ -37,7 +23,6 @@ describe("POST /sum", () => {
 
 });
 
-//GET /sum (headers) ~ inputs 'a' and 'b' sent in the headers
 describe("GET /sum", () => {
   it("should return the sum of two numbers", async () => {
     const res = await request(app).get("/sum").set({
@@ -48,7 +33,6 @@ describe("GET /sum", () => {
     expect(res.body.answer).toBe(3);
   });
 
-  //unsuccessful case test case
   it("should return 411 if no inputs are provided", async () => {
     const res = await request(app).get("/sum").send();
     expect(res.statusCode).toBe(411);

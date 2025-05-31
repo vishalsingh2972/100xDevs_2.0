@@ -1,3 +1,4 @@
+//vitest + adding a db + prisma
 //separated prisma-db code from the main code index2.ts
 //we will later on mock out prisma-db interaction part during tests so it's a good practice to separate the database code from the main application logic befforehand.
 import { PrismaClient } from "./generated/prisma";

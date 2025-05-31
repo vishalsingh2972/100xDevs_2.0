@@ -9,7 +9,7 @@ import { app } from '../index';
 - It won’t connect to your DB.
 - It ensures tests are fast, safe, and isolated.*/
 //here vi.fn() is a fake empty function which will replace the prismaClient.sum.create function present in index2.ts while testing.
-vi.mock('../db', () => ({
+vi.mock('../db', () => ({ //so now Vitest will not use prismaClient defined in src/db.ts but instead use the prismaClient defined here.
   prismaClient: { //dummy fake prisma client
     sum: {
       create: vi.fn() // 👈 fake empty function — does nothing, no calls to db
