@@ -1,4 +1,5 @@
 //vitest with deepmocking + adding a db + prisma
+//vitest with deepmocking + adding a db + prisma + mockReturnValue
 import express from "express";
 import { z } from "zod";
 import { prismaClient } from "./db";
