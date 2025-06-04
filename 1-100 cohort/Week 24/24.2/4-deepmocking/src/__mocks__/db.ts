@@ -1,4 +1,5 @@
 //vitest with deepmocking + adding a db + prisma
+//vitest with deepmocking + adding a db + prisma + mockReturnValue
 //Here we're using the mockDeep function from vitest-mock-extended to create a deep mock of the real PrismaClient instance present in src/db.ts. This will automatically mock all the properties and functions of the prismaClient object.
 import { PrismaClient } from '@prisma/client'
 import { mockDeep } from 'vitest-mock-extended'

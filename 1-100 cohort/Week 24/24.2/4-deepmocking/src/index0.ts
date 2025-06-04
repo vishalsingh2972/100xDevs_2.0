@@ -1,4 +1,4 @@
-//vitest with deepmocking + adding a db + prisma + mockReturnValue
+//vitest with deepmocking + adding a db + prisma
 import express from "express";
 import { z } from "zod";
 import { prismaClient } from "./db";
@@ -22,7 +22,7 @@ app.post("/sum", async (req, res) => {
 
   const answer = parsedResponse.data.a + parsedResponse.data.b;
 
-  const sum1 = await prismaClient.sum.create({
+  await prismaClient.sum.create({
     data: {
       a: parsedResponse.data.a,
       b: parsedResponse.data.b,
@@ -30,11 +30,8 @@ app.post("/sum", async (req, res) => {
     }
   });
 
-  //console.log(sum1);
-
   return res.json({
-    result: sum1.result,
-    id: sum1.id
+    answer
   })
 });
 

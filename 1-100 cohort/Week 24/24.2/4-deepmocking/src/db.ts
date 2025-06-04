@@ -1,4 +1,5 @@
 //vitest with deepmocking + adding a db + prisma
+//vitest with deepmocking + adding a db + prisma + mockReturnValue
 //separated prisma-db code from the main code index.ts
 import { PrismaClient } from "./generated/prisma";
 
