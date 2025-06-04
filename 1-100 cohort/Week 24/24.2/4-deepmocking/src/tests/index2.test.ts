@@ -27,7 +27,7 @@ describe("POST /sum", () => {
     expect(res.body.answer).toBe(3);
     expect(res.body.id).toBe(1);
 
-    //spy checks
+    //spy checks - here prismaClient.sum.create is checking the actual prismaClient.sum.create present in index2.ts and not the mock prismaClient.sum.create.mockResolvedValue present above
     expect(prismaClient.sum.create).toHaveBeenCalledWith({
       data: {
         a: 1,
