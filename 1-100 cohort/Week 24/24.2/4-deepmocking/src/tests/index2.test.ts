@@ -1,7 +1,7 @@
 //vitest with deepmocking + adding a db + prisma + mockReturnValue + spys
 import { describe, expect, it, vi } from 'vitest';
 import request from "supertest";
-import { app } from '../index0';
+import { app } from '../index2';
 import { prismaClient } from '../__mocks__/db'; 
 
 vi.mock('../db');
@@ -25,7 +25,7 @@ describe("POST /sum", () => {
     });
     expect(res.statusCode).toBe(200);
     expect(res.body.answer).toBe(3);
-    //expect(res.body.id).toBe(1);
+    expect(res.body.id).toBe(1);
 
     //spy checks
     expect(prismaClient.sum.create).toHaveBeenCalledWith({

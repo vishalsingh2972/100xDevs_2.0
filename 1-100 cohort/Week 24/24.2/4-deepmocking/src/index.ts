@@ -33,7 +33,7 @@ app.post("/sum", async (req, res) => {
   //console.log(sum1);
 
   return res.json({
-    result: sum1.result,
+    answer: sum1.result,
     id: sum1.id
   })
 });
