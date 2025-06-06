@@ -1,0 +1,32 @@
+name: CI/CD Pipeline for 1-integration-test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    - name: Set up Docker Compose
+      uses: docker/setup-qemu-action@v2
+
+    - name: Ensure Docker Compose is available
+      run: docker-compose version
+
+    - name: Copy .env.example to .env
+      run: cp ./1-integration-test/.env.example ./1-integration-test/.env
+
+    - name: Run integration script
+      run: cd 1-integration-test && npm run test:integration
