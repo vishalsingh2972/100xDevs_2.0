@@ -5,13 +5,14 @@ import resetDb from './helpers/reset-db';
 
 describe('POST /sum', () => {
 
-  //This line executes before each test and resets the DB
+  //beforeEach and beforeAll are not specific to integration tests, they can be used in unit tests as well.
+  //This line executes before every 'it' test runs inside this describe block and resets the DB
   beforeEach(async () => {
     console.log('clearing db');
     await resetDb();
   });
 
-  //This line executes once before all describe blocks and resets the DB
+  //This line executes only once before all describe blocks and resets the DB
   /*
   beforeAll(async () => {
     console.log('clearing db');

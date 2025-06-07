@@ -1,7 +1,9 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from '@prisma/client'
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient()
 
 export default async () => {
-  await prisma.$transaction([prisma.request.deleteMany()]);
-};
+  await prisma.$transaction([
+    prisma.request.deleteMany()
+  ])
+}
