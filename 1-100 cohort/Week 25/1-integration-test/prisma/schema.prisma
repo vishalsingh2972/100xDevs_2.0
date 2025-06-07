@@ -13,13 +13,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model Request {
-  id          Int     @id @default(autoincrement())
-  a           Int
-  b           Int
-  answer      Int
-  type        Type
+  id     Int  @id @default(autoincrement())
+  a      Int
+  b      Int
+  answer Int
+  type   Type
 }
 
 enum Type {
