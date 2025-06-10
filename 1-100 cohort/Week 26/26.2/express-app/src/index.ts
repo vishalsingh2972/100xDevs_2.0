@@ -1,8 +1,9 @@
-import express from "express";
+import express, { response } from "express";
 import { monitor } from "./middlewares/monitor";
 import { requestCount } from './middlewares/requestCount';
 import client from "prom-client";
 import { userCount } from "./middlewares/activeUsers";
+import { responseTimeDistribution } from "./middlewares/responseTimeHistogram";
 
 const app = express();
 
@@ -10,6 +11,7 @@ app.use(express.json());
 app.use(monitor);
 app.use(requestCount); //Counter
 app.use(userCount); //Gauge
+app.use(responseTimeDistribution); //Histogram
 
 app.get("/user", (req, res) => {
   res.send({
