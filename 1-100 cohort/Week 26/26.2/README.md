@@ -383,6 +383,8 @@ To learn more about its architecture, visit [here](https://prometheus.io/docs/in
 
 5. But, our express app will not be accessible by Prometheus as it is running on a different network (container). To solve this, we need to containerize to run both the express app and Prometheus on the same network.
 
+![image](https://github.com/user-attachments/assets/243d95ba-dd96-44b6-89e5-eae24f5e9ebd)
+![image](https://github.com/user-attachments/assets/1596c3fb-6d20-453a-a447-c12cf9aca68d)
 <br>
 
 6. Create a `Dockerfile` for the express app:
