@@ -5,3 +5,8 @@ scrape_configs:
   - job_name: 'nodejs-app'
     static_configs:
       - targets: ['node-app:3000']
+
+  # - job_name: 'prod-app' #scrapping/pulling multiple jobs/targets using prometheus ~ possible
+  #   scheme: https
+  #   static_configs:
+  #     - targets: ['week-25.100xdevs.com']
