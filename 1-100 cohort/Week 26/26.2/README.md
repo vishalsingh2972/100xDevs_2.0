@@ -481,3 +481,9 @@ To learn more about its architecture, visit [here](https://prometheus.io/docs/in
   ```
   
    <img width="1580" alt="Screenshot 2024-05-26 at 9 09 28 PM" src="https://github.com/its-id/100x-Cohort-Programs/assets/60315832/cd3d3ded-03f1-4371-b927-c4570459f464">
+
+   ---
+
+## Grafana
+![image](https://github.com/user-attachments/assets/1b12cf68-7f8f-4b7d-b0a5-3c6ab869ed66)
+
