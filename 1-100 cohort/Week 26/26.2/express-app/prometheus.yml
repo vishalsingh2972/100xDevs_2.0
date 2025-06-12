@@ -10,3 +10,6 @@ scrape_configs:
   #   scheme: https
   #   static_configs:
   #     - targets: ['week-25.100xdevs.com']
+
+# while triggering emails on alerts via Grafana we need to add this, Grafana can't directly send alert emails
+smtp_credentials:
