@@ -486,4 +486,3 @@ To learn more about its architecture, visit [here](https://prometheus.io/docs/in
 
 ## Grafana
 ![image](https://github.com/user-attachments/assets/1b12cf68-7f8f-4b7d-b0a5-3c6ab869ed66)
-
