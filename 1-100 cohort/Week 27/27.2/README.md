@@ -1,4 +1,3 @@
-
 # Kubernetes Part - 1 (Contd.)
 
 ## Summarizing Previous Session
