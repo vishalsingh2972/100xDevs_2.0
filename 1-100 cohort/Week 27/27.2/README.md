@@ -380,6 +380,9 @@
 
      <br>
 
+     ![image](https://github.com/user-attachments/assets/fc204bbe-4748-41d6-9cf7-f1f91f2119ac)
+     `Note: You can send traffic to any node’s IP:NodePort, and Kubernetes will internally load-balance and route the request to the right pod — even if that pod lives on a different node.`
+
 3. Note the `NodePort` of the service. Although, we will not be able to access the service using the `NodePort` as we are using `Kind`.
 
     <img width="660" alt="Screenshot 2024-06-02 at 8 25 12 PM" src="https://github.com/its-id/100x-Cohort-Programs/assets/60315832/e8e9e631-9acf-427d-8c3d-86ee6eca31be">
