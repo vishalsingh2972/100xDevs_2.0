@@ -297,7 +297,7 @@
 
   <img width="417" alt="Screenshot 2024-06-02 at 8 10 52 PM" src="https://github.com/its-id/100x-Cohort-Programs/assets/60315832/56acbe08-e2a2-45a9-a985-81507793f4f5">
 
-- A `Service` is an abstraction that defines a logical set of pods and a policy by which to access them.
+- A `Service` is an abstraction that defines a logical set of pods and a policy by which to access them. So we need to give 2 things to the services file ~ `which all pods it can access` and `how it can access them`
 
 - It is a stable endpoint that exposes the pods to the outside world.
 

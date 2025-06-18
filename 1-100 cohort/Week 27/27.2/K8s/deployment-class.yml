@@ -19,5 +19,5 @@ spec:
             - containerPort: 80
 
 # `kubectl apply -f deployment-class.yml`
-# deployment technically did not create 3 pods, deployment created replicaset and replicaset created 3 pods
+# deployment technically did not create 3 pods, under the hood deployment created replicaset and replicaset created 3 pods
 # Deployment => Relicaset => 3 Pods
