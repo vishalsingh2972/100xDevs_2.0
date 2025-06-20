@@ -443,6 +443,8 @@
 
 9. Now, you can access the service at `http://localhost:30007`.
 
+   `NodePort Service representation` ![image](https://github.com/user-attachments/assets/43b358e0-56dd-4dab-899b-a8402af408ac)
+
 **Disadvantages of NodePort Service**
 
 - The `NodePort` service exposes the service on a port on each node in the cluster.
