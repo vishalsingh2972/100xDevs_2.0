@@ -1,0 +1,19 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane # master
+  extraPortMappings:
+  - containerPort: 30007
+    hostPort: 3001
+- role: worker # worker 1
+  extraPortMappings:
+  - containerPort: 30007
+    hostPort: 30006
+- role: worker # worker 2
+  extraPortMappings:
+    - containerPort: 30007
+      hostPort: 30009
+
+# localhost:3001 on browser forwards to port 30007 on the master node 
+# localhost:30006 on browser forwards to port 30007 on the worker 1 node 
+# localhost:30009 on browser forwards to port 30007 on the worker 2 node 

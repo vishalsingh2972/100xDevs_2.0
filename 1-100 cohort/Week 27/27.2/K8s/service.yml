@@ -7,7 +7,7 @@ spec:
     app: nginx
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 80 # container port
-      nodePort: 30007  # worker node port # This port can be any valid port within the NodePort range
+      port: 80 # Cluster-internal Service Port — Used only inside the cluster — It is used when any pod inside the Kubernetes cluster wants to talk to another pod within same node or different node via the Service. When you're making requests from outside the cluster (like from your browser), you are not using port: 80 (the internal service port) at all.
+      targetPort: 80 # Container port inside the pods
+      nodePort: 30007  # This opens port 30007 on ALL nodes (control-plane + worker) in your Kubernetes cluster — not just in the nodes where the matching pods (app: nginx) are running. # This port can be any valid port within the NodePort range
   type: NodePort

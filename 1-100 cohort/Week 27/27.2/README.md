@@ -401,12 +401,18 @@
    kind: Cluster
    apiVersion: kind.x-k8s.io/v1alpha4
    nodes:
-    - role: control-plane
-    extraPortMappings:
-    - containerPort: 30007
-        hostPort: 30007
-    - role: worker
-    - role: worker
+   - role: control-plane
+   extraPortMappings:
+   - containerPort: 30007
+      hostPort: 30007
+   - role: worker
+   extraPortMappings:
+   - containerPort: 30007
+      hostPort: 30008
+   - role: worker
+   extraPortMappings:
+      - containerPort: 30007
+         hostPort: 30009
    ```
    ![image](https://github.com/user-attachments/assets/04eda87e-1259-4058-90be-3023419ff9b1)
 
