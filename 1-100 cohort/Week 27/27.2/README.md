@@ -420,7 +420,7 @@
 
 6. Restart the cluster using the above configuration file:
 
-   `Note: before starting this new cluster using kind-port-map.yml remember to delete the previous cluster that we created using `kind create cluster --config cluster2.yml --name 100x-cluster2` that follows the cluster2.yml configuration without services by using `kind delete cluster --name 100x-cluster2``
+   `Note: before starting this new cluster using kind-port-map.yml remember to delete the previous cluster that we created using "kind create cluster --config cluster2.yml --name 100x-cluster2" that follows the cluster2.yml configuration without services by using "kind delete cluster --name 100x-cluster2"`
 
    ```bash
    kind create cluster --config kind-port-map.yml --name 100x-cluster2
