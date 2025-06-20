@@ -505,6 +505,8 @@
 
    <br>
 
+`We used Vultr to deploy a K8s cluster and a additional Load Balancer outside the cluster`![image](https://github.com/user-attachments/assets/79c0bf6d-7a0b-46d8-ab00-c46179081b93)
+   
 9. Access the service using the `LoadBalancer` IP.
 
  `LoadBalancer Service representation`![image](https://github.com/user-attachments/assets/ea42d325-d98a-489f-96c6-8d0d8fd49943)
