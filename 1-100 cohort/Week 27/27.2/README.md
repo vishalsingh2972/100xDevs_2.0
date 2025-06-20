@@ -408,6 +408,7 @@
     - role: worker
     - role: worker
    ```
+   ![image](https://github.com/user-attachments/assets/04eda87e-1259-4058-90be-3023419ff9b1)
 
 6. Restart the cluster using the above configuration file:
 
