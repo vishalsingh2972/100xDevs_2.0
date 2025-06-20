@@ -405,10 +405,12 @@
    extraPortMappings:
    - containerPort: 30007
       hostPort: 30007
+
    - role: worker
    extraPortMappings:
    - containerPort: 30007
       hostPort: 30008
+      
    - role: worker
    extraPortMappings:
       - containerPort: 30007
