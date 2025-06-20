@@ -420,9 +420,12 @@
 
 6. Restart the cluster using the above configuration file:
 
+   `Note: before starting this new cluster using kind-port-map.yml remember to delete the previous cluster that we created using `kind create cluster --config cluster2.yml --name 100x-cluster2` that follows the cluster2.yml configuration without services by using `kind delete cluster --name 100x-cluster2``
+
    ```bash
    kind create cluster --config kind-port-map.yml --name 100x-cluster2
    ```
+   `so our new cluster 100x-cluster2 now has services in it so we can talk to pods directly from the browser and it follows the kind-port-map.yml`
 
 7. Delete the previous service and the deployment:
 
