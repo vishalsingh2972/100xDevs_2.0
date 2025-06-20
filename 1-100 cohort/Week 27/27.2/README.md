@@ -506,3 +506,5 @@
    <br>
 
 9. Access the service using the `LoadBalancer` IP.
+
+ `LoadBalancer Service representation`![image](https://github.com/user-attachments/assets/ea42d325-d98a-489f-96c6-8d0d8fd49943)
