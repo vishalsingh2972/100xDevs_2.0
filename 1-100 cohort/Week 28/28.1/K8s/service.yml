@@ -9,5 +9,5 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-      nodePort: 30007 # This port can be any valid port within the NodePort range
+      nodePort: 30007
   type: NodePort
