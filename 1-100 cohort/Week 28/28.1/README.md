@@ -179,6 +179,8 @@ So, the steps to start a complete Kubernetes service are:
 
 - **It is a way to divide cluster resources between multiple users.**
 
+![image](https://github.com/user-attachments/assets/ec04714f-ca20-40d9-9080-d62924743dcc)`also, pods inside the same node can also have different namespaces`
+
   <br>
 
 - Try running the below command to see the namespaces:
