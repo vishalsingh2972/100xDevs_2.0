@@ -143,6 +143,8 @@ So, the steps to start a complete Kubernetes service are:
 
 ## Ingress & Ingress Controller
 
+![image](https://github.com/user-attachments/assets/8af252bb-3578-4dc7-8292-fbf7de14a454)
+
 - _Ingress is an API object that manages external access to services in a cluster, typically HTTP._
 
   <br>
