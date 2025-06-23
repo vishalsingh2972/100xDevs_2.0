@@ -83,6 +83,7 @@ metadata:
   namespace: default
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    # nginx.ingress.kubernetes.io/limit-rps: "10" / # rate limiting the 'only' load balancer
 spec:
   ingressClassName: nginx
   rules:
