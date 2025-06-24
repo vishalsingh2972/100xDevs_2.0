@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ecom-backend-config
+data:
+  database_url: "mysql://ecom-db:3306/shop"
+  cache_size: "1000"
+  payment_gateway_url: "https://payment-gateway.example.com"
+  max_cart_items: "50"
+  session_timeout: "3600"
