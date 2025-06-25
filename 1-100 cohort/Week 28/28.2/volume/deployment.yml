@@ -19,3 +19,11 @@ spec:
           image: 100xdevs/env-backend
           ports:
             - containerPort: 3000
+          volumeMounts:
+            - name: env-file
+              readOnly: true
+              mountPath: "/app"
+      volumes:
+        - name: env-file
+          secret:
+            secretName: ecom-backend-secret
