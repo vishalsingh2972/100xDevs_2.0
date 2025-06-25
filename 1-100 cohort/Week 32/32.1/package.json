@@ -1,0 +1,18 @@
+{
+  "name": "kafka-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc -b && node dist/index.js",
+    "produce": "tsc -b && node dist/producer.js",
+    "produce:user": "tsc -b && node dist/producer-user.js",
+    "consume": "tsc -b && node dist/consumer.js"    
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "kafkajs": "^2.2.4"
+  }
+}
