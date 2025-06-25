@@ -349,6 +349,9 @@
 
 ## Volumes and Persistent Volumes
 
+![image](https://github.com/user-attachments/assets/a240f630-b32e-459b-9aa5-9fe2dfe5052b)
+
+
 - Till now, we have been storing all our secrets and configmaps in the Kubernetes API server. This is **not a good practice**, as it can expose sensitive information.
 
   <br>
