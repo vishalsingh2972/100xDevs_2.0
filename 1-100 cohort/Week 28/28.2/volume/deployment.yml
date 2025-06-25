@@ -20,10 +20,10 @@ spec:
           ports:
             - containerPort: 3000
           volumeMounts:
-            - name: env-file
-              readOnly: true
+            - name: secret-volume
               mountPath: "/app"
+              readOnly: true
       volumes:
-        - name: env-file
+        - name: secret-volume
           secret:
             secretName: ecom-backend-secret
