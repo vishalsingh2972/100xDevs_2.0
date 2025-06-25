@@ -1,4 +1,4 @@
-// Partitioning strategy trial
+// Topic 'payment-done' now has 3 partitions
 
 import { Kafka } from "kafkajs";
 
@@ -14,8 +14,7 @@ async function main() {
   await producer.send({
     topic: "payment-done",
     messages: [{
-      value: "hi there",
-      key: "user1"
+      value: "hi there"
     }]
   });
 }

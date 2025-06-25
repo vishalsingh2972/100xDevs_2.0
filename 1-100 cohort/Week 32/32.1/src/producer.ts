@@ -8,9 +8,10 @@ const kafka = new Kafka({
 const producer = kafka.producer();
 
 async function main() {
+  // Producing 
   await producer.connect();
   await producer.send({
-    topic: "payment-done",
+    topic: "quickstart-events",
     messages: [{
       value: "hi there"
     }]

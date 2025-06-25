@@ -6,8 +6,10 @@
   "scripts": {
     "start": "tsc -b && node dist/index.js",
     "produce": "tsc -b && node dist/producer.js",
-    "produce:user": "tsc -b && node dist/producer-user.js",
-    "consume": "tsc -b && node dist/consumer.js"    
+    "consume": "tsc -b && node dist/consumer.js",
+    "produce:do": "tsc -b && node dist/producer2.js",
+    "consume:do": "tsc -b && node dist/consumer2.js",
+    "produce:user": "tsc -b && node dist/producer-user.js"
   },
   "keywords": [],
   "author": "",

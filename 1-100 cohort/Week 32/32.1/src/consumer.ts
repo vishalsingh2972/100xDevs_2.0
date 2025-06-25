@@ -8,16 +8,16 @@ const kafka = new Kafka({
 const consumer = kafka.consumer({ groupId: "my-app3" });
 
 async function main() {
+  // Consuming
   await consumer.connect();
-  await consumer.subscribe({
-    topic: "payment-done", fromBeginning: true
-  })
+  await consumer.subscribe({ topic: "quickstart-events", fromBeginning: true });
 
   await consumer.run({
     eachMessage: async ({ topic, partition, message }) => {
       console.log({
+        //partition,
         offset: message.offset,
-        value: message?.value?.toString(),
+        value: message?.value?.toString()
       })
     },
   })
