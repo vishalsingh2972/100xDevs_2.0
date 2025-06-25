@@ -1,0 +1,21 @@
+# Instead of specifying each environment variable using `env` and getting them from secret.yml and configmap.yml, you can mount the entire Secret or ConfigMap as a volume inside your container. This way, your application can read the values from files.
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecom-backend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ecom-backend
+  template:
+    metadata:
+      labels:
+        app: ecom-backend
+    spec:
+      containers:
+        - name: ecom-backend
+          image: 100xdevs/env-backend
+          ports:
+            - containerPort: 3000
