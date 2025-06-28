@@ -104,6 +104,8 @@
 
 ### Creating a Ephemeral Volume in Kubernetes
 
+![image](https://github.com/user-attachments/assets/634fb947-e0e1-4c78-a803-8c2dbaa710e2)
+
 1. Start with creating a cluster using the `ephemeral/cluster.yml` configuration:
 
    ```bash
