@@ -184,7 +184,7 @@
 
 ### Creating a Persistent Volume in Kubernetes
 
-![image](https://github.com/user-attachments/assets/fee9401a-4a4e-44c8-a1a2-222389969965)
+![image](https://github.com/user-attachments/assets/8cac512c-7b28-46b1-8e7c-87dab4d9c433)
 
 1. Delete the previous cluster and restart a new cluster using the `persistent/cluster.yml` configuration:
 
