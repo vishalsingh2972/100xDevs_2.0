@@ -23,3 +23,4 @@ services:
 #   ---A PersistentVolumeClaim (PVC) will request storage from the PV.
 #   ---A Pod will mount the PVC and write to it.
 # 🔄 The actual files the Pod writes will end up in the ./data directory on your EC2 machine — outside the cluster but available via NFS.
+# Hence you're not copying Kubernetes files to EC2 server directly. Instead, you're mounting an NFS volume in Kubernetes, and any data Pods write will travel via NFS to be saved on your EC2 host's disk (in ./data).
