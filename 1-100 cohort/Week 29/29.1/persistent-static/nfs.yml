@@ -1,0 +1,25 @@
+# this will run inside my Docker container on my EC2 server
+
+version: '3.7'
+
+services:
+  nfs-server:
+    image: itsthenetwork/nfs-server-alpine:latest
+    container_name: nfs-server
+    privileged: true
+    environment:
+      SHARED_DIRECTORY: /exports
+    volumes:
+      - ./data:/exports:rw
+    ports:
+      - "2049:2049"
+    restart: unless-stopped
+
+# Flow would be like this:
+# You're setting up an NFS server on EC2 (using a Docker container).
+# That server exposes /exports over port 2049 via the NFS protocol.
+# Later, in Kubernetes:
+#   ---A PersistentVolume (PV) will be configured to point to this NFS server's /exports folder.
+#   ---A PersistentVolumeClaim (PVC) will request storage from the PV.
+#   ---A Pod will mount the PVC and write to it.
+# 🔄 The actual files the Pod writes will end up in the ./data directory on your EC2 machine — outside the cluster but available via NFS.
