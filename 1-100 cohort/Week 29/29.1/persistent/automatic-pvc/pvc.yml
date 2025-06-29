@@ -1,0 +1,13 @@
+# Create just persistent volume claim here and persistent volume will get created automatically.
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: csi-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 40Gi
+  storageClassName: vultr-block-storage-hdd
