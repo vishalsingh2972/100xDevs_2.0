@@ -6,12 +6,12 @@ metadata:
   name: nfs-pv
 spec:
   capacity:
-    storage: 10Gi
+    storage: 20Gi
   accessModes:
     - ReadWriteMany
   storageClassName: nfs
   nfs:
-    path: /exports
+    path: /exports/week-26
     server: 52.66.197.168
 ---
 apiVersion: v1

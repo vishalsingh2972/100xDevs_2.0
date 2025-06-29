@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mongo-pod
+spec:
+  containers:
+  - name: mongo
+    image: mongo:4.4
+    command: ["mongod", "--bind_ip_all"]
+    ports:
+    - containerPort: 27017
+    volumeMounts:
+    - mountPath: "/data/db"
+      name: nfs-volume
+  volumes:
+  - name: nfs-volume
+    persistentVolumeClaim:
+      claimName: nfs-pvc
+
+# Data flow is like MongoDB container/po (`/data/db`) → PVC (`nfs-pvc`) → PV (`nfs-pv`) → NFS server on EC2 (`/exports/week-26 folder`)
+# So now all data written by MongoDB to `/data/db` inside this container in the K8s cluser is ultimately stored on the external NFS server running on your EC2 instance.
