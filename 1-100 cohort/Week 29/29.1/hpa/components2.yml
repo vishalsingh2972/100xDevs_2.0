@@ -1,4 +1,4 @@
-# Apply from here - https://github.com/100xdevs-cohort-2/week-28-manifests
+# kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 
 apiVersion: v1
 kind: ServiceAccount
@@ -132,7 +132,6 @@ spec:
       labels:
         k8s-app: metrics-server
     spec:
-      hostNetwork: true # Add this line to enable hostNetwork
       containers:
       - args:
         - --cert-dir=/tmp
@@ -140,9 +139,7 @@ spec:
         - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
         - --kubelet-use-node-status-port
         - --metric-resolution=15s
-        - --kubelet-insecure-tls # Add this line
-        - --v=2 # Add this line for verbose logging
-        image: registry.k8s.io/metrics-server/metrics-server:v0.7.1
+        image: registry.k8s.io/metrics-server/metrics-server:v0.7.2
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
