@@ -243,7 +243,7 @@
 
    <br>
 
-   ![image](https://github.com/user-attachments/assets/b0f23630-fcb7-4746-8719-6abbc25d8a29)
+   ![image](https://github.com/user-attachments/assets/db7ff773-5d2a-4c0c-900f-72893299cc0d)
 
 3. Check the `persistent/pv.yml` manifest file to check the configuration that creates a Persistent Volume & Persistent Volume Claim. Create it using:
 
