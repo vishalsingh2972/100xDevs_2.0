@@ -8,6 +8,8 @@ In today's session, we will be looking at the following topics:
 
 ## Horizontal Pod AutoScaler
 
+![image](https://github.com/user-attachments/assets/90f32b83-3302-4cc6-8300-e602258d2530)
+
 - Horizontal Pod Autoscaler automatically scales the number of pods in a replication controller, deployment, replica set or stateful set **based on observed CPU utilization** (or, with custom metrics support, on some other application-provided metrics).
 
     <br>
