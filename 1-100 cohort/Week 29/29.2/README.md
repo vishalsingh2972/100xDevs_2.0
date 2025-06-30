@@ -180,6 +180,8 @@ In today's session, we will be looking at the following topics:
 
     </details>
 
+    ![image](https://github.com/user-attachments/assets/417d96cd-a83d-472c-b2e3-814ee205e9f1)
+
 ---
 
 - Now that we have the deployment and service created, we can proceed to create the Horizontal Pod Autoscaler.
