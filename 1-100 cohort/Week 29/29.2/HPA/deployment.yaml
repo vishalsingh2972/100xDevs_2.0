@@ -17,3 +17,10 @@ spec:
         image: 100xdevs/week-28:latest
         ports:
         - containerPort: 3000
+        resources:
+          requests:
+            cpu: "300m" # atleast
+            memory: "256Mi"
+          limits:
+            cpu: "1000m" # max
+            memory: "512Mi"

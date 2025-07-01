@@ -1,0 +1,26 @@
+# Over-Provisioning: Requesting More CPU Than the Cluster Can Provide
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cpu-deployment
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: cpu-app
+  template:
+    metadata:
+      labels:
+        app: cpu-app
+    spec:
+      containers:
+      - name: cpu-app
+        image: 100xdevs/week-28:latest
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            cpu: "1000m"
+          limits:
+            cpu: "1000m"
