@@ -303,6 +303,7 @@ In today's session, we will be looking at the following topics:
 
   - `desiredMetricValue`: The desired metric value.
 
+- Here based on the optimized CPU utilization, we are scaling up in case of Example 1 and scaling down in case of Example 2.
 
 ---
 
