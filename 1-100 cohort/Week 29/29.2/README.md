@@ -289,6 +289,7 @@ In today's session, we will be looking at the following topics:
 ### Formula for scaling up
 
 <img width="500" alt="Screenshot 2024-06-16 at 7 58 16 PM" src="https://github.com/its-id/100x-Cohort-Programs/assets/60315832/e63ca786-597f-4a83-9394-a965896af76d">
+<img width="500" alt="Screenshot 2024-06-16 at 7 58 16 PM" src="https://github.com/user-attachments/assets/77987be1-0a3b-4e8f-9f97-5a4128b0c07d">
 
 - The formula for scaling up is:
 
