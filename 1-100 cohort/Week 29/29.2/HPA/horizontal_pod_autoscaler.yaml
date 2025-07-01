@@ -10,13 +10,13 @@ spec:
   minReplicas: 2
   maxReplicas: 5
   metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      target:
-        type: Utilization
-        averageUtilization: 50
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 50
 
-# You can scale up/down based on multiple metrics. 
+# You can scale up/down based on multiple metrics.
 # If either of the metrics goes above the threshold, we scale up.
 # If all the metrics go below the threshold, we scale down as and what is the requirement.
