@@ -1,3 +1,0 @@
-# Paytm Clone Project
-
-
