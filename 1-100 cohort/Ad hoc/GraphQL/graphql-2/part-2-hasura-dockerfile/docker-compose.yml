@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:15.0-alpine
+    ports:
+      - 4446:5432
+    volumes:
+      - data:/var/lib/postgresql1/data
+    environment:
+      POSTGRES_DB: reef_dev
+      POSTGRES_PASSWORD: pass
+      POSTGRES_USER: user
+
+  hasura:
+    image: hasura/graphql-engine:v2.18.0.cli-migrations-v3
+    ports:
+      - 8112:8080
+    depends_on:
+      - postgres
+    environment:
+      HASURA_GRAPHQL_DATABASE_URL: postgres://user:pass@postgres/reef_dev
+      HASURA_GRAPHQL_DEV_MODE: "true"
+      HASURA_GRAPHQL_ADMIN_SECRET: myadminsecretkey
+
+volumes:
+  data:
+
