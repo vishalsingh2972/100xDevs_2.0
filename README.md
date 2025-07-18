@@ -32,4 +32,4 @@ Found this project helpful ?
 
 Give it a ⭐️ and consider buying me a coffee to keep the momentum going! ☕️
 
-[![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)]([https://www.buymeacoffee.com/bishalsarang](https://buymeacoffee.com/vishalsingoo))
+[![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/vishalsingoo)
