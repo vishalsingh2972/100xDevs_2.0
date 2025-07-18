@@ -25,3 +25,11 @@ Don't hesitate to raise an issue or contribute by submitting a [pull request](ht
 🎯 Share project ideas, tips, and tricks to help others. <br>
 🎯 Provide GSOC tips and tricks to guide aspiring participants. <br>
 🎯 Contribute anything that adds value to the community and fosters a collaborative learning environment.
+
+## Support
+
+Found this project helpful ? 
+
+Give it a ⭐️ and consider buying me a coffee to keep the momentum going! ☕️
+
+[![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)]([https://www.buymeacoffee.com/bishalsarang](https://buymeacoffee.com/vishalsingoo))
