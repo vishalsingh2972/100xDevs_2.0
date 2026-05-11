@@ -16,6 +16,10 @@ This repository contains the [notes](https://quickest-juniper-f9c.notion.site/Co
   
 ![image](https://github.com/vishalsingh2972/100xDevs_2.0/assets/106817047/e54e6577-dbdc-4951-826f-f1433d8ed8b5)
 
+## Cohort 3 Add-on Notes
+
+- [GitOps / Argo CD, Redis Streams, Helm, IaC, AWS ECS, and Terraform](./1-100%20cohort/Cohort%203%20DevOps%20Topics/README.md)
+
 ## Contribution
 
 Don't hesitate to raise an issue or contribute by submitting a [pull request](https://github.com/vishalsingh2972/100xDevs_2.0/pulls). We welcome any suggestions or improvements that can enhance the learning experience for all cohort members. <br>
