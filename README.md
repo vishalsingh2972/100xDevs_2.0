@@ -13,6 +13,12 @@ This repository contains the [notes](https://quickest-juniper-f9c.notion.site/Co
 - ⚙️ Advanced Backend 
 - 🔧 Advanced DevOps 
 - 💼 Open Source Contributions (Real Companies)
+- 🌀 GitOps / ArgoCD
+- 📡 Redis Streams
+- ⛵ Helm
+- 🏗️ Infrastructure as Code (IaC)
+- ☁️ AWS ECS
+- 🏞️ Terraform
   
 ![image](https://github.com/vishalsingh2972/100xDevs_2.0/assets/106817047/e54e6577-dbdc-4951-826f-f1433d8ed8b5)
 
@@ -32,4 +38,4 @@ Found this project helpful ?
 
 Give it a ⭐️ and consider buying me a coffee to keep the momentum going! ☕️
 
-[![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/vishalsingoo)
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-%F0%9F%8D%81-yellow?style=for-the-badge&logo=buy-me-a-coffee&logoColor=white)](https://www.buymeacoffee.com/vishalsingh2972)
